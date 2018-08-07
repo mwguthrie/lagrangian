@@ -18,7 +18,7 @@ The steps taken to arrive at the principle of stationary action, the Euler-Lagra
 \begin{itemize}
 \item Calculation of the minimal distance between to points in a plane to introduce the variation principle and to derive the Euler-Lagrange equation.
 \item Proving the Euler-Lagrange equation is independent of arbitrary coordinate transformations and motivating that this independence is desirable for classical mechanics.
-\item Straight forward rewrite of $F=ma$ in the form of an Euler-Lagrange equations and formulate the principle of stationary action.
+\item Straight forward rewrite of $F=ma$ in the form of Euler-Lagrange equations and formulation of the principle of stationary action.
 \end{itemize}
 \end{abstract}
 
@@ -78,11 +78,11 @@ For $S$ to be stationary $\delta S$ must vanish. Since $\delta y$ is arbitrary t
 
 This equation is called Euler-Lagrange equation. The procedure of looking for a condition to make $S$ stationary under a function $G(y,y',x)$ is called Lagrange formalism.\\
 
-If we plug $G = \sqrt{1+y'}$ into this equation it is straight forward to find that $y'$ has to be constant and thus $y(x)$ is a straight line connecting $(x_1,y_1)$ and $(x_2,y_2)$.
+If we plug $G = \sqrt{1+y'^2}$ into this equation it is straight forward to find that $y'$ has to be constant and thus $y(x)$ is a straight line connecting $(x_1,y_1)$ and $(x_2,y_2)$.
 
 \section{Invariance of the Euler-Lagrange equation under coordinate transformation \cite{Kleinert}}
 
-Let $y=f(Y,x)$ be an invertible differentiable coordinate transformation. We define the transformed function $\widetilde{G}$ through $G$ by
+Let $y=f(Y,x)$ be an invertible and differentiable coordinate transformation. We define the transformed function $\widetilde{G}$ through $G$ by
 
 \begin{equation}
 \widetilde{G}(Y,Y',x) := G(f,f',x)
@@ -129,7 +129,7 @@ This proves that the Euler-Lagrange equation takes the same form under any coord
 \section{Application to Newtonian mechanics \cite{Guthrie}}
 
 
-It would be desirable to write the Newton's law $F=ma$ in the form of an Euler-Lagrange equation since this would hold in any coordinate system. It would also provide us with a $G$ like function that we could easily express in any coordinate system by using the definition of $\widetilde{G}$ above.\\
+It would be desirable to write Newton's law $F=ma$ in the form of an Euler-Lagrange equation since this would hold in any coordinate system. It would also provide us with a $G$ like function that we could easily express in any coordinate system by using the definition of $\widetilde{G}$ above.\\
 
 To do so we consider
 
@@ -146,7 +146,7 @@ ma = m \ddot{r} = \frac{d}{dt} (m \dot{r})
 
 with $T:=\frac{1}{2} m \dot{r}^2$. \\
 
-For the second term we assume the force $F$ to be conservative. If so we there exists a potential $V$ such that 
+For the second term we assume the force $F$ to be conservative. If so there exists a potential $V$ such that
 
 \begin{equation}
 F = - \frac{\partial V}{\partial r} = \frac{\partial (-V)}{\partial r}

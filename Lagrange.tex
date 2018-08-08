@@ -4,16 +4,19 @@
 %\documentclass{acta}
 
 \usepackage{hyperref}
+\usepackage{amsmath}
+
+\DeclareMathOperator{\dd}{\!d\!}
 
 
 \begin{document}
 
-\title{Derivation and Motivation of the Lagrangian of classical mechanics}
-\author{Gerd Wagner}
+\title{Derivation and Motivation of the Lagrangian Functional of Classical Mechanics}
+\author{Gerd Wagner and Matt Guthrie}
 
 \maketitle
 
-\begin{abstract}
+\begin{abstract} %This is not quite an abstract in its current form. We should include the fact that the Lagrangian is almost always ``God-given,'' and how our paper remedies this.
 The steps taken to arrive at the principle of stationary action, the Euler-Lagrange equations and the Lagrangian of classical mechanics are:
 \begin{itemize}
 \item Calculation of the minimal distance between to points in a plane to introduce the variation principle and to derive the Euler-Lagrange equation.
@@ -25,168 +28,177 @@ The steps taken to arrive at the principle of stationary action, the Euler-Lagra
 
 \section{Introduction}
 
-When the Lagrange formalism of classical mechanics is introduced it's often hard to see the need for it and why the Lagrangian looks the way it does. In this paper the introductory example of geometry simply requires the formalism. 
-After the formalism is derived the prove of the independence of the Euler-Lagrange equations under arbitrary coordinate transformations is the central argument to make the formalism desirable for physics.
-This gives a strong motivation to rewrite $F=ma$ in the form of Euler-Lagrange equations. Doing this the Lagrangian $L=T-V$ shows up naturally and does not need any further motivation or derivation.
+When the Lagrangian formalism of classical mechanics is introduced, it is often difficult to see the need for a new formalism of classical mechanics. It is even more difficult to understand why the Lagrangian takes the intriguing form $L=T-V$. In this paper, an introductory example from geometry simply requires the formalism. After the formalism is derived, a proof of the independence of the Euler-Lagrange equations under arbitrary coordinate transformations is the central argument to make the formalism desirable for physics. This gives a strong motivation to rewrite $F=ma$ in the form of Euler-Lagrange equations. As a result, the Lagrangian $L=T-V$ appears naturally and does not require further motivation or derivation.
 
-\section{Minimal distance between two points in a plane and Lagrange formalism \cite{Klopper}} 
-The length of a function $y(x)$ between two points $(x_1,y_1=y_1(x_1))$ and $(x_2,y_2=y_2(x_2))$ is given by 
+\section{Minimal distance between two points in a plane and the Lagrangian formalism \cite{Klopper}}\label{distance}
+The length %arclength?
+of a function $y(x)$ between two points $(x_1,y_1=y_1(x_1))$ and $(x_2,y_2=y_2(x_2))$ %this notation seems awkward
+is given by 
 
 \begin{equation}
-S=\int\limits_{x_1}^{x_2}\sqrt{dx^2 + dy^2} 
-= \int\limits_{x_1}^{x_2}\sqrt{1 + \Big(\frac{dy}{dx}\Big)^2} dx
-= \int\limits_{x_1}^{x_2}\sqrt{1 + y'^2} dx
+S=\int\limits_{x_1}^{x_2}\sqrt{\dd x^2 + \dd y^2} %which is equivalent to.... we should motivate the appearance of the derivative in this expression
+= \int\limits_{x_1}^{x_2}\sqrt{1 + \left(\frac{\dd y}{\dd x}\right)^2} \dd x
+= \int\limits_{x_1}^{x_2}\sqrt{1 + y'^2} \dd x.
 \end{equation}
 
 We generalize this formula by writing
 
 \begin{equation}
-S=\int\limits_{x_1}^{x_2} G(y,y',x) dx  
+S=\int\limits_{x_1}^{x_2} G(y,y',x) \dd x .
 \end{equation}
 
-The generalization is that in our case $G = \sqrt{1 + y'^2}$ does only depend on $y'$ but not on $y$ or $x$.
+The generalization is that in our case $G = \sqrt{1 + y'^2}$ only depends on $y'$ and not on $y$ or $x$.
 
-To find the $y(x)$ that minimizes $S$ we make the simplifying assumption that it is sufficient to find the $y(x)$ that makes $S$ stationary. To do so we consider small but arbitrary variations $\delta y$ of $y$ and try to find a condition for $\delta S$ to vanish. During this the end points $(x_1,y_1=y_1(x_1))$ and $(x_2,y_2=y_2(x_2))$ are kept fixed which means that the variations $\delta y$ have the property $\delta y(x_1) = \delta y(x_2) = 0$
+To find the function $y(x)$ that minimizes $S$, we make the simplifying assumption that it is sufficient to find the $y(x)$ that makes $S$ stationary. To do this, we consider small but arbitrary variations $\delta y$ of $y$ and try to find a condition that causes $\delta S$ to vanish. During this, the endpoints $(x_1,y_1=y_1(x_1))$ %again, this notation seems slightly cumbersome to me, though it is not extremely important 
+and $(x_2,y_2=y_2(x_2))$ are kept fixed; the variations $\delta y$ have the property $\delta y(x_1) = \delta y(x_2) = 0$. As a result,
 
 \begin{equation}
 \delta S = \int\limits_{x_1}^{x_2} \bigg(\frac{\partial G}{\partial y} \delta y 
-+ \frac{\partial G}{\partial y'} \delta y' \bigg) dx 
++ \frac{\partial G}{\partial y'} \delta y' \bigg) \dd x.
 \end{equation}
 
-Using $\delta y' = y_2' - y_1' = \frac{d}{dx}(y_2 - y_1) = \frac{d}{dx} \delta y$ and integration by parts for the second term we find
+Using $\delta y' = y_2' - y_1' = \frac{\dd }{\dd x}(y_2 - y_1) = \frac{\dd}{\dd x} \delta y$ and integration by parts for the second term, we find
 
 \begin{equation}
 \delta S = \int\limits_{x_1}^{x_2} \bigg( \frac{\partial G}{\partial y} \delta y 
-- \frac{d}{dx}\frac{\partial G}{\partial y'} \delta y \bigg) dx 
-+ \bigg[\frac{\partial G}{\partial y'} \delta y \bigg]_{x_1}^{x_2}
+- \frac{\dd}{\dd x}\frac{\partial G}{\partial y'} \delta y \bigg) \dd x 
++ \bigg[\frac{\partial G}{\partial y'} \delta y \bigg]_{x_1}^{x_2}.
 \end{equation}
 
-The last term vanishes because of $\delta y(x_1) = \delta y(x_2) = 0$ and we are left with
+The last term vanishes because $\delta y(x_1) = \delta y(x_2) = 0$, and we are left with
 
 
 \begin{equation}
 \delta S = \int\limits_{x_1}^{x_2} \bigg( \frac{\partial G}{\partial y} 
-- \frac{d}{dx}\frac{\partial G}{\partial y'} \bigg) \delta y \; dx 
+- \frac{\dd}{\dd x}\frac{\partial G}{\partial y'} \bigg) \delta y \; \dd x.
 \end{equation}
 
-For $S$ to be stationary $\delta S$ must vanish. Since $\delta y$ is arbitrary the condition must be
+For $S$ to be stationary, $\delta S$ must vanish. Since $\delta y$ is arbitrary the condition must be
 
 
 \begin{equation}
-\frac{\partial G}{\partial y} - \frac{d}{dx}\frac{\partial G}{\partial y'} = 0
+\frac{\partial G}{\partial y} - \frac{\dd}{\dd x}\frac{\partial G}{\partial y'} = 0.
 \end{equation}
 
-This equation is called Euler-Lagrange equation. The procedure of looking for a condition to make $S$ stationary under a function $G(y,y',x)$ is called Lagrange formalism.\\
+This equation is called \emph{Euler-Lagrange equation}. The procedure of looking for a condition to make $S$ stationary under a function $G(y,y',x)$ is called the Lagrangian formalism.\\
 
-If we plug $G = \sqrt{1+y'^2}$ into this equation it is straight forward to find that $y'$ has to be constant and thus $y(x)$ is a straight line connecting $(x_1,y_1)$ and $(x_2,y_2)$.
+If we substitute $G = \sqrt{1+y'^2}$ into this equation it is straightforward to show that $y'$ must to be constant and thus $y(x)$ is a straight line connecting $(x_1,y_1)$ and $(x_2,y_2)$. %should we show this?
 
 \section{Invariance of the Euler-Lagrange equation under coordinate transformation \cite{Kleinert}}
 
 Let $y=f(Y,x)$ be an invertible and differentiable coordinate transformation. We define the transformed function $\widetilde{G}$ through $G$ by
 
 \begin{equation}
-\widetilde{G}(Y,Y',x) := G(f,f',x)
+\widetilde{G}(Y,Y',x) := G(f,f',x).
 \end{equation}
 
-Using the derivation from the former section we find that to make $S = \int\limits_{x_1}^{x_2} \widetilde{G}(Y,Y',x) dx$ stationary the Euler-Lagrange equation
+Using the derivation from section \ref{distance}, we find that making $S = \int\limits_{x_1}^{x_2} \widetilde{G}(Y,Y',x) \dd x$ stationary requires the Euler-Lagrange equation
 
 \begin{equation}
 \frac{\partial \widetilde{G}}{\partial Y} 
-- \frac{d}{dx}\frac{\partial \widetilde{G}}{\partial Y'} = 0
+- \frac{\dd}{\dd x}\frac{\partial \widetilde{G}}{\partial Y'} = 0
 \end{equation}
 
-has to be satisfied. This result is again reached by considering a small but arbitrary variation $\delta Y$ which again vanishes at the endpoints.\\
+be satisfied. This result is again reached by considering a small but arbitrary variation $\delta Y$ which again vanishes at its endpoints.\\
 
-On the other hand the variation of the same $S$ can be expressed by
+Likewise, the variation of the same $S$ can be expressed by
 
 \begin{equation}
 \delta S = \int\limits_{x_1}^{x_2} \bigg( \frac{\partial G}{\partial f} \delta f 
-+ \frac{\partial G}{\partial f'} \delta f' \bigg) dx
++ \frac{\partial G}{\partial f'} \delta f' \bigg) \dd x
 \end{equation}
 
-where $\delta f$ is given by $\delta f = \frac{\partial f}{\partial Y} \delta Y$ \\
+where $\delta f$ is given by $\delta f = \frac{\partial f}{\partial Y} \delta Y$. \\
 
 
-Using $\delta f' = f_2' - f_1' = \frac{d}{dx}(f_2 - f_1) = \frac{d}{dx} \delta f$ and integration by parts for the second term we find
+Using $\delta f' = f_2' - f_1' = \frac{\dd}{\dd x}(f_2 - f_1) = \frac{\dd}{\dd x} \delta f$ and integration by parts for the second term we find
 
 
 \begin{equation}
 \delta S = \int\limits_{x_1}^{x_2} \bigg( \frac{\partial G}{\partial f} 
-- \frac{d}{dx} \frac{\partial G}{\partial f'} \bigg) \delta f \; dx \;
-+ \; \bigg[\frac{\partial G}{\partial f'} \delta f \bigg]_{x_1}^{x_2}
+- \frac{\dd}{\dd x} \frac{\partial G}{\partial f'} \bigg) \delta f \; \dd x \;
++ \; \bigg[\frac{\partial G}{\partial f'} \delta f \bigg]_{x_1}^{x_2}.
 \end{equation}
 
 
-As $\delta Y$ vanishes at the endpoints so does $\delta f$ which turns the last term into zero. From the arbitrariness of $\delta Y$ follows the arbitrariness of $\delta f$. So the only way for $\delta S$ to vanish is
+As $\delta Y$ vanishes at the endpoints, so does $\delta f$ which causes the last term to vanish. From the arbitrariness of $\delta Y$ follows the arbitrariness of $\delta f$. The only mechanism for $\delta S$ to vanish is
 
 \begin{equation}
-0 = \frac{\partial G}{\partial f} - \frac{d}{dx} \frac{\partial G}{\partial f'} 
-= \frac{\partial G}{\partial y} - \frac{d}{dx} \frac{\partial G}{\partial y'} 
+0 = \frac{\partial G}{\partial f} - \frac{\dd}{\dd x} \frac{\partial G}{\partial f'} 
+= \frac{\partial G}{\partial y} - \frac{\dd}{\dd x} \frac{\partial G}{\partial y'}.
 \end{equation}
 
-This proves that the Euler-Lagrange equation takes the same form under any coordinate transformation as long as the transformation of $G$ is given by $\widetilde{G}(Y,Y',x) := G(f,f',x)$. (Note: In physics functions that behave under coordinate transformations like $G$ are called scalar functions.)
+This proves that the Euler-Lagrange equation takes the same form under any coordinate transformation as long as the transformation of $G$ is given by $\widetilde{G}(Y,Y',x) := G(f,f',x)$. In physics functions that behave under coordinate transformations like $G$ are called scalar functions. %This is too important to be left as a note!
 
-\section{Application to Newtonian mechanics \cite{Guthrie}}
+\section{Application to Newtonian mechanics \cite{Guthrie}} %My writeup has not been formally peer-reviewed, we should try to find another source.
 
 
-It would be desirable to write Newton's law $F=ma$ in the form of an Euler-Lagrange equation since this would hold in any coordinate system. It would also provide us with a $G$ like function that we could easily express in any coordinate system by using the definition of $\widetilde{G}$ above.\\
+It is desirable to write Newton's law $F=ma$ in the form of an Euler-Lagrange equation since this would hold for any general coordinate system. Doing so would also provide us with a functional $G$ that we could easily express in any coordinate system by using the definition of $\widetilde{G}$ above.\\
 
-To do so we consider
+To do so, we consider Newton's law
 
 \begin{equation}
-0 = ma - F
+0 = ma - F. %We should decide on a form for these E-L equations. It was customary in my classes to write P - F = 0. I've noticed you are switching the form around slightly as this document progresses. 
 \end{equation}
 
 The first term can be rewritten as follows:
 \begin{equation}
-ma = m \ddot{r} = \frac{d}{dt} (m \dot{r}) 
-= \frac{d}{dt} \frac{\partial}{\dot{r}} \Big(\frac{1}{2} m \dot{r}^2 \Big) 
-= \frac{d}{dt} \frac{\partial T}{\dot{r}}
+ma = m \ddot{r} = \frac{\dd}{\dd t} (m \dot{r}) %The dot notation hasn't been used until now.
+= \frac{\dd}{\dd t} \frac{\partial}{\partial \dot{r}} \Big(\frac{1}{2} m \dot{r}^2 \Big) 
+= \frac{\dd}{\dd t} \frac{\partial T}{\partial \dot{r}},
 \end{equation}
 
 with $T:=\frac{1}{2} m \dot{r}^2$. \\
 
-For the second term we assume the force $F$ to be conservative. If so there exists a potential $V$ such that
+For the second term, we assume the force $F$ to be conservative. If so, there exists a potential $V$ such that
 
 \begin{equation}
-F = - \frac{\partial V}{\partial r} = \frac{\partial (-V)}{\partial r}
+F = - \frac{\partial V}{\partial r} = \frac{\partial (-V)}{\partial r}.
 \end{equation}
 
-Using both rewritten terms Newton's law becomes
+Using both rewritten terms, Newton's law becomes
 
 
 \begin{equation}
-0 = \frac{d}{dt} \frac{\partial T}{\partial \dot{r}} - \frac{\partial (-V)}{\partial r}
+0 = \frac{\dd}{\dd t} \frac{\partial T}{\partial \dot{r}} - \frac{\partial (-V)}{\partial r}.
 \end{equation}
 
 
 %If we assume that $\frac{\partial T}{\partial r} = 0$ and $\frac{\partial (V)}{\partial \dot{r}} = 0$ which is usually true in Newtonian mechanics we can convert the equation to 
 
-If we assume that $\partial T/ \partial r = 0$ and $\partial V / \partial \dot{r} = 0$ which is usually true in Newtonian mechanics we can convert the equation to 
+If we assume that $\partial T/ \partial r = 0$ and $\partial V / \partial \dot{r} = 0$, which is nearly always true in Newtonian mechanics, we can convert the equation to 
 
 
 \begin{equation}
-0 = \frac{d}{dt} \frac{\partial (T-V)}{\partial \dot{r}} - \frac{\partial (T-V)}{\partial r}
+0 = \frac{d}{dt} \frac{\partial (T-V)}{\partial \dot{r}} - \frac{\partial (T-V)}{\partial r}.
 \end{equation}
 
-If we look back at our original Euler-Lagrange equation and let $t$ take the place of $x$, $r$ take the place of $y$ and $T-V$ take the place of $G$, which from now on we will according to physics conventions call the Lagrangian $L$, we arrive at the following results:
+If we look back at our original Euler-Lagrange equation and let time $t$ take the place of a general independent variable $x$, position $r$ take the place of a general coordinate $y$ and $T-V$ take the place of $G$, which from now on we will according to physics conventions call the Lagrangian $L$, we arrive at the following results:
 
 Newton's law takes the form
 
 \begin{equation}
-0 = \frac{d}{dt} \frac{\partial L}{\partial \dot{r}} - \frac{\partial L}{\partial r} \; \; \mbox{with} \; L := T-V
+0 = \frac{\dd}{\dd t} \frac{\partial L}{\partial \dot{r}} - \frac{\partial L}{\partial r}, 
 \end{equation}
+
+with
+
+\begin{equation}
+ L := T-V.
+\end{equation}
+
+
 
 This equation can be derived by requiring that the trajectory $r(t)$ a particle takes between two endpoints $(t_1,r_1)$ and $(t_2,r_2)$ makes the integral 
 \begin{equation}
-S=\int\limits_{t_1}^{t_2} L \; dt
+S=\int\limits_{t_1}^{t_2} L \; \dd t
 \end{equation}
 stationary. This is called the principle of stationary action in physics. \\
 
 \section{Notes}
 \begin{itemize}
-\item $L$ has the dimension of energy thus $S$ has the dimension of energy times time which is called action.
-\item Since $F=ma$ is formulated in Cartesian coordinates the Lagrangian $L$ we found is for now formulated in Cartesian coordinates, too. But the transformation law we found for $G$ above provides us with a well defined way to transform $L$ to other coordinates. The equations of motion which are now Euler-Lagrange equations will even be the same in any coordinates.
+\item $L$ has the dimension of energy, thus $S$ has dimensions of energy times time, a quantity called \emph{action}.
+\item Since $F=ma$ is formulated in Cartesian coordinates, the Lagrangian $L$ we found is formulated in Cartesian coordinates, as well. The transformation law we found for $G$ provides us with a well defined method for the transformation $L$ to other coordinate systems. The equations of motion which are now Euler-Lagrange equations will likewise be the same in any transformed coordinate system.
 \end{itemize}
 
 

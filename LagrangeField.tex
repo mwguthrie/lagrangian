@@ -490,7 +490,7 @@ $\nabla \times ( \nabla \times A) = \nabla(\nabla \cdot A) - \Delta A$:
 \end{split}
 \end{equation}
 
-So we have found that the Euler-Lagrange equation for $A_1$ is equivalent to the first component of equation \ref{MaxwellAPhi1}. To finish the prove the last calculation just has to be repeated for the remaining Euler-Lagrange equations and components of \ref{MaxwellAPhi1}.
+So we found that the Euler-Lagrange equation for $A_1$ is equivalent to the first component of equation \ref{MaxwellAPhi1}. To finish the prove the last calculation just has to be repeated for the remaining Euler-Lagrange equations and components of \ref{MaxwellAPhi1}.
 
 \section{Conclusion}
 The Euler-Lagrange formalism for field theory was presented as a purely mathematical framework that provides us with field equations which are invariant under any coordinate and field transformation as long as the associated Lagrangian $\mathcal{L}$ has  the very simple and well defined transformation property given by \ref{LagrTransform}.
@@ -513,13 +513,19 @@ which occur in \ref{calcDeltaSSection2} and \ref{calcDeltaSSection3} respectivel
 Be $\varphi,f,g: \mathbb{R}^n \to \mathbb{R}$ functions that vanish at infinity which means they are non zero inside a finite subset of $\mathbb{R}^n$ only. (A more rigorous formulation would be that $\varphi,f,g$ have compact support.) Then the following equations hold:
 
 \begin{equation}
-\text{a.)} \; \int\limits_U \frac{\partial \varphi}{\partial x_i} \dd x^n = 0 \; \text{where} \; i \in \{1,...,n\}
+\text{a.)} \; \int\limits_\Omega \frac{\partial \varphi}{\partial x_i} \dd x^n = 0 \; \text{where} \; i \in \{1,...,n\}
 \end{equation}
 
 \begin{equation}
-\text{b.)} \; \int\limits_U \frac{\partial f}{\partial x_i} g \dd x^n 
-= - \int\limits_U f\frac{\partial g}{\partial x_i} \dd x^n
+\text{b.)} \; \int\limits_\Omega \frac{\partial f}{\partial x_i} g \dd x^n 
+= - \int\limits_\Omega f\frac{\partial g}{\partial x_i} \dd x^n
 \end{equation}
+
+where $\Omega$ denotes all space. 
+For this prove we assume that $\varphi$ is given in Cartesian coordinates.
+This is possible because for any coordinates we are interested in there will always be a coordinate transformation to Cartesian coordinates which will change $\varphi$ at most by the factor of a well behaved determinant of a Jacobian matrix. 
+Thus we replace $\int\limits_\Omega$ by 
+$\int\limits_{x_1=-\infty}^{+\infty}\int\limits_{x_2=-\infty}^{+\infty} ... \int\limits_{x_n=-\infty}^{+\infty}$
 \\
 
 Note: Part b.) shows that the expressions \ref{InexactExpressions} don't exist i.e are zero.
@@ -544,7 +550,7 @@ For fixed $(x_2,...,x_n) \in \mathbb{R}^{n-1}$ the following equation holds
 Thus it follows that 
 
 \begin{equation}
-\int\limits_{\mathbb{R}^{n}} \frac{\partial \varphi}{\partial x_i} \dd x^n = 0
+\int\limits_{\Omega} \frac{\partial \varphi}{\partial x_i} \dd x^n = 0
 \end{equation}
 
 \end{proof}

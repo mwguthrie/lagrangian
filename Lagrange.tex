@@ -35,7 +35,7 @@ When the Lagrangian formalism of classical mechanics is introduced, it is often 
 
 \section{The Lagrangian formalism and the minimal distance between two points in a plane \cite{Klopper}}\label{distance}
 
-We will show that the minimal distance between two points in a plane is a straight line. This proof provides us with a well motivated way to introduce the calculus of variations which is the desired result in this section.\footnote{Some of these limitations are:
+We will show that the minimal distance between two points in a plane is a straight line. This proof provides us with a well motivated way to introduce the calculus of variations which is the desired result in this section.\footnote{Some limitations are:
 We limit ourselves to lines that can be written as one dimensional functions $y=f(x)$ while curves in two dimensions would be more general. We assume the shortest distance has to be a differentiable function although continuous would be sufficient. First and foremost we satisfy ourselves with finding a condition that makes the curve only stationary instead of minimal.}
 
 The arc length of a function $y(x)$ between two points $(x_1,y_1)$ and $(x_2,y_2)$ is given by
@@ -64,7 +64,7 @@ S=\int\limits_{x_1}^{x_2} G(y,y',x) \dd x
 
 
 
-and making the assumption that $G = \sqrt{1 + y'^2}$ only depends on $y'$ and not on $y$ or $x$. We simply give $\sqrt{1+y'^2}$ the new name $G(y')$ which we can replace back at any later stage. We further do as if $G$ would depend on more variables than it actually does. This does no harm to later back replacements of $G$ either. Should formulas we derive for $G$ contain derivatives of $G$ with respect to these new variables, we just replace these terms with zero as the derivative of a function with respecto to a variable it does not depend on is always zero. %I'm struggling to find a situation where this would happen (but it is of course mathematically true)
+and making the assumption that $G = \sqrt{1 + y'^2}$ only depends on $y'$ and not on $y$ or $x$. We simply give $\sqrt{1+y'^2}$ the new name $G(y')$ which we can replace back at any later stage. We further do as if $G$ would depend on more variables than it actually does. This does no harm to later back replacements of $G$ either. Should formulas we derive for $G$ contain derivatives of $G$ with respect to these new variables, we just replace these terms with zero as the derivative of a function with respect to a variable it does not depend on is always zero. %I'm struggling to find a situation where this would happen (but it is of course mathematically true)
 
 To find the function $y(x)$ that minimizes $S$, we make the simplifying assumption that it is sufficient to find the $y(x)$ that makes $S$ stationary. To do this, we consider small but arbitrary variations $\delta y$ of $y$ and try to find a condition that causes $\delta S$ to vanish. During this, the endpoints $(x_1,y_1)$ and $(x_2,y_2)$ are kept fixed; the variations $\delta y$ have the property $\delta y(x_1) = \delta y(x_2) = 0$. As a result,
 
@@ -203,7 +203,7 @@ with
 
 This $L$ is precisely the Lagrangian of classical mechanics that so many curricula say is some divine quantity. This representation shows that $L$ is a simple change of variable to make Lagrange's equations more elegant. While elegance is certainly exhibited in this representation, it is often at the expense of increased abstraction.
 
-This allows the Lagrangian formulation of mechanics to be derived by requiring that the trajectory $r(t)$ of a particle takes between two endpoints $(t_1,r_1)$ and $(t_2,r_2)$ makes the integral
+This allows the Lagrangian formulation of mechanics to be derived by requiring that the trajectory $r(t)$ which a particle takes between two endpoints $(t_1,r_1)$ and $(t_2,r_2)$ makes the integral
 \begin{equation}
 S=\int\limits_{t_1}^{t_2} L \; \dd t
 \end{equation}
@@ -213,7 +213,7 @@ stationary. From this, the equations of motion for the particle follows, being t
 
 \begin{itemize}
 \item $L$ has the dimension of energy, thus $S$ has dimensions of energy times time, a quantity called \emph{action}.
-\item Since $F=ma$ is formulated in Cartesian coordinates, the Lagrangian $L$ we found is formulated in Cartesian coordinates, as well. The transformation law we found for $G$ provides us with a well defined method for the transformation $L$ to other coordinate systems. The equations of motion which are now Euler-Lagrange equations will likewise be the same in any transformed coordinate system.
+\item Since $F=ma$ is formulated in Cartesian coordinates, the Lagrangian $L$ we found is formulated in Cartesian coordinates, as well. The transformation law we found for $G$ provides us with a well defined method for the transformation of $L$ to other coordinate systems. The equations of motion which are now Euler-Lagrange equations will likewise be the same in any transformed coordinate system.
 \end{itemize}
 
 We hope that this has been useful for making the Lagrangian formulation of Classical Mechanics less bewildering for students beginning to study the subject. And if you are a more advanced student, please continue to study the subject as it can be just as deep and rewarding of an extensive study of statistical or quantum mechanics. Physics is cool!

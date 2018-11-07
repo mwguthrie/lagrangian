@@ -76,9 +76,9 @@ To find the function $y(x)$ that minimizes $S$, we make the simplifying assumpti
 Using $\delta y' = y_2' - y_1' = \frac{\ddd }{\dd x}(y_2 - y_1) = \frac{\ddd}{\dd x} \delta y$ and integration by parts for the second term, we find
 
 \begin{equation}
-\delta S = \int\limits_{x_1}^{x_2} \bigg( \frac{\partial G}{\partial y} \delta y
-- \frac{\ddd}{\dd x}\frac{\partial G}{\partial y'} \delta y \bigg) \dd x
-+ \bigg[\frac{\partial G}{\partial y'} \delta y \bigg]_{x_1}^{x_2}.
+\delta S = \int\limits_{x_1}^{x_2} \left( \frac{\partial G}{\partial y} \delta y
+- \frac{\ddd}{\dd x}\frac{\partial G}{\partial y'} \delta y \right) \dd x
++ \left[\frac{\partial G}{\partial y'} \delta y \right]_{x_1}^{x_2}.
 \end{equation}
 
 The last term vanishes because $\delta y(x_1) = \delta y(x_2) = 0$, and we are left with
@@ -86,14 +86,14 @@ The last term vanishes because $\delta y(x_1) = \delta y(x_2) = 0$, and we are l
 
 \begin{equation}
 \delta S = \int\limits_{x_1}^{x_2} \bigg( \frac{\partial G}{\partial y}
-- \frac{\dd}{\dd x}\frac{\partial G}{\partial y'} \bigg) \delta y \; \dd x.
+- \frac{\ddd}{\dd x}\frac{\partial G}{\partial y'} \bigg) \delta y \; \dd x.
 \end{equation}
 
 For $S$ to be stationary, $\delta S$ must vanish. Since $\delta y$ is arbitrary the condition must be
 
 
 \begin{equation}\label{e-l}
-\frac{\partial G}{\partial y} - \frac{\dd}{\dd x}\frac{\partial G}{\partial y'} = 0.
+\frac{\partial G}{\partial y} - \frac{\ddd}{\dd x}\frac{\partial G}{\partial y'} = 0.
 \end{equation}
 
 This equation is called the Euler-Lagrange equation. The procedure of looking for a condition to make $S$ stationary under a function $G(y,y',x)$ is called the Lagrangian formalism.\\
@@ -112,7 +112,7 @@ Using the derivation from section \ref{distance}, we find that making $S = \int\
 
 \begin{equation}
 \frac{\partial \widetilde{G}}{\partial Y}
-- \frac{\dd}{\dd x}\frac{\partial \widetilde{G}}{\partial Y'} = 0
+- \frac{\ddd}{\dd x}\frac{\partial \widetilde{G}}{\partial Y'} = 0
 \end{equation}
 
 be satisfied. This result is again reached by considering a small but arbitrary variation $\delta Y$ which again vanishes at its endpoints.\\
@@ -127,7 +127,7 @@ Likewise, the variation of the same $S$ can be expressed by
 where $\delta f$ is given by $\delta f = \frac{\partial f}{\partial Y} \delta Y$. \\
 
 
-Using $\delta f' = f_2' - f_1' = \frac{\dd}{\dd x}(f_2 - f_1) = \frac{\dd}{\dd x} \delta f$ and integration by parts for the second term we find
+Using $\delta f' = f_2' - f_1' = \frac{\ddd}{\dd x}(f_2 - f_1) = \frac{\dd}{\dd x} \delta f$ and integration by parts for the second term we find
 
 
 \begin{equation}

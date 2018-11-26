@@ -8,6 +8,9 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 
+
+
+
 \DeclareMathOperator{\dd}{d\!}
 \DeclareMathOperator{\ddd}{\mathrm{d}}
 
@@ -47,19 +50,19 @@ A Lagrangian $\mathcal{L}$ of $\psi$ is defined as a function that may depend on
 \mathcal{L} = \mathcal{L}\bigg(\psi, \frac{\partial \psi}{\partial t}, \frac{\partial \psi}{\partial x}\bigg)
 \end{equation}
 
-The action $S$ between two points $t_1$ and $t_2$ in time is defined as the following integral of the Lagrangian:
+The action $S$ for two points $t_1$ and $t_2$ in time and a three dimensional space area $A$  is defined as the following integral of the Lagrangian:
 
 \begin{equation}
-S := \int\limits_{t_1}^{t_2} \int\limits_{\Omega} \mathcal{L}\bigg(\psi, \frac{\partial \psi}{\partial t}, \frac{\partial \psi}{\partial x}\bigg) \dd x^3 \dd t
+S := \int\limits_{t_1}^{t_2} \int\limits_{A} \mathcal{L}\bigg(\psi, \frac{\partial \psi}{\partial t}, \frac{\partial \psi}{\partial x}\bigg) \dd x^3 \dd t
 \end{equation}
 
-Here $\int\limits_{\Omega}$ means the integral over all space which in Cartesian coordinates is the same as  $\int\limits_{x=-\infty}^{+\infty}\int\limits_{y=-\infty}^{+\infty}\int\limits_{z=-\infty}^{+\infty}$.\\
+Here $\int\limits_{A}$ means the integral over a region of space denoted by $A$.\\
 
 
-Next we are interested in the conditions that $\mathcal{L}$ has to fulfill to make $S$ stationary. To do so we consider arbitrary but small variations $\delta\psi$ of the field and calculate the resulting variation $\delta S$ of $S$. We require the variations $\delta\psi$ to vanish at $t_1$ and $t_2$ as well as in spacial infinity.
+Next we are interested in the conditions that $\mathcal{L}$ has to fulfill to make $S$ stationary. To do so we consider arbitrary but small variations $\delta\psi$ of the field and calculate the resulting variation $\delta S$ of $S$. We require the variations $\delta\psi$ to vanish at $t_1$ and $t_2$ as well as on the surface of $A$.
 
 \begin{equation}
-\delta S = \int\limits_{t_1}^{t_2} \int\limits_{\Omega} 
+\delta S = \int\limits_{t_1}^{t_2} \int\limits_{A} 
 \frac{\partial \mathcal{L}}{\partial \psi} \cdot \delta \psi
 + \frac{\partial \mathcal{L}}{\partial \frac{\partial \psi}{\partial t}} \cdot \delta \bigg(\frac{\partial \psi} {\partial t}\bigg)
 + \frac{\partial \mathcal{L}}{\partial \frac{\partial \psi}{\partial x}} \cdot \delta \bigg(\frac{\partial \psi} {\partial x}\bigg)
@@ -93,24 +96,21 @@ $\delta \bigg(\frac{\partial \psi} {\partial x}\bigg)
 
 \begin{equation} \label{calcDeltaSSection2}
 \begin{split}
-\delta S = \int\limits_{t_1}^{t_2} \int\limits_{\Omega} 
+\delta S = \int\limits_{t_1}^{t_2} \int\limits_{A} 
 \frac{\partial \mathcal{L}}{\partial \psi} \cdot \delta \psi
 -\frac{\partial}{\partial t} \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial \psi}{\partial t}} \bigg) \cdot \delta \psi
 -\bigg(\frac{\partial}{\partial x} \cdot \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial \psi}{\partial x}} \bigg)\bigg) \cdot \delta \psi
 \dd x^3 \dd t \\
-+ \int\limits_{\Omega} \bigg[\frac{\partial \mathcal{L}}{\partial \frac{\partial \psi}{\partial t}} \cdot \delta \psi \bigg]_{t_1}^{t_2} \dd x^3
++ \int\limits_{A} \int\limits_{t_1}^{t_2} \frac{\partial}{\partial t} \bigg(\frac{\partial \mathcal{L}}{\partial \frac{\partial \psi}{\partial t}} \cdot \delta \psi \bigg) \dd t \dd x^3
 + \int\limits_{t_1}^{t_2} 
-\underbrace{
-\bigg[\frac{\partial \mathcal{L}}{\partial \frac{\partial \psi}{\partial x}} \cdot \delta \psi \bigg]
-_{\partial \Omega}
-}_{\text{see Appendix \ref{SurfaceTerm}}} \dd t
+\int\limits_{A} \frac{\partial}{\partial x} \cdot \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial \psi}{\partial x}} \cdot \delta \psi \bigg) \dd x^3  \dd t
 \end{split}
 \end{equation}
 
-Where $\partial \Omega$ denotes the border of all space which is spacial infinity. Since $\delta \psi$ was assumed to vanish at $t_1$, $t_2$ and spacial infinity the last two terms of the equation vanish and we are left with
+The second integral vanishes because of the fundamental theorem of calculus and $\delta \psi(t_1) = \delta \psi(t_2) = 0$ the third vanishes because of Gauss's theorem and $\delta \psi(x) = 0$ for any $x$ on the surface of $A$.
 
 \begin{equation}
-\delta S = \int\limits_{t_1}^{t_2} \int\limits_{\Omega} 
+\delta S = \int\limits_{t_1}^{t_2} \int\limits_{A} 
 \frac{\partial \mathcal{L}}{\partial \psi} \cdot \delta \psi
 -\frac{\partial}{\partial t} \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial \psi}{\partial t}} \bigg) \cdot \delta \psi
 -\bigg(\frac{\partial}{\partial x} \cdot \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial \psi}{\partial x}} \bigg)\bigg) \cdot \delta \psi
@@ -134,7 +134,7 @@ where the sum over $i$ is called the divergence of $\partial \mathcal{L} / \part
 The last rewrite of $\delta S$ we wish to do is 
 
 \begin{equation}
-\delta S = \int\limits_{t_1}^{t_2} \int\limits_{\Omega} 
+\delta S = \int\limits_{t_1}^{t_2} \int\limits_{A} 
 \bigg(
 \frac{\partial \mathcal{L}}{\partial \psi}
 -\frac{\partial}{\partial t} \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial \psi}{\partial t}} \bigg) 
@@ -163,7 +163,7 @@ Let $x=f(\bar{x},t)$ be an invertible and differentiable transformation of the s
 \bigg| det \frac{\partial f}{\partial \bar{x}} \bigg|
 \end{equation}
 
-where $\bigg| det \frac{\partial f}{\partial \bar{x}} \bigg|$ is the absolute value of the determinant of the Jacobian matrix of $f$ with respect to the spacial coordinates. \\
+where $\bigg| det \frac{\partial f}{\partial \bar{x}} \bigg|$ is the absolute value of the determinant of the Jacobian matrix of $f$ with respect to the spacial coordinates $\bar{x}$. \\
 
 We will prove that from requiring S to be stationary the two equations
 
@@ -183,11 +183,11 @@ and
 
 follow and thus that the Euler-Lagrange equation for field theory is independent of arbitrary coordinate and field transformations as long as the transformation of the Lagrangian is given by \ref{LagrTransform}. \\
 
-To do so we consider arbitrary but small variations $\delta \bar{\psi}$ of the field $\bar{\psi}$ that vanish at $t_1$, $t_2$ and at spacial infinity. These we use to find the condition for  
+To do so we consider arbitrary but small variations $\delta \bar{\psi}$ of the field $\bar{\psi}$ that vanish at $t_1$, $t_2$ and the surface of $\bar{A}$. These we use to find the condition for  
 
 \begin{equation}
-S = \int\limits_{t_1}^{t_2} \int\limits_{\Omega} \bar{\mathcal{L}}\bigg(\bar{\psi}, \frac{\partial \bar{\psi}}{\partial t}, \frac{\partial \bar{\psi}}{\partial \bar{x}}\bigg) \dd \bar{x}^3 \dd t 
-= \int\limits_{t_1}^{t_2} \int\limits_{\Omega} \mathcal{L}\bigg(F(\bar{\psi}), \frac{\partial F(\bar{\psi})}{\partial t}, \frac{\partial F(\bar{\psi})}{\partial f}\bigg) 
+S = \int\limits_{t_1}^{t_2} \int\limits_{\bar{A}} \bar{\mathcal{L}}\bigg(\bar{\psi}, \frac{\partial \bar{\psi}}{\partial t}, \frac{\partial \bar{\psi}}{\partial \bar{x}}\bigg) \dd \bar{x}^3 \dd t 
+= \int\limits_{t_1}^{t_2} \int\limits_{\bar{A}} \mathcal{L}\bigg(F(\bar{\psi}), \frac{\partial F(\bar{\psi})}{\partial t}, \frac{\partial F(\bar{\psi})}{\partial f}\bigg) 
 \bigg| det \frac{\partial f}{\partial \bar{x}} \bigg| \dd \bar{x}^3 \dd t 
 \end{equation}
 
@@ -198,21 +198,22 @@ to become stationary. \\
 To prove \ref{ELGUntransformed} we look at 
 
 \begin{equation}
-S = \int\limits_{t_1}^{t_2} \int\limits_{\Omega} \mathcal{L}\bigg(F(\bar{\psi}), \frac{\partial F(\bar{\psi})}{\partial t}, \frac{\partial F(\bar{\psi})}{\partial f}\bigg) 
+S = \int\limits_{t_1}^{t_2} \int\limits_{\bar{A}} \mathcal{L}\bigg(F(\bar{\psi}), \frac{\partial F(\bar{\psi})}{\partial t}, \frac{\partial F(\bar{\psi})}{\partial f}\bigg) 
 \bigg| det \frac{\partial f}{\partial \bar{x}} \bigg| \dd \bar{x}^3 \dd t 
 \end{equation}
 
 which by using the transformation formula of multidimensional integrals (see Appendix \ref{TranformationFormula}) can be turned into
 
 \begin{equation}
-S = \int\limits_{t_1}^{t_2} \int\limits_{\Omega} \mathcal{L}\bigg(F(\bar{\psi}), \frac{\partial F(\bar{\psi})}{\partial t}, \frac{\partial F(\bar{\psi})}{\partial f}\bigg) 
+S = \int\limits_{t_1}^{t_2} \int\limits_{f(\bar{A})} \mathcal{L}\bigg(F(\bar{\psi}), \frac{\partial F(\bar{\psi})}{\partial t}, \frac{\partial F(\bar{\psi})}{\partial f}\bigg) 
 \dd f^3 \dd t 
 \end{equation}
+where $f(\bar{A})$ is the picture of $\bar{A}$ under the coordinate transformation $f$.
 
 Based on this formula the variation $\delta S$ of $S$ is given by
 
 \begin{equation}
-\delta S = \int\limits_{t_1}^{t_2} \int\limits_{\Omega} 
+\delta S = \int\limits_{t_1}^{t_2} \int\limits_{f(\bar{A})} 
 \frac{\partial \mathcal{L}}{\partial F} \cdot \delta F
 + \frac{\partial \mathcal{L}}{\partial \frac{\partial F}{\partial t}} \cdot \delta \bigg(\frac{\partial F}{\partial t}\bigg)
 + \frac{\partial \mathcal{L}}{\partial \frac{\partial F}{\partial f}} \cdot \delta \bigg(\frac{\partial F} {\partial f}\bigg)
@@ -230,17 +231,14 @@ Integration by parts of the second and the third term leads to
 
 \begin{equation} \label{calcDeltaSSection3}
 \begin{split}
-\delta S = \int\limits_{t_1}^{t_2} \int\limits_{\Omega} 
+\delta S = \int\limits_{t_1}^{t_2} \int\limits_{f(\bar{A})} 
 \frac{\partial \mathcal{L}}{\partial F} \cdot \delta F
 -\frac{\partial}{\partial t} \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial F}{\partial t}} \bigg) \cdot \delta F
 -\bigg(\frac{\partial}{\partial f} \cdot \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial F}{\partial f}} \bigg)\bigg) \cdot \delta F
 \dd x^3 \dd t \\
-+ \int\limits_{\Omega} \bigg[\frac{\partial \mathcal{L}}{\partial \frac{\partial F}{\partial t}} \cdot \delta F \bigg]_{t_1}^{t_2} \dd f^3
++ \int\limits_{f(\bar{A})} \int\limits_{t_1}^{t_2} \frac{\partial}{\partial t} \bigg(\frac{\partial \mathcal{L}}{\partial \frac{\partial F}{\partial t}} \cdot \delta F \bigg) \dd t \dd f^3
 + \int\limits_{t_1}^{t_2} 
-\underbrace{
-\bigg[\frac{\partial \mathcal{L}}{\partial \frac{\partial F}{\partial f}} \cdot \delta F \bigg]_{\partial \Omega} 
-}_{\text{see Appendix \ref{SurfaceTerm}}}
-\dd t
+\int\limits_{f(\bar{A})} \frac{\partial}{\partial x} \cdot \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial F}{\partial f}} \cdot \delta F \bigg) \dd x^3 \dd t
 \end{split}
 \end{equation}
 
@@ -256,10 +254,46 @@ $\delta \bigg(\frac{\partial F} {\partial f}\bigg)
 were used. \\
 
 Because of \ref{deltaFDefinition}
-$\delta F$ vanishes at $t_1$, $t_2$ and spacial infinity just as $\delta \bar{\psi}$ does. So the last two terms of $\delta S$ are zero and we are left with
+$\delta F$ vanishes at $t_1$, $t_2$ as $\delta \bar{\psi}$ does. So the second term is zero because of the fundamental theorem of calculus.
+
+The third term can be transformed into an integral over the surface of $f(\bar{A})$ which we denote by $\partial (f(\bar{A}))$. This surface is the same as the picture of the surface of $\bar{A}$ under $f$: 
+\begin{equation}
+\partial (f(\bar{A})) = f(\partial \bar{A})
+\end{equation}
+
+To show that the third term vanishes, too, we will prove, that $\delta F$ is zero for any $x \in \partial (f(\bar{A}))$:
+\\ 
+\\
+
+\noindent \textbf{Begin proof}
+\\
+Let $x$ be an element of $\partial (f(\bar{A}))$. Then for $x$ there exists an unique $\bar{x} \in \partial \bar{A}$ which is defined by $x=f(\bar{x})$. We are going to use the fact from above that $\delta \bar{\psi}(\bar{x}) = 0$. 
+We recall that the variation $\delta \bar{\psi}$ is a difference between two fields which we name $\bar{\psi}_1$ and $\bar{\psi}_2$ such that
+\begin{equation}
+\delta \bar{\psi} = \bar{\psi}_2 - \bar{\psi}_1
+\end{equation}
+The value of $F$ considered as a function of $x$ is given by 
+\begin{equation}
+F(x) = F(\bar{\psi}(\bar{x})) \;\; \text{with} \;\; \bar{x} \;\; \text{defined through} \;\; x=f(\bar{x}) 
+\iff \bar{x} = f^{-1}(x)
+\end{equation}
+The variation $\delta F$ that results from the difference $\delta \bar{\psi}$ between $\bar{\psi}_1$ and $\bar{\psi}_2$ is given by
+\begin{equation}
+\delta F(x) = F(\bar{\psi}_2(\bar{x})) - F(\bar{\psi}_1(\bar{x})) 
+= F(\bar{\psi}_1(\bar{x}) + \delta \bar{\psi} (\bar{x})) - F(\bar{\psi}_1(\bar{x})) 
+= \frac{\partial F}{\partial \bar{\psi}} \delta \bar{\psi} (\bar{x})
+\end{equation}
+Since $\delta \bar{\psi}(\bar{x})$ is zero by assumption, $\delta F(x)$ is zero, too, which finishes the proof.
+\\
+\textbf{End proof}
+\\
+\\
+
+\noindent As to $\delta S$ we are now left with
+
 
 \begin{equation}
-\delta S = \int\limits_{t_1}^{t_2} \int\limits_{\Omega} 
+\delta S = \int\limits_{t_1}^{t_2} \int\limits_{f(\bar{A})} 
 \bigg(
 \frac{\partial \mathcal{L}}{\partial F}
 -\frac{\partial}{\partial t} \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial F}{\partial t}} \bigg) 
@@ -277,6 +311,7 @@ Because of \ref{deltaFDefinition} $\delta F$ is equally arbitrary as $\delta \ba
 \end{equation}
 
 If we now replace $F$ and $f$ according to their definitions by $\psi$ and $x$ this equation turns into \ref{ELGUntransformed} and thus finishes the proof.
+
 
 
 
@@ -497,66 +532,7 @@ The Euler-Lagrange formalism for field theory was presented as a purely mathemat
 
 Based on this mathematical result we are well motivated to reformulate physical field equations in such a way that they become Euler-Lagrange equations. The crucial step to do this is to find the Lagrangian for the field theory that we want to reformulate.
 
-\section{Appendix}
-\subsection{Spacial surface expressions} \label{SurfaceTerm}
-The expressions
-
-\begin{equation} \label{InexactExpressions}
-\bigg[\frac{\partial \mathcal{L}}{\partial \frac{\partial \psi}{\partial x}} \cdot \delta \psi \bigg]
-_{\partial \Omega} 
-\; \text{and} \;
-\bigg[\frac{\partial \mathcal{L}}{\partial \frac{\partial F}{\partial f}} \cdot \delta F \bigg]_{\partial \Omega}
-\end{equation}
-
-which occur in \ref{calcDeltaSSection2} and \ref{calcDeltaSSection3} respectively do not have exact mathematical meaning and just want to make clear that they vanish because of $\delta \psi$ and $\delta F$ vanishing at spacial infinity. The following proposition will with more rigor show that those terms are zero: \\
-
-Be $\varphi,f,g: \mathbb{R}^n \to \mathbb{R}$ functions that vanish at infinity which means they are non zero inside a finite subset of $\mathbb{R}^n$ only. (A more rigorous formulation would be that $\varphi,f,g$ have compact support.) Then the following equations hold:
-
-\begin{equation}
-\text{a.)} \; \int\limits_\Omega \frac{\partial \varphi}{\partial x_i} \dd x^n = 0 \; \text{where} \; i \in \{1,...,n\}
-\end{equation}
-
-\begin{equation}
-\text{b.)} \; \int\limits_\Omega \frac{\partial f}{\partial x_i} g \dd x^n 
-= - \int\limits_\Omega f\frac{\partial g}{\partial x_i} \dd x^n
-\end{equation}
-
-where $\Omega$ denotes all space. 
-For this prove we assume that $\varphi$ is given in Cartesian coordinates.
-This is possible because for any coordinates we are interested in there will always be a coordinate transformation to Cartesian coordinates which will change $\varphi$ at most by the factor of a well behaved determinant of a Jacobian matrix. 
-Thus we replace $\int\limits_\Omega$ by 
-$\int\limits_{x_1=-\infty}^{+\infty}\int\limits_{x_2=-\infty}^{+\infty} ... \int\limits_{x_n=-\infty}^{+\infty}$
-\\
-
-Note: Part b.) shows that the expressions \ref{InexactExpressions} don't exist i.e are zero.
-\\
-
-\begin{proof}
-Part b.) follows from a.) because of 
-
-
-\begin{equation}
-\frac{\partial fg}{\partial x_i} = \frac{\partial f}{\partial x_i} g + f \frac{\partial g}{\partial x_i}
-\end{equation}
-
-To prove a.) without loss of generality it is enough to consider the case $i=1$:
-
-For fixed $(x_2,...,x_n) \in \mathbb{R}^{n-1}$ the following equation holds
-
-\begin{equation}
-\int\limits_{-\infty}^{\infty} \frac{\partial \varphi}{\partial x_1} \dd x_1 = \big[\varphi\big]_{x_1 = -\infty}^{x_1 =  \infty} = 0
-\end{equation}
-
-Thus it follows that 
-
-\begin{equation}
-\int\limits_{\Omega} \frac{\partial \varphi}{\partial x_i} \dd x^n = 0
-\end{equation}
-
-\end{proof}
-
-
-\subsection{Alternative to the transformation formula of multidimensional integrals} \label{TranformationFormula}
+\section{Appendix: Alternative to the transformation formula of multidimensional integrals} \label{TranformationFormula}
 
 The proof of the transformation formula of multidimensional integrals is not trivial. 
 A nice heuristic explanation is given by \cite{Sterman}. There

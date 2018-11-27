@@ -50,13 +50,11 @@ A Lagrangian $\mathcal{L}$ of $\psi$ is defined as a function that may depend on
 \mathcal{L} = \mathcal{L}\bigg(\psi, \frac{\partial \psi}{\partial t}, \frac{\partial \psi}{\partial x}\bigg)
 \end{equation}
 
-The action $S$ for two points $t_1$ and $t_2$ in time and a three dimensional space area $A$  is defined as the following integral of the Lagrangian:
+The action $S$ for two points $t_1$ and $t_2$ in time and a three dimensional area of space $A$  is defined as the following integral of the Lagrangian:
 
 \begin{equation}
 S := \int\limits_{t_1}^{t_2} \int\limits_{A} \mathcal{L}\bigg(\psi, \frac{\partial \psi}{\partial t}, \frac{\partial \psi}{\partial x}\bigg) \dd x^3 \dd t
 \end{equation}
-
-Here $\int\limits_{A}$ means the integral over a region of space denoted by $A$.\\
 
 
 Next we are interested in the conditions that $\mathcal{L}$ has to fulfill to make $S$ stationary. To do so we consider arbitrary but small variations $\delta\psi$ of the field and calculate the resulting variation $\delta S$ of $S$. We require the variations $\delta\psi$ to vanish at $t_1$ and $t_2$ as well as on the surface of $A$.
@@ -83,7 +81,7 @@ If we consider the possibly multidimensional values of $\psi$ indexed by $j$ and
 = \sum_{i,j} \frac{\partial \mathcal{L}}{\partial \frac{\partial \psi_{j}}{\partial x_{i}}} \; \delta \bigg(\frac{\partial \psi_{j}} {\partial x_{i}}\bigg)
 \end{equation}
 
-Now we integrate the second summand by parts over time and the third summand by parts over space. To do so we use the identities 
+We now integrate the second summand by parts over time and the third summand by parts over space. To do so we use the identities 
 $\delta \bigg(\frac{\partial \psi} {\partial t}\bigg) 
 = \frac{\partial \psi_2} {\partial t} - \frac{\partial \psi_1} {\partial t}
 = \frac{\partial (\psi_2 - \psi_1)} {\partial t}
@@ -183,7 +181,7 @@ and
 
 follow and thus that the Euler-Lagrange equation for field theory is independent of arbitrary coordinate and field transformations as long as the transformation of the Lagrangian is given by \ref{LagrTransform}. \\
 
-To do so we consider arbitrary but small variations $\delta \bar{\psi}$ of the field $\bar{\psi}$ that vanish at $t_1$, $t_2$ and the surface of $\bar{A}$. These we use to find the condition for  
+To do so we consider arbitrary but small variations $\delta \bar{\psi}$ of the field $\bar{\psi}$ that vanish at $t_1$, $t_2$ and on the surface of an area of space $\bar{A}$. These we use to find the condition for  
 
 \begin{equation}
 S = \int\limits_{t_1}^{t_2} \int\limits_{\bar{A}} \bar{\mathcal{L}}\bigg(\bar{\psi}, \frac{\partial \bar{\psi}}{\partial t}, \frac{\partial \bar{\psi}}{\partial \bar{x}}\bigg) \dd \bar{x}^3 \dd t 
@@ -191,9 +189,9 @@ S = \int\limits_{t_1}^{t_2} \int\limits_{\bar{A}} \bar{\mathcal{L}}\bigg(\bar{\p
 \bigg| det \frac{\partial f}{\partial \bar{x}} \bigg| \dd \bar{x}^3 \dd t 
 \end{equation}
 
-to become stationary. \\
+to become stationary.\\
 
-\ref{ELGTransformed} just follows from repeating the consideration of section \ref{definition}. \\
+\ref{ELGTransformed} just follows from repeating the considerations of section \ref{definition}. \\
 
 To prove \ref{ELGUntransformed} we look at 
 
@@ -261,7 +259,7 @@ The third term can be transformed into an integral over the surface of $f(\bar{A
 \partial (f(\bar{A})) = f(\partial \bar{A})
 \end{equation}
 
-To show that the third term vanishes, too, we will prove, that $\delta F$ is zero for any $x \in \partial (f(\bar{A}))$:
+To show that the third term vanishes, we will prove, that $\delta F$ is zero for any $x \in \partial (f(\bar{A}))$:
 \\ 
 \\
 

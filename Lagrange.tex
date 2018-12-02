@@ -27,11 +27,19 @@ The steps taken to arrive at the principle of stationary action, the Euler-Lagra
 \end{abstract}
 
 
-\section{Introduction}
+\section{Introduction}\label{introduction}
 
-Lagrangian mechanics is a powerful description of classical mechanics, which can be seemingly separate from the more ubiquitous Newtonian formulation. This paper is targeted to the advanced undergraduate student taking their second course in Classical Mechanics who has learned about the Lagrangian formulation but has not quite understood how and why it works as an equivalent description of motion. We have observed, through our own experience and through discussions with other students and educators, that significant learning difficulty arises from the presentation of the material when students first encounter Lagrangian mechanics. For many students, Lagrangian mechanics presents an entirely new way to think about physics. Often through a lack of time to cover material, much of the treatment of the subject in university courses and popular textbooks relies on incomplete arguments and God-given principles, especially when considering the Lagrangian ($L$) itself.
+Lagrangian mechanics is a powerful description of classical mechanics, which can be seemingly separate from the more ubiquitous Newtonian formulation. This paper is targeted to the advanced undergraduate student taking their second course in Classical Mechanics who has learned about the Lagrangian formulation but has not quite understood how and why it works as an equivalent description of motion. We have observed, through our own experience and through discussions with other students and educators, that significant learning difficulty arises from the presentation of the material when students first encounter Lagrangian mechanics. For many students, Lagrangian mechanics presents an entirely new way to think about physics. Often through a lack of time to cover material, much of the treatment of the subject in university courses and popular textbooks relies on incomplete arguments and God-given principles, especially when considering the Lagrangian ($L$) itself: It is usually difficult to understand why the Lagrangian takes the intriguing form $L=T-V$, the difference between a particle's kinetic and potential energy (as a function of position $r$, velocity $\dot{r}$, and time $t$). \\
 
-When the Lagrangian formalism of classical mechanics is introduced, it is often difficult for students to understand the need for a new formalism of classical mechanics. It is then more difficult to understand why the Lagrangian takes the intriguing form $L=T-V$, the difference between a particle's kinetic and potential energy (as a function of position $r$, velocity $\dot{r}$, and time $t$). In this paper, the Lagrangian formalism arises naturally through an introductory example from geometry. After the formalism is derived, a proof of the independence of the Euler-Lagrange equations under arbitrary coordinate transformations is the central argument to make the formalism desirable for physics. This gives a strong motivation to rewrite Newton's second law in the form of Euler-Lagrange equations. As a result, the Lagrangian functional appears naturally without requiring further motivation or derivation.
+In this paper, the Lagrangian formalism arises naturally through an introductory example from geometry. After the formalism is derived, we prove of the invariance of the Euler-Lagrange equation under arbitrary coordinate transformations. To make clear why this property is important for physics we remind the reader that the laws of nature do not depend on the coordinates humans describe them in. On the other hand physicists cannot formulate laws without coordinates and physical equations usually look different in different coordinates. This is a conflict and it is the reason why the relation of physical theories to coordinates should be as well defined and restricted as possible. The Lagrange formalism fulfills this demand the following way: 
+
+The Euler-Lagrange equation, as we will show, is independent of coordinate transformations. Lagrangians, as we will see, do depend on coordinates but in the simplest way physicists can think of: They transform like scalars. \\
+
+Thinking about the relation of the laws of physics to coordinates proved fruitful in the past. In this paper we follow this tradition. \\
+
+
+This reasoning makes clear why it is desirable to reformulate Newton's second law in the form of Euler-Lagrange equations. As a result, the Lagrangian of classical mechanics will appear naturally without requiring further motivation or derivation.
+
 
 \section{The Lagrangian formalism and the minimal distance between two points in a plane \cite{Klopper}}\label{distance}
 
@@ -144,12 +152,15 @@ As $\delta Y$ vanishes at the endpoints, so does $\delta f$ which causes the las
 = \frac{\partial G}{\partial y} - \frac{\ddd}{\dd x} \frac{\partial G}{\partial y'}.
 \end{equation}
 
-This shows that the Euler-Lagrange equation takes the same form under any coordinate transformation as long as the transformation of the function $G$ is given by $\widetilde{G}(Y,Y',x) := G(f,f',x)$. Functions that behave under coordinate transformations in the same way as $G$ are called scalar functions, especially in physical contexts.
+This shows that the Euler-Lagrange equation takes the same form under any coordinate transformation as long as the transformation of the function $G$ is given by $\widetilde{G}(Y,Y',x) := G(f,f',x)$. Functions that behave under coordinate transformations as $G$ are called scalar functions, especially in physical contexts. 
+In the following section $G$ will be interpreted as the Lagrangian we mentioned in section \ref{introduction}. 
+As we now see, $G$ does indeed have the transformation properties we claimed in section \ref{introduction}.
 
 \section{Application to Newtonian mechanics \cite{Guthrie}} %My writeup has not been formally peer-reviewed, we should try to find another source.
 
-
-It is desirable to write Newton's law $F=ma$ in the form of an Euler-Lagrange equation since this would hold for any general coordinate system. Doing so would also provide us with a functional $G$ that we could easily express in any coordinate system by using the definition of $\widetilde{G}$ above.\\
+As we discussed in detail in section \ref{introduction}, it is desirable to write Newton's law $F=ma$ in the form of an Euler-Lagrange equation. 
+Doing so will provide us with a function like $G$ from the former section (\ref{e-l}). 
+This function, which we derive, is called the Lagrangian of classical mechanics.\\
 
 To proceed, we rearrange Newton's law
 
@@ -213,7 +224,8 @@ stationary. From this, the equations of motion for the particle follows, being t
 
 \begin{itemize}
 \item $L$ has the dimension of energy, thus $S$ has dimensions of energy times time, a quantity called \emph{action}.
-\item Since $F=ma$ is formulated in Cartesian coordinates, the Lagrangian $L$ we found is formulated in Cartesian coordinates, as well. The transformation law we found for $G$ provides us with a well defined method for the transformation of $L$ to other coordinate systems. The equations of motion which are now Euler-Lagrange equations will likewise be the same in any transformed coordinate system.
+\item Since $F=ma$ is formulated in Cartesian coordinates, the Lagrangian $L$ we found is formulated in Cartesian coordinates, as well. The transformation law we found for $G$ provides us with a well defined method for the transformation of $L$ to other coordinate systems. The equations of motion which are now Euler-Lagrange equations are the same in any coordinate system. 
+This way the relation of Newton's law to coordinates is restricted and well defined in the sense we mentioned in section \ref{introduction}.
 \end{itemize}
 
 We hope that this has been useful for making the Lagrangian formulation of Classical Mechanics less bewildering for students beginning to study the subject. And if you are a more advanced student, please continue to study the subject as it can be just as deep and rewarding of an extensive study of statistical or quantum mechanics. Physics is cool!

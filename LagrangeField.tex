@@ -82,12 +82,12 @@ If we consider the possibly multidimensional values of $\psi$ indexed by $j$ and
 \end{equation}
 
 We now integrate the second summand by parts over time and the third summand by parts over space. To do so we use the identities 
-$\delta \bigg(\frac{\partial \psi} {\partial t}\bigg) 
+$\delta \big(\frac{\partial \psi} {\partial t}\big)
 = \frac{\partial \psi_2} {\partial t} - \frac{\partial \psi_1} {\partial t}
 = \frac{\partial (\psi_2 - \psi_1)} {\partial t}
 = \frac{\partial \delta \psi} {\partial t}$ 
 and
-$\delta \bigg(\frac{\partial \psi} {\partial x}\bigg) 
+$\delta \big(\frac{\partial \psi} {\partial x}\big)
 = \frac{\partial \psi_2} {\partial x} - \frac{\partial \psi_1} {\partial x}
 = \frac{\partial (\psi_2 - \psi_1)} {\partial x}
 = \frac{\partial \delta \psi} {\partial x}$ 
@@ -233,19 +233,19 @@ Integration by parts of the second and the third term leads to
 \frac{\partial \mathcal{L}}{\partial F} \cdot \delta F
 -\frac{\partial}{\partial t} \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial F}{\partial t}} \bigg) \cdot \delta F
 -\bigg(\frac{\partial}{\partial f} \cdot \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial F}{\partial f}} \bigg)\bigg) \cdot \delta F
-\dd x^3 \dd t \\
+\dd f^3 \dd t \\
 + \int\limits_{f(\bar{A})} \int\limits_{t_1}^{t_2} \frac{\partial}{\partial t} \bigg(\frac{\partial \mathcal{L}}{\partial \frac{\partial F}{\partial t}} \cdot \delta F \bigg) \dd t \dd f^3
 + \int\limits_{t_1}^{t_2} 
-\int\limits_{f(\bar{A})} \frac{\partial}{\partial x} \cdot \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial F}{\partial f}} \cdot \delta F \bigg) \dd x^3 \dd t
+\int\limits_{f(\bar{A})} \frac{\partial}{\partial x} \cdot \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial F}{\partial f}} \cdot \delta F \bigg) \dd f^3 \dd t
 \end{split}
 \end{equation}
 
-where the identities $\delta \bigg(\frac{\partial F} {\partial t}\bigg) 
+where the identities $\delta \big(\frac{\partial F} {\partial t}\big)
 = \frac{\partial F_2} {\partial t} - \frac{\partial F_1} {\partial t}
 = \frac{\partial (F_2 - F_1)} {\partial t}
 = \frac{\partial \delta F} {\partial t}$ 
 and
-$\delta \bigg(\frac{\partial F} {\partial f}\bigg) 
+$\delta \big(\frac{\partial F} {\partial f}\big)
 = \frac{\partial F_2} {\partial f} - \frac{\partial F_1} {\partial f}
 = \frac{\partial (F_2 - F_1)} {\partial f}
 = \frac{\partial \delta F} {\partial f}$ 

@@ -1,39 +1,60 @@
-\documentclass{article}
-%\documentclass[journal]{IEEEtran}
-%\documentclass{report}
-%\documentclass{acta}
+\documentclass[prb,preprint]{revtex4-1} 
+% The line above defines the type of LaTeX document.
+% Note that AJP uses the same style as Phys. Rev. B (prb).
 
-\usepackage{hyperref}
-\usepackage{amsmath}
+% The % character begins a comment, which continues to the end of the line.
+
+\usepackage{amsmath}  % needed for \tfrac, \bmatrix, etc.
+\usepackage{amsfonts} % needed for bold Greek, Fraktur, and blackboard bold
+\usepackage{graphicx} % needed for figures
 
 \DeclareMathOperator{\dd}{d\!}
 \DeclareMathOperator{\ddd}{\mathrm{d}}
 
-
 \begin{document}
 
+% Be sure to use the \title, \author, \affiliation, and \abstract macros
+% to format your title page.  Don't use lower-level macros to  manually
+% adjust the fonts and centering.
+
 \title{Demystifying the Lagrangian of Classical Mechanics} %Derivation and Motivation of the Lagrangian of Classical Mechanics
-\author{Gerd Wagner and Matt Guthrie}
+% In a long title you can use \\ to force a line break at a certain location.
+
+\author{Gerd Wagner}
+\email{} % optional
+\altaffiliation[permanent address: ]{101 Main Street, 
+  Anytown, USA} % optional second address
+% If there were a second author at the same address, we would put another 
+% \author{} statement here.  Don't combine multiple authors in a single
+% \author statement.
+\affiliation{mailing address}
+% Please provide a full mailing address here.
+
+\author{Matt Guthrie}
+\email{matthew.guthrie@ucf.edu}
+\affiliation{Department of Physics, University of Central Florida, Orlando, FL 32816}
+
+% See the REVTeX documentation for more examples of author and affiliation lists.
+
+\date{\today}
+
+\begin{abstract} %This is not quite an abstract in its current form. We should include the fact that the Lagrangian is almost always ``God-given,'' and how our paper remedies this.
+The Lagrangian formulation of classical mechanics is extremely useful for a vast array of physics problems encountered in the undergraduate and graduate physics curriculum. Unfortunately, many treatments of this topic lack explanations of the most basic details that make Lagrangian mechanics so practical. In this paper, we detail the steps taken to arrive at the principle of stationary action, the Euler-Lagrange equations, and the Lagrangian of classical mechanics. These steps are: 1) the calculation of the minimal distance between two points in a plane, to introduce the variation principle and to derive the Euler-Lagrange equation; 2) proving the Euler-Lagrange equations are independent of arbitrary coordinate transformations and motivating that this independence is desirable for classical mechanics; and 3) a straight-forward reformulation of Newton's second law in the form of Euler-Lagrange equations and formulation of the principle of stationary action. This paper is targeted toward the advanced undergraduate student who, like our own experiences, struggles with topics which are not seen as crucial to the utilization of the tools developed by Lagrangian mechanics, but is frustrated by the question ``\textit{why} is $L$ equal to $T$ minus $V$?'' We answer this question in a simple and approachable manner.
+\end{abstract}  
+
+
 
 \maketitle
 
-\begin{abstract} %This is not quite an abstract in its current form. We should include the fact that the Lagrangian is almost always ``God-given,'' and how our paper remedies this.
-The steps taken to arrive at the principle of stationary action, the Euler-Lagrange equations and the Lagrangian of classical mechanics are:
-\begin{itemize}
-\item Calculation of the minimal distance between two points in a plane to introduce the variation principle and to derive the Euler-Lagrange equation.
-\item Proving the Euler-Lagrange equation is independent of arbitrary coordinate transformations and motivating that this independence is desirable for classical mechanics.
-\item Straight forward rewrite of $F=ma$ in the form of Euler-Lagrange equations and formulation of the principle of stationary action.
-\end{itemize}
-\end{abstract}
 
 
 \section{Introduction}\label{introduction}
 
-Lagrangian mechanics is a powerful description of classical mechanics, which can be seemingly separate from the more ubiquitous Newtonian formulation. This paper is targeted to the advanced undergraduate student taking their second course in Classical Mechanics who has learned about the Lagrangian formulation but has not quite understood how and why it works as an equivalent description of motion. We have observed, through our own experience and through discussions with other students and educators, that significant learning difficulty arises from the presentation of the material when students first encounter Lagrangian mechanics. For many students, Lagrangian mechanics presents an entirely new way to think about physics. Often through a lack of time to cover material, much of the treatment of the subject in university courses and popular textbooks relies on incomplete arguments and God-given principles, especially when considering the Lagrangian ($L$) itself: It is usually difficult to understand why the Lagrangian takes the intriguing form $L=T-V$, the difference between a particle's kinetic and potential energy (as a function of position $r$, velocity $\dot{r}$, and time $t$). \\
+Lagrangian mechanics is a powerful description of classical mechanics, which can be seemingly separate from the more ubiquitous Newtonian formulation. This paper is targeted to the advanced undergraduate student taking a course in Classical Mechanics who has learned about the Lagrangian formulation but has not quite understood how and why it works as an equivalent description of motion. We have observed, through our own experience and through discussions with other students and educators, that significant learning difficulty arises from the presentation of the material when students first encounter Lagrangian mechanics. For many students, Lagrangian mechanics presents an entirely new way to think about physics. Often through a lack of time to cover material, much of the treatment of the subject in university courses and popular textbooks relies on incomplete arguments and God-given principles, especially when considering the Lagrangian ($L$) itself: It is usually difficult to understand why the Lagrangian takes the intriguing form $L=T-V$, the difference between a particle's kinetic and potential energy (as a function of position $r$, velocity $\dot{r}$, and time $t$). \\
 
-In this paper, the Lagrangian formalism arises naturally through an introductory example from geometry. After the formalism is derived, we prove of the invariance of the Euler-Lagrange equation under arbitrary coordinate transformations. To make clear why this property is important for physics we remind the reader that the laws of nature do not depend on the coordinates humans describe them in. On the other hand physicists cannot formulate laws without coordinates and physical equations usually look different in different coordinates. This is a conflict and it is the reason why the relation of physical theories to coordinates should be as well defined and restricted as possible. The Lagrange formalism fulfills this demand the following way: 
+In this paper, the Lagrangian formalism arises naturally through an introductory example from geometry. After the formalism is derived, we prove the invariance of the Euler-Lagrange equation under arbitrary coordinate transformations. To make clear why this property is important for physics we remind the reader that the laws of nature do not depend on the coordinates humans describe them in. On the other hand, physicists cannot formulate laws without coordinates and physical equations usually look different in different coordinates. This is a conflict and it is the reason why the relation of physical theories to coordinates should be as well defined and restricted as possible. The Lagrange formalism fulfills this demand the following way: 
 
-The Euler-Lagrange equation, as we will show, is independent of coordinate transformations. Lagrangians, as we will see, do depend on coordinates but in the simplest way physicists can think of: They transform like scalars. \\
+The Euler-Lagrange equation, as we will show, is independent of coordinate transformations. Lagrangians, as we will see, do depend on coordinates but in the simplest way physicists can think of: they transform like scalars. \\
 
 Thinking about the relation of the laws of physics to coordinates proved fruitful in the past. In this paper we follow this tradition. \\
 
@@ -228,7 +249,7 @@ stationary. From this, the equations of motion for the particle follows, being t
 This way the relation of Newton's law to coordinates is restricted and well defined in the sense we mentioned in section \ref{introduction}.
 \end{itemize}
 
-We hope that this has been useful for making the Lagrangian formulation of Classical Mechanics less bewildering for students beginning to study the subject. And if you are a more advanced student, please continue to study the subject as it can be just as deep and rewarding of an extensive study of statistical or quantum mechanics. Physics is cool!
+We hope that this has been useful for making the Lagrangian formulation of Classical Mechanics less bewildering for students beginning to study the subject. If you are a more advanced student, please continue to study the subject as it can be just as deep and rewarding of an extensive study of statistical or quantum mechanics. 
 
 
 \begin{thebibliography}{9}

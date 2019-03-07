@@ -39,7 +39,7 @@
 \date{\today}
 
 \begin{abstract} %This is not quite an abstract in its current form. We should include the fact that the Lagrangian is almost always ``God-given,'' and how our paper remedies this.
-The Lagrangian formulation of classical mechanics is extremely useful for a vast array of physics problems encountered in the undergraduate and graduate physics curriculum. Unfortunately, many treatments of this topic lack explanations of the most basic details that make Lagrangian mechanics so practical. In this paper, we detail the steps taken to arrive at the principle of stationary action, the Euler-Lagrange equations, and the Lagrangian of classical mechanics. These steps are: 1) the calculation of the minimal distance between two points in a plane, to introduce the variation principle and to derive the Euler-Lagrange equation; 2) proving the Euler-Lagrange equations are independent of arbitrary coordinate transformations and motivating that this independence is desirable for classical mechanics; and 3) a straight-forward reformulation of Newton's second law in the form of Euler-Lagrange equations and formulation of the principle of stationary action. This paper is targeted toward the advanced undergraduate student who, like our own experiences, struggles with topics which are not seen as crucial to the utilization of the tools developed by Lagrangian mechanics, but is frustrated by the question ``\textit{why} is $L$ equal to $T$ minus $V$?'' We answer this question in a simple and approachable manner.
+The Lagrangian formulation of classical mechanics is extremely useful for a vast array of physics problems encountered in the undergraduate and graduate physics curriculum. Unfortunately, many treatments of this topic lack explanations of the most basic details that make Lagrangian mechanics so practical. In this paper, we detail the steps taken to arrive at the principle of stationary action, the Euler-Lagrange equations, and the Lagrangian of classical mechanics. These steps are: 1) the calculation of the minimal distance between two points in a plane, to introduce the variation principle and to derive the Euler-Lagrange equation; 2) proving the Euler-Lagrange equations are independent of arbitrary coordinate transformations and motivating that this independence is desirable for classical mechanics; and 3) a straight-forward reformulation of Newton's second law in the form of Euler-Lagrange equations and formulation of the principle of stationary action. This paper is targeted toward the advanced undergraduate student who, like our own experiences, struggles with topics which are not seen as crucial to the utilization of the tools developed by Lagrangian mechanics, and is especially frustrated by the question ``\textit{why} is $L$ equal to $T$ minus $V$?'' We answer this question in a simple and approachable manner.
 \end{abstract}  
 
 
@@ -50,13 +50,13 @@ The Lagrangian formulation of classical mechanics is extremely useful for a vast
 
 \section{Introduction}\label{introduction}
 
-Lagrangian mechanics is a powerful description of classical mechanics, which can be seemingly separate from the more ubiquitous Newtonian formulation. This paper is targeted to the advanced undergraduate student taking a course in Classical Mechanics who has learned about the Lagrangian formulation but has not quite understood how and why it works as an equivalent description of motion. We have observed, through our own experience and through discussions with other students and educators, that significant learning difficulty arises from the presentation of the material when students first encounter Lagrangian mechanics. For many students, Lagrangian mechanics presents an entirely new way to think about physics. Often through a lack of time to cover material, much of the treatment of the subject in university courses and popular textbooks relies on incomplete arguments and God-given principles, especially when considering the Lagrangian ($L$) itself: It is usually difficult to understand why the Lagrangian takes the intriguing form $L=T-V$, the difference between a particle's kinetic and potential energy (as a function of position $r$, velocity $\dot{r}$, and time $t$). \\
+Lagrangian mechanics is a powerful description of classical mechanics, which can be seemingly separate from the more ubiquitous Newtonian formulation. This paper is targeted to the advanced undergraduate student taking a course in Classical Mechanics who has learned about the Lagrangian formulation but has not quite understood how and why it works as an equivalent description of motion. We have observed, through our own experience and through discussions with other students and educators, that significant learning difficulty arises from the presentation of the material when students first encounter Lagrangian mechanics. For many students, Lagrangian mechanics presents an entirely new way to think about physics. Often through a lack of time to cover material, much of the treatment of the subject in university courses and popular textbooks relies on incomplete arguments and God-given principles, especially when considering the Lagrangian ($L$) itself: It is usually difficult to understand why the Lagrangian takes the intriguing form $L=T-V$, the difference between a particle's kinetic and potential energy (as a function of position $r$, velocity $\dot{r}$, and time $t$). 
 
 In this paper, the Lagrangian formalism arises naturally through an introductory example from geometry. After the formalism is derived, we prove the invariance of the Euler-Lagrange equation under arbitrary coordinate transformations. To make clear why this property is important for physics we remind the reader that the laws of nature do not depend on the coordinates humans describe them in. On the other hand, physicists cannot formulate laws without coordinates and physical equations usually look different in different coordinates. This is a conflict and it is the reason why the relation of physical theories to coordinates should be as well defined and restricted as possible. The Lagrange formalism fulfills this demand the following way: 
 
-The Euler-Lagrange equation, as we will show, is independent of coordinate transformations. Lagrangians, as we will see, do depend on coordinates but in the simplest way physicists can think of: they transform like scalars. \\
+The Euler-Lagrange equation, as we will show, is independent of coordinate transformations. Lagrangians, as we will see, do depend on coordinates but in the simplest way physicists can think of: they transform like scalars. 
 
-Thinking about the relation of the laws of physics to coordinates proved fruitful in the past. In this paper we follow this tradition. \\
+Thinking about the relation of the laws of physics to coordinates proved fruitful in the past. In this paper we follow this tradition. 
 
 
 This reasoning makes clear why it is desirable to reformulate Newton's second law in the form of Euler-Lagrange equations. As a result, the Lagrangian of classical mechanics will appear naturally without requiring further motivation or derivation.
@@ -125,7 +125,7 @@ For $S$ to be stationary, $\delta S$ must vanish. Since $\delta y$ is arbitrary 
 \frac{\partial G}{\partial y} - \frac{\ddd}{\dd x}\frac{\partial G}{\partial y'} = 0.
 \end{equation}
 
-This equation is called the Euler-Lagrange equation. The procedure of looking for a condition to make $S$ stationary under a function $G(y,y',x)$ is called the Lagrangian formalism.\\
+This equation is called the Euler-Lagrange equation. The procedure of looking for a condition to make $S$ stationary under a function $G(y,y',x)$ is called the Lagrangian formalism.
 
 If we substitute $G = \sqrt{1+y'^2}$ into this equation it is straightforward to show that $y'$ must to be constant and thus $y(x)$ is a straight line connecting $(x_1,y_1)$ and $(x_2,y_2)$.
 
@@ -144,7 +144,7 @@ Using the derivation from section \ref{distance}, we find that making $S = \int\
 - \frac{\ddd}{\dd x}\frac{\partial \widetilde{G}}{\partial Y'} = 0
 \end{equation}
 
-be satisfied. This result is again reached by considering a small but arbitrary variation $\delta Y$ which again vanishes at its endpoints.\\
+be satisfied. This result is again reached by considering a small but arbitrary variation $\delta Y$ which again vanishes at its endpoints.
 
 Likewise, the variation of the same $S$ can be expressed by
 
@@ -153,7 +153,7 @@ Likewise, the variation of the same $S$ can be expressed by
 + \frac{\partial G}{\partial f'} \delta f' \bigg) \dd x
 \end{equation}
 
-where $\delta f$ is given by $\delta f = \frac{\partial f}{\partial Y} \delta Y$. \\
+where $\delta f$ is given by $\delta f = \frac{\partial f}{\partial Y} \delta Y$. 
 
 
 Using $\delta f' = f_2' - f_1' = \frac{\ddd}{\dd x}(f_2 - f_1) = \frac{\dd}{\dd x} \delta f$ and integration by parts for the second term we find
@@ -181,7 +181,7 @@ As we now see, $G$ does indeed have the transformation properties we claimed in 
 
 As we discussed in detail in section \ref{introduction}, it is desirable to write Newton's law $F=ma$ in the form of an Euler-Lagrange equation. 
 Doing so will provide us with a function like $G$ from the former section (\ref{e-l}). 
-This function, which we derive, is called the Lagrangian of classical mechanics.\\
+This function, which we derive, is called the Lagrangian of classical mechanics.
 
 To proceed, we rearrange Newton's law
 
@@ -239,7 +239,7 @@ This allows the Lagrangian formulation of mechanics to be derived by requiring t
 \begin{equation}
 S=\int\limits_{t_1}^{t_2} L \; \dd t
 \end{equation}
-stationary. From this, the equations of motion for the particle follows, being the particle's Euler-Lagrange equation. This is called the principle of stationary action in physics. \\
+stationary. From this, the equations of motion for the particle follows, being the particle's Euler-Lagrange equation. This is called the principle of stationary action in physics. 
 
 \section{Conclusion}
 

@@ -50,19 +50,16 @@ The Lagrangian formulation of classical mechanics is extremely useful for a vast
 
 \section{Introduction}\label{introduction}
 
-Lagrangian mechanics is a powerful description of classical mechanics, which can be seemingly separate from the more ubiquitous Newtonian formulation. This paper is targeted to the advanced undergraduate student taking a course in Classical Mechanics who has learned about the Lagrangian formulation but has not quite understood how and why it works as an equivalent description of motion. We have observed, through our own experience and through discussions with other students and educators, that significant learning difficulty arises from the presentation of the material when students first encounter Lagrangian mechanics. For many students, Lagrangian mechanics presents an entirely new way to think about physics. Often through a lack of time to cover material, much of the treatment of the subject in university courses and popular textbooks relies on incomplete arguments and God-given principles, especially when considering the Lagrangian ($L$) itself: It is usually difficult to understand why the Lagrangian takes the intriguing form $L=T-V$, the difference between a particle's kinetic and potential energy (as a function of position $r$, velocity $\dot{r}$, and time $t$). 
+Lagrangian mechanics is a powerful description of classical mechanics, which can be seemingly separate from the more ubiquitous Newtonian formulation. This paper is targeted to the advanced undergraduate student taking a course in Classical Mechanics who has learned about the Lagrangian formulation but has not quite understood how and why it works as an equivalent description of motion. We have observed, through our own experience and through discussions with other students and educators, that significant learning difficulty arises from the presentation of the material when students first encounter Lagrangian mechanics. For many students, Lagrangian mechanics presents an entirely new way to think about physics. Often through a lack of time to cover material, much of the treatment of the subject in university courses and popular textbooks relies on incomplete arguments and God-given principles, especially when considering the Lagrangian ($L$) itself: It is difficult to understand why the Lagrangian takes the intriguing form $L=T-V$, the difference between a particle's kinetic and potential energy (as a function of position $r$, velocity $\dot{r}$, and time $t$). The most popular undergraduate level treatments of the subject simply accept the definition as it is given and move on to using it to solve problems \cite{taylor, marion, fowles, gregory}.
 
 In this paper, the Lagrangian formalism arises naturally through an introductory example from geometry. After the formalism is derived, we prove the invariance of the Euler-Lagrange equation under arbitrary coordinate transformations. To make clear why this property is important for physics we remind the reader that the laws of nature do not depend on the coordinates humans describe them in. On the other hand, physicists cannot formulate laws without coordinates and physical equations usually look different in different coordinates. This is a conflict and it is the reason why the relation of physical theories to coordinates should be as well defined and restricted as possible. The Lagrange formalism fulfills this demand the following way: 
 
-The Euler-Lagrange equation, as we will show, is independent of coordinate transformations. Lagrangians, as we will see, do depend on coordinates but in the simplest way physicists can think of: they transform like scalars. 
+The Euler-Lagrange equation, as we will show, is independent of coordinate transformations. Lagrangian functionals, as we will see, do depend on coordinates but in the simplest way physicists can think of - they transform like scalars. 
 
-Thinking about the relation of the laws of physics to coordinates proved fruitful in the past. In this paper we follow this tradition. 
-
-
-This reasoning makes clear why it is desirable to reformulate Newton's second law in the form of Euler-Lagrange equations. As a result, the Lagrangian of classical mechanics will appear naturally without requiring further motivation or derivation.
+Thinking about the relation of the laws of physics to coordinates proved fruitful in the past. In this paper we follow this tradition, making it why it is desirable to reformulate Newton's second law in the form of Euler-Lagrange equations. As a result, the Lagrangian of classical mechanics will appear naturally without requiring further motivation or derivation. 
 
 
-\section{The Lagrangian formalism and the minimal distance between two points in a plane \cite{Klopper}}\label{distance}
+\section{The Lagrangian formalism and the minimal distance between two points in a plane \cite{Klopper}}\label{distance} %We really cannot cite a youtube video.
 
 We will show that the minimal distance between two points in a plane is a straight line. This proof provides us with a well motivated way to introduce the calculus of variations which is the desired result in this section.\footnote{Some limitations are:
 We limit ourselves to lines that can be written as one dimensional functions $y=f(x)$ while curves in two dimensions would be more general. We assume the shortest distance has to be a differentiable function although continuous would be sufficient. First and foremost we satisfy ourselves with finding a condition that makes the curve only stationary instead of minimal.}
@@ -114,8 +111,8 @@ The last term vanishes because $\delta y(x_1) = \delta y(x_2) = 0$, and we are l
 
 
 \begin{equation}
-\delta S = \int\limits_{x_1}^{x_2} \bigg( \frac{\partial G}{\partial y}
-- \frac{\ddd}{\dd x}\frac{\partial G}{\partial y'} \bigg) \delta y \; \dd x.
+\delta S = \int\limits_{x_1}^{x_2} \left( \frac{\partial G}{\partial y}
+- \frac{\ddd}{\dd x}\frac{\partial G}{\partial y'} \right) \delta y \; \dd x.
 \end{equation}
 
 For $S$ to be stationary, $\delta S$ must vanish. Since $\delta y$ is arbitrary the condition must be
@@ -125,11 +122,9 @@ For $S$ to be stationary, $\delta S$ must vanish. Since $\delta y$ is arbitrary 
 \frac{\partial G}{\partial y} - \frac{\ddd}{\dd x}\frac{\partial G}{\partial y'} = 0.
 \end{equation}
 
-This equation is called the Euler-Lagrange equation. The procedure of looking for a condition to make $S$ stationary under a function $G(y,y',x)$ is called the Lagrangian formalism.
+This equation is called an Euler-Lagrange equation. The procedure of looking for a condition to make $S$ stationary under a function $G(y,y',x)$ is called the Lagrangian formalism. If we substitute $G = \sqrt{1+y'^2}$ into equation \eqref{e-l}, it is straightforward to show that $y'$ must to be constant and thus $y(x)$ is a straight line connecting $(x_1,y_1)$ and $(x_2,y_2)$.
 
-If we substitute $G = \sqrt{1+y'^2}$ into this equation it is straightforward to show that $y'$ must to be constant and thus $y(x)$ is a straight line connecting $(x_1,y_1)$ and $(x_2,y_2)$.
-
-\section{Invariance of the Euler-Lagrange equation under coordinate transformation \cite{Kleinert}}
+\section{Invariance of the Euler-Lagrange equation under coordinate transformations \cite{Kleinert}}
 
 Let $y=f(Y,x)$ be an invertible and differentiable coordinate transformation. We define the transformed function $\widetilde{G}$ through $G$ by
 
@@ -149,8 +144,8 @@ be satisfied. This result is again reached by considering a small but arbitrary 
 Likewise, the variation of the same $S$ can be expressed by
 
 \begin{equation}
-\delta S = \int\limits_{x_1}^{x_2} \bigg( \frac{\partial G}{\partial f} \delta f
-+ \frac{\partial G}{\partial f'} \delta f' \bigg) \dd x
+\delta S = \int\limits_{x_1}^{x_2} \left( \frac{\partial G}{\partial f} \delta f
++ \frac{\partial G}{\partial f'} \delta f' \right) \dd x
 \end{equation}
 
 where $\delta f$ is given by $\delta f = \frac{\partial f}{\partial Y} \delta Y$. 
@@ -162,7 +157,7 @@ Using $\delta f' = f_2' - f_1' = \frac{\ddd}{\dd x}(f_2 - f_1) = \frac{\dd}{\dd 
 \begin{equation}
 \delta S = \int\limits_{x_1}^{x_2} \left( \frac{\partial G}{\partial f}
 - \frac{\ddd}{\dd x} \frac{\partial G}{\partial f'} \right) \delta f \, \dd x \;
-+ \; \bigg[\frac{\partial G}{\partial f'} \delta f \bigg]_{x_1}^{x_2}.
++ \; \left[\frac{\partial G}{\partial f'} \delta f \right]_{x_1}^{x_2}.
 \end{equation}
 
 
@@ -173,17 +168,16 @@ As $\delta Y$ vanishes at the endpoints, so does $\delta f$ which causes the las
 = \frac{\partial G}{\partial y} - \frac{\ddd}{\dd x} \frac{\partial G}{\partial y'}.
 \end{equation}
 
-This shows that the Euler-Lagrange equation takes the same form under any coordinate transformation as long as the transformation of the function $G$ is given by $\widetilde{G}(Y,Y',x) := G(f,f',x)$. Functions that behave under coordinate transformations as $G$ are called scalar functions, especially in physical contexts. 
-In the following section $G$ will be interpreted as the Lagrangian we mentioned in section \ref{introduction}. 
-As we now see, $G$ does indeed have the transformation properties we claimed in section \ref{introduction}.
+This shows that the Euler-Lagrange equation takes the same form under any coordinate transformation as long as the transformation of the function $G$ is given by $\widetilde{G}(Y,Y',x) := G(f,f',x)$. Functions that behave this way under coordinate transformations as $G$ are called scalar functions, especially in physical contexts. 
+In the following section $G$ will be interpreted as the Lagrangian we mentioned in section \ref{introduction}. As we now see, $G$ does indeed have the transformation properties we claimed in section \ref{introduction}.
 
-\section{Application to Newtonian mechanics \cite{Guthrie}} %My writeup has not been formally peer-reviewed, we should try to find another source.
+\section{Application to Newtonian mechanics}% \cite{Guthrie}} %My writeup has not been formally peer-reviewed, we should try to find another source. Do we even need a source for this? It's our original work. 
 
-As we discussed in detail in section \ref{introduction}, it is desirable to write Newton's law $F=ma$ in the form of an Euler-Lagrange equation. 
-Doing so will provide us with a function like $G$ from the former section (\ref{e-l}). 
-This function, which we derive, is called the Lagrangian of classical mechanics.
+As we discussed in detail in section \ref{introduction}, it is desirable to write Newton's law $F=ma$ in the form of an Euler-Lagrange equation. Doing so will provide us with a function like $G$ from the former section (\ref{e-l}). This function, which we derive, is called the Lagrangian of classical mechanics.
 
-To proceed, we rearrange Newton's law
+%Can you fix \ref{e-l}? It seems like we should reference a function but it's written like we want to reference a section. 
+
+To proceed, we rearrange Newton's second law
 
 \begin{equation}
 0 = ma - F.
@@ -196,69 +190,73 @@ ma = m \ddot{r} = \frac{\ddd}{\dd t} (m \dot{r})
 = \frac{\ddd}{\dd t} \frac{\partial T}{\partial \dot{r}},
 \end{equation}
 
-where $T:=\frac{1}{2} m \dot{r}^2$ is the familiar kinetic energy of the system. \\
-
-For the second term, we assume the force $F$ to be conservative. If so, there exists a potential $V$ such that
-
+where $T:=\frac{1}{2} m \dot{r}^2$ is the classical kinetic energy of the system. For the second term, we assume the force $F$ to be conservative. If so, there exists a potential $V$ such that
 \begin{equation}
 F = - \frac{\partial V}{\partial r} = \frac{\partial (-V)}{\partial r}.
 \end{equation}
-
 Using both rewritten terms, Newton's law becomes
-
-
 \begin{equation}
 0 = \frac{\ddd}{\dd t} \frac{\partial T}{\partial \dot{r}} - \frac{\partial (-V)}{\partial r}.
 \end{equation}
 
-
 If we assume that $\partial T/ \partial r = 0$ and $\partial V / \partial \dot{r} = 0$, which is nearly always true in Newtonian mechanics, we can convert the equation to
-
-
 \begin{equation}
 0 = \frac{\ddd}{\dd t} \frac{\partial (T-V)}{\partial \dot{r}} - \frac{\partial (T-V)}{\partial r}.
 \end{equation}
 
+\section{Definition of the Lagrangian} %We can easily remove this section header if a reviewer suggests it, though for now I think defining the Lagrangian is important enough to warrant it
+
 Looking back at the original Euler-Lagrange equation \eqref{e-l}, let time $t$ take the place of a general independent variable $x$, position $r$ take the place of a general coordinate $y$, and $T-V$ take the place of $G$, we arrive at the following results:
 
 Newton's second law takes the form
-
 \begin{equation}
 0 = \frac{\ddd}{\dd t} \frac{\partial L}{\partial \dot{r}} - \frac{\partial L}{\partial r},
 \end{equation}
-
-with
-
+where
 \begin{equation}
  L := T-V.
 \end{equation}
 
-This $L$ is precisely the Lagrangian of classical mechanics that so many curricula say is some divine quantity. This representation shows that $L$ is a simple change of variable to make Lagrange's equations more elegant. While elegance is certainly exhibited in this representation, it is often at the expense of increased abstraction.
+This $L$ is precisely the Lagrangian of classical mechanics that so many curricula imply is some divine quantity, while all we have shown is that $L$ is a simple change of variable to make Lagrange's equations more elegant. While elegance is certainly exhibited in this representation, it is often at the expense of increased abstraction.
 
-This allows the Lagrangian formulation of mechanics to be derived by requiring that the trajectory $r(t)$ which a particle takes between two endpoints $(t_1,r_1)$ and $(t_2,r_2)$ makes the integral
-\begin{equation}
+Using this representation of $L$ allows the Lagrangian formulation of mechanics to be derived by requiring that the trajectory $r(t)$ which a particle takes between two endpoints $(t_1,r_1)$ and $(t_2,r_2)$ makes the integral
+\begin{equation}\label{eqref:action}
 S=\int\limits_{t_1}^{t_2} L \; \dd t
 \end{equation}
-stationary. From this, the equations of motion for the particle follows, being the particle's Euler-Lagrange equation. This is called the principle of stationary action in physics. 
+stationary. From this, the equations of motion for the particle follows, being the particle's Euler-Lagrange equation. This is called the principle of stationary action in physics\footnote{The principle of stationary action is also sometimes called the principle of \emph{least} action. This can be confusing because the Euler-Lagrange equation finds instances where action is extremized (e.g. a saddle point or even maximized) \cite{action-not-least}.}. 
 
 \section{Conclusion}
 
-\begin{itemize}
-\item $L$ has the dimension of energy, thus $S$ has dimensions of energy times time, a quantity called \emph{action}.
-\item Since $F=ma$ is formulated in Cartesian coordinates, the Lagrangian $L$ we found is formulated in Cartesian coordinates, as well. The transformation law we found for $G$ provides us with a well defined method for the transformation of $L$ to other coordinate systems. The equations of motion which are now Euler-Lagrange equations are the same in any coordinate system. 
-This way the relation of Newton's law to coordinates is restricted and well defined in the sense we mentioned in section \ref{introduction}.
-\end{itemize}
+It is unnecessary to speciously explain the form of the classical Lagrangian as having an innate property of interest. We have shown that the Lagrangian takes its classical form
+\begin{equation}
+    L = T-V
+\end{equation}
+out of convenience.
 
-We hope that this has been useful for making the Lagrangian formulation of Classical Mechanics less bewildering for students beginning to study the subject. If you are a more advanced student, please continue to study the subject as it can be just as deep and rewarding of an extensive study of statistical or quantum mechanics. 
+Since $F=ma$ is formulated in Cartesian coordinates, the Lagrangian $L$ we derived is formulated in Cartesian coordinates, as well. The transformation law we found for $G$ provides us with a well defined method for the transformation of $L$ to other coordinate systems. The equations of motion which are now Euler-Lagrange equations are likewise the same in any coordinate system.  This way the relation of Newton's law to coordinates is restricted and well defined in the sense we mentioned in section \ref{introduction}.
+
+The traditional continuation from equation \eqref{eqref:action} leads to the definition of a quantity called \emph{action}. $L$ has the dimension of energy, thus $S$ has dimensions of energy times time, a quantity also called action.
+
+We hope that this has been useful for making at least one aspect of the Lagrangian formulation of classical mechanics less bewildering for students who are curious about the subject. An in-depth study of classical mechanics can be just as deep and rewarding as an extensive study of statistical or quantum mechanics.  
 
 
 \begin{thebibliography}{9}
 
-\bibitem{Klopper} Juan Klopper, Understanding the Euler Lagrange Equation, \url{https://www.youtube.com/watch?v=08vJyA-XD3Q}
+\bibitem{taylor} John R. Taylor, Classical Mechanics, 2005, page 238
 
-\bibitem{Kleinert} Hagen Kleinert, Path Integrals, section 1.1 Classical Mechanics, page 5, \url{http://www.physik.fu-berlin.de/~kleinert/public_html/kleiner_reb5/psfiles/pthic01.pdf}
+\bibitem{marion} Jerry B. Marion, Classical Dynamics, 1965, page 217 %find a more recent copy of this
 
-\bibitem{Guthrie} Matt Guthrie, The Origin of the Lagrangian, \url{https://web2.ph.utexas.edu/~mwguthrie/t.lagrangian.pdf}
+\bibitem{fowles} Grant R. Fowles, Analytical Mechanics, 1986, page ??? %find a more recent copy of this too
+
+\bibitem{gregory} R. Douglas Gregory, Classical Mechanics, 2006, page 348
+
+%\bibitem{Klopper} Juan Klopper, Understanding the Euler Lagrange Equation, \url{https://www.youtube.com/watch?v=08vJyA-XD3Q}
+
+\bibitem{Kleinert} Hagen Kleinert, Path Integrals in Quantum Mechanics, Statistics, Polymer Physics, and Financial Markets, 2004, page 5, \url{https://books.google.com/books?id=dJ3FCgAAQBAJ}
+
+\bibitem{action-not-least} Edwin Taylor and C.G. Gray, When Action is Not Least, doi: 10.1119/1.2710480
+
+%\bibitem{Guthrie} Matt Guthrie, The Origin of the Lagrangian, \url{https://web2.ph.utexas.edu/~mwguthrie/t.lagrangian.pdf}
 
 \end{thebibliography}
 

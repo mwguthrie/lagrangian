@@ -21,13 +21,12 @@
 % In a long title you can use \\ to force a line break at a certain location.
 
 \author{Gerd Wagner}
-\email{} % optional
-\altaffiliation[permanent address: ]{101 Main Street, 
-  Anytown, USA} % optional second address
+\email{gerdhwagner@t-online.de} % optional
+\affiliation{Mayener Str. 131, 56070 Koblenz, Germany} % optional second address
 % If there were a second author at the same address, we would put another 
 % \author{} statement here.  Don't combine multiple authors in a single
 % \author statement.
-\affiliation{mailing address}
+%\affiliation{mailing address}
 % Please provide a full mailing address here.
 
 \author{Matt Guthrie}
@@ -59,7 +58,7 @@ The Euler-Lagrange equation, as we will show, is independent of coordinate trans
 Thinking about the relation of the laws of physics to coordinates proved fruitful in the past. In this paper we follow this tradition, making it why it is desirable to reformulate Newton's second law in the form of Euler-Lagrange equations. As a result, the Lagrangian of classical mechanics will appear naturally without requiring further motivation or derivation. 
 
 
-\section{The Lagrangian formalism and the minimal distance between two points in a plane \cite{Klopper}}\label{distance} %We really cannot cite a youtube video.
+\section{The Lagrangian formalism and the minimal distance between two points in a plane \cite{Goldstein}}\label{distance} %We really cannot cite a youtube video.
 
 We will show that the minimal distance between two points in a plane is a straight line. This proof provides us with a well motivated way to introduce the calculus of variations which is the desired result in this section.\footnote{Some limitations are:
 We limit ourselves to lines that can be written as one dimensional functions $y=f(x)$ while curves in two dimensions would be more general. We assume the shortest distance has to be a differentiable function although continuous would be sufficient. First and foremost we satisfy ourselves with finding a condition that makes the curve only stationary instead of minimal.}
@@ -124,11 +123,11 @@ For $S$ to be stationary, $\delta S$ must vanish. Since $\delta y$ is arbitrary 
 
 This equation is called an Euler-Lagrange equation. The procedure of looking for a condition to make $S$ stationary under a function $G(y,y',x)$ is called the Lagrangian formalism. If we substitute $G = \sqrt{1+y'^2}$ into equation \eqref{e-l}, it is straightforward to show that $y'$ must to be constant and thus $y(x)$ is a straight line connecting $(x_1,y_1)$ and $(x_2,y_2)$.
 
-\section{Invariance of the Euler-Lagrange equation under coordinate transformations \cite{Kleinert}}
+\section{Invariance of the Euler-Lagrange equation under coordinate transformations \cite{Kleinert}} \label{invariance}
 
 Let $y=f(Y,x)$ be an invertible and differentiable coordinate transformation. We define the transformed function $\widetilde{G}$ through $G$ by
 
-\begin{equation}
+\begin{equation} \label{lagrangian-transform}
 \widetilde{G}(Y,Y',x) := G(f,f',x).
 \end{equation}
 
@@ -171,7 +170,7 @@ As $\delta Y$ vanishes at the endpoints, so does $\delta f$ which causes the las
 This shows that the Euler-Lagrange equation takes the same form under any coordinate transformation as long as the transformation of the function $G$ is given by $\widetilde{G}(Y,Y',x) := G(f,f',x)$. Functions that behave this way under coordinate transformations as $G$ are called scalar functions, especially in physical contexts. 
 In the following section $G$ will be interpreted as the Lagrangian we mentioned in section \ref{introduction}. As we now see, $G$ does indeed have the transformation properties we claimed in section \ref{introduction}.
 
-\section{Application to Newtonian mechanics}% \cite{Guthrie}} %My writeup has not been formally peer-reviewed, we should try to find another source. Do we even need a source for this? It's our original work. 
+\section{Application to Newtonian mechanics} \label{application} % \cite{Guthrie}} %My writeup has not been formally peer-reviewed, we should try to find another source. Do we even need a source for this? It's our original work.
 
 As we discussed in detail in section \ref{introduction}, it is desirable to write Newton's law $F=ma$ in the form of an Euler-Lagrange equation. Doing so will provide us with a function like $G$ from the former two sections. This function, which we derive, is called the Lagrangian of classical mechanics.
 
@@ -221,21 +220,69 @@ Using this representation of $L$ allows the Lagrangian formulation of mechanics 
 \begin{equation}\label{eqref:action}
 S=\int\limits_{t_1}^{t_2} L \; \dd t
 \end{equation}
-stationary. From this, the equations of motion for the particle follows, being the particle's Euler-Lagrange equation. This is called the principle of stationary action in physics\footnote{The principle of stationary action is also sometimes called the principle of \emph{least} action. This can be confusing because the Euler-Lagrange equation finds instances where action is extremized (e.g. a saddle point or even maximized) \cite{action-not-least}.}. 
-
-\section{Conclusion}
+stationary. From this, the equations of motion for the particle follows, being the particle's Euler-Lagrange equation. This is called the principle of stationary action in physics\footnote{The principle of stationary action is also sometimes called the principle of \emph{least} action. This can be confusing because the Euler-Lagrange equation finds instances where action is extremized (e.g. a saddle point or even maximized) \cite{action-not-least}.}.
 
 It is unnecessary to speciously explain the form of the classical Lagrangian as having an innate property of interest. We have shown that the Lagrangian takes its classical form
 \begin{equation}
-    L = T-V
+  L = T-V
 \end{equation}
 out of convenience.
 
-Since $F=ma$ is formulated in Cartesian coordinates, the Lagrangian $L$ we derived is formulated in Cartesian coordinates, as well. The transformation law we found for $G$ provides us with a well defined method for the transformation of $L$ to other coordinate systems. The equations of motion which are now Euler-Lagrange equations are likewise the same in any coordinate system.  This way the relation of Newton's law to coordinates is restricted and well defined in the sense we mentioned in section \ref{introduction}.
+Since $F=ma$ is formulated in Cartesian coordinates, the Lagrangian $L$ we derived is formulated in Cartesian coordinates, as well. The transformation law \ref{lagrangian-transform} we found for $G$ provides us with a well defined method for the transformation of $L$ to other coordinate systems. The equations of motion which are now Euler-Lagrange equations are likewise the same in any coordinate system.  This way the relation of Newton's law to coordinates is restricted and well defined in the sense we mentioned in section \ref{introduction}.
 
 The traditional continuation from equation \eqref{eqref:action} leads to the definition of a quantity called \emph{action}. $L$ has the dimension of energy, thus $S$ has dimensions of energy times time, a quantity also called action.
 
-We hope that this has been useful for making at least one aspect of the Lagrangian formulation of classical mechanics less bewildering for students who are curious about the subject. An in-depth study of classical mechanics can be just as deep and rewarding as an extensive study of statistical or quantum mechanics.  
+\section{Conclusion and outlook}
+
+The principle of stationary action is a new interpretation of classical mechanics.
+It is distinct from Newtonian physics.
+Nonetheless it leads to the same equations of motion as Newtonian physics.
+In sections \ref{distance} and \ref{invariance} we explored the mathematical structure of the Lagrange formalism and because of its transformation properties found it desirable for classical mechanics.
+This motivated and enabled us to give comprehensive derivations of the Lagrangian of classical mechanics $L=T-V$ and the principle of stationary action.
+We hope that this has been useful for making at least one aspect of the Lagrangian formulation of classical mechanics less bewildering for students who are curious about the subject.
+%An in-depth study of classical mechanics can be just as deep and rewarding as an extensive study of statistical or quantum mechanics.
+
+
+Although the transformation properties of the Lagrangian and the Euler-Lagrange equations are already a good reason to formulate physical laws using the principle of stationary action,
+it is by far not the only reason.
+The principle of stationary action has enormous analytical capabilities which lie far beyond those of Newtonian mechanics.
+As an outlook we mention some these analytical capabilities:
+
+\subsection{Conservation laws}
+The principle of stationary action allows to derive conservation laws from transformation properties of the Lagrangian.
+This way energy, momentum, angular momentum and other quantities, that may be conserved, are given formulations, which just depend on the Lagrangian, coordinates and time.
+Thus concepts like energy, momentum and angular momentum gain well defined meaning for any physical system that has a Lagrangian.
+Since literally every physical theory can be described by the principle of stationary action (for examples see section \ref{field.theory}) the concepts of energy, momentum, angular momentum and other conserved quantities
+are consistently  defined for all of these theories.
+
+\subsection{Quantum mechanics}
+The rules of Quantum mechanics are mostly based on Hamiltonian physics and Poisson brackets which are both continuations of the principle of stationary action.
+
+\subsection{Field theory} \label{field.theory}
+The principle of stationary action can be and was continued to field theories.
+For example their exists a principle of stationary action and a Lagrangian for electrodynamics from which Maxwell's equations can be derived.
+In that Maxwell's equations play a similar role as Newton's law did in this paper.
+
+Most physical theories are field theories.
+So the widest variety of Lagrangians are field Lagrangians.
+The most popular besides electrodynamics are
+\begin{itemize}
+  \item The Dirac Lagrangian for the relativistic field of fermions.
+  \item The Klein-Gordon Lagrangian for the relativistic field of bosons.
+  \item The Schr{\"o}dinger Lagrangian for non relativistic quantum mechanics.
+  \item The Lagrangian of the Standard Model of particle physics.
+  \item The general relativity Lagrangian for Einstein's theory of general relativity.
+\end{itemize}
+
+
+\subsection{Constraint motion}
+The simplest example of a problem of constraint motion is that of particle on an inclined plane in a uniform gravitational field.
+Of course there are situations with more complex constraints than an inclined plane.
+In these cases it can be hard to find the particles equations of motion by using Newtons law.
+At this point the transformation law we derived in section \ref{invariance} becomes very helpful:
+Assume there is a transformation of coordinates, that well suit the constraints, to the coordinates the Lagrangian is formulated in.
+Then formula \ref{lagrangian-transform} can be used to rewrite the Lagrangian in the coordinates that suit the constraints.
+The equations of the constrained motion are then the Euler-Lagrange equations of the transformed Lagrangian.
 
 
 \begin{thebibliography}{9}
@@ -249,6 +296,8 @@ We hope that this has been useful for making at least one aspect of the Lagrangi
 \bibitem{gregory} R. Douglas Gregory, Classical Mechanics, 2006, page 348
 
 %\bibitem{Klopper} Juan Klopper, Understanding the Euler Lagrange Equation, \url{https://www.youtube.com/watch?v=08vJyA-XD3Q}
+
+\bibitem{Goldstein} Goldstein et.al., Classical mechanics 3 ed, Chapter 2.2.
 
 \bibitem{Kleinert} Hagen Kleinert, Path Integrals in Quantum Mechanics, Statistics, Polymer Physics, and Financial Markets, 2004, page 5, \url{https://books.google.com/books?id=dJ3FCgAAQBAJ}
 

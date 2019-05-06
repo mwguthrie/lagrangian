@@ -151,9 +151,11 @@ Since $\delta \psi$ is arbitrary (except from its border conditions) the only wa
 
 This is the Euler-Lagrange equation for field theory. It can be seen as a counterpart of the Euler-Lagrange equation for particles we discussed in \cite{WagnerGuthrie}. The procedure of looking for a condition to make $S$ stationary under a Lagrangian $\mathcal{L}\bigg(\psi, \frac{\partial \psi}{\partial t}, \frac{\partial \psi}{\partial x}\bigg)$ is called the Lagrangian formalism for field theory.
 
-\section{Invariance of the Euler-Lagrange equation for field theory under transformations}
+\section{Invariance of the Euler-Lagrange equation for field theory under transformations} \label{sectionInvariance}
 
-Let $x=f(\bar{x},t)$ be an invertible and differentiable transformation of the spacial coordinates and $\psi=F(\bar{\psi})$ be an invertible and differentiable transformation of the field. We define the transformed Lagrangian  $\bar{\mathcal{L}}$ by
+Let $x=f(\bar{x},t)$ be an invertible and differentiable transformation of the spacial coordinates and $\psi=F(\bar{\psi})$ be an invertible and differentiable transformation of the field.
+\footnote{These transformations are discussed in detail in appendix \ref{appendixDiscussionTransform}}
+We define the transformed Lagrangian  $\bar{\mathcal{L}}$ by
 
 \begin{equation} \label{LagrTransform}
 \bar{\mathcal{L}}\bigg(\bar{\psi}, \frac{\partial \bar{\psi}}{\partial t}, \frac{\partial \bar{\psi}}{\partial \bar{x}}\bigg) 
@@ -271,7 +273,7 @@ We recall that the variation $\delta \bar{\psi}$ is a difference between two fie
 \delta \bar{\psi} = \bar{\psi}_2 - \bar{\psi}_1
 \end{equation}
 The value of $F$ considered as a function of $x$ is given by 
-\begin{equation}
+\begin{equation} \label{defineFOfx}
 F(x) = F(\bar{\psi}(\bar{x})) \;\; \text{with} \;\; \bar{x} \;\; \text{defined through} \;\; x=f(\bar{x}) 
 \iff \bar{x} = f^{-1}(x)
 \end{equation}
@@ -301,7 +303,7 @@ Since $\delta \bar{\psi}(\bar{x})$ is zero by assumption, $\delta F(x)$ is zero,
 
 Because of \ref{deltaFDefinition} $\delta F$ is equally arbitrary as $\delta \bar{\psi}$. Thus the only way for $\delta S$ to become zero is
 
-\begin{equation}
+\begin{equation} \label{lastEqToProveInvariance}
 0 = 
 \frac{\partial \mathcal{L}}{\partial F}
 -\frac{\partial}{\partial t} \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial F}{\partial t}} \bigg) 
@@ -533,7 +535,47 @@ The Euler-Lagrange formalism for field theory was presented as a purely mathemat
 
 Based on this mathematical result we are well motivated to reformulate physical field equations in such a way that they become Euler-Lagrange equations. The crucial step to do this is to find the Lagrangian for the field theory that we want to reformulate.
 
-\section{Appendix: Alternative to the transformation formula of multidimensional integrals} \label{TranformationFormula}
+\appendix
+
+\section{Discussion of the coordinate and field transformation defined in the beginning of section \ref{sectionInvariance}} \label{appendixDiscussionTransform}
+The transformations
+\begin{align}
+  &x=f(\bar{x},t) \;\; \text{for the spacial coordinates}\\
+  &\psi=F(\bar{\psi}) \;\; \text{for the fields}
+\end{align}
+can be given precise meaning if we consider a particle from within two coordinate systems $\bar{T}$ and $T$.
+If in $\bar{T}$ the particle's coordinates are given by $\bar{x}$ then in $T$ they are given by $x = f(\bar{x})$.
+
+Next we assume that in $\bar{T}$ there is a field $\bar{\psi}$ which at the particles position $\bar{x}$ has the value $\bar{\psi}(\bar{x})$.
+\footnote{Of course the field may have multiple components as it would in the case of an electric field.}
+We now want to know the field's value at the particles's position $x$ in $T$, which we denote by $\psi(x)$.
+That is where the transformation $F$ of the field comes into play.
+$F$ is meant to be defined in such a way that $\psi(x)$ is given by
+\begin{equation} \label{defFByArg}
+  \psi(x) = F(\bar{\psi}(\bar{x})) \iff \psi(f(\bar{x})) = F(\bar{\psi}(\bar{x}))
+\end{equation}
+The second equation allows to write the functional identity:
+\begin{equation} \label{defFByFunctional}
+  \psi \circ f = F \circ \bar{\psi} \;\; \text{defined on the coordinates $\bar{x}$ of $\bar{T}$}
+\end{equation}
+
+
+These results allow us to state two parts of section \ref{sectionInvariance} more precisely.
+In fact the results \ref{defFByArg} and \ref{defFByFunctional} where used in these parts:
+\begin{itemize}
+  \item
+  In \ref{lastEqToProveInvariance} (even already in \ref{LagrTransform}) we use the derivation $\frac{\partial F(\bar{\psi})}{\partial f}$.
+  For this according to \ref{defFByFunctional} and \ref{defFByArg} the following equation holds:
+  \begin{equation}
+    \frac{\partial F(\bar{\psi})}{\partial f} = \frac{\partial \psi}{\partial f} = \frac{\partial \psi}{\partial x}
+  \end{equation}
+  which is used to follow the equivalence of \ref{lastEqToProveInvariance} and \ref{ELGUntransformed}
+  \item
+  In \ref{defineFOfx} we use \ref{defFByArg}, which is thus guaranteed to be well defined.
+\end{itemize}
+
+
+\section{Alternative to the transformation formula of multidimensional integrals} \label{TranformationFormula}
 
 The proof of the transformation formula of multidimensional integrals is not trivial. 
 A nice heuristic explanation is given by \cite{Sterman}. There

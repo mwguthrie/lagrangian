@@ -257,8 +257,9 @@ Because of \ref{deltaFDefinition}
 $\delta F$ vanishes at $t_1$, $t_2$ as $\delta \bar{\psi}$ does. So the second term is zero because of the fundamental theorem of calculus.
 
 The third term can be transformed into an integral over the surface of $f(\bar{A})$ which we denote by $\partial (f(\bar{A}))$. This surface is the same as the picture of the surface of $\bar{A}$ under $f$: 
-\begin{equation}
+\begin{equation} \label{surfaceEquality}
 \partial (f(\bar{A})) = f(\partial \bar{A})
+\;\; \footnote{see \ref{appendixSurfaceEquality} for detailed discussion}
 \end{equation}
 
 To show that the third term vanishes, we will prove, that $\delta F$ is zero for any $x \in \partial (f(\bar{A}))$:
@@ -553,6 +554,10 @@ That is where the transformation $F$ of the field comes into play.
 $F$ is meant to be defined in such a way that $\psi(x)$ is given by
 \begin{equation} \label{defFByArg}
   \psi(x) = F(\bar{\psi}(\bar{x})) \iff \psi(f(\bar{x})) = F(\bar{\psi}(\bar{x}))
+  \;\; \footnote{A worth to mention special case is when $F$ is the identity function.
+                 \ref{defFByArg} then reads $\psi(x) = (\bar{\psi}(\bar{x})) \iff \psi(f(\bar{x})) = (\bar{\psi}(\bar{x}))$.
+                 Fields that transform this way are called scalar fields.
+                 The Higgs field is a famous example of a scalar field.}
 \end{equation}
 The second equation allows to write the functional identity:
 \begin{equation} \label{defFByFunctional}
@@ -574,10 +579,45 @@ In fact the results \ref{defFByArg} and \ref{defFByFunctional} where used in the
   With the discussion in this section it is clear that through \ref{defFByArg} $F(x)$, which is used in \ref{defineFOfx}, is well defined.
 \end{itemize}
 
+\subsection{\partial (f(\bar{A})) = f(\partial \bar{A})} \label{appendixSurfaceEquality}
+We are now going to extend the discussion of $f$, $\bar{T}$, $T$ and the particle in order to give a clear definition of $\partial (f(\bar{A})) = f(\partial \bar{A})$ used in \ref{surfaceEquality}:
+
+We considered $A$ as an area of space which we integrated over to calculate the action $S$.
+Independent of $\bar{T}$, $T$ and their coordinates we are able to tell if the particle is within, outside or on the surface of the area.
+So for some coordinate $\bar{x}$ in $\bar{T}$ we can well decide if $\bar{x}$ is on the surface.
+Thus we are able tell what set of coordinates in $\bar{T}$ are on the surface.
+These we denote by $\partial \bar{A}$.
+The same way we are able to tell what set of coordinates in $T$ are on the surface and denote them by $\partial A$.
+
+Thus any point on the surface
+(which we may imagine to be the particle's position such that it is clear, that the point is a piece of reality apart from its coordinates in $\bar{T}$, $T$)
+has coordinates $\bar{x}$ and $x$ in $\bar{T}$ and $T$ respectively.
+For any of these coordinates the relation $x=f(\bar{x})$ holds.
+Thus it is clear that
+\begin{equation}
+  \partial A = f(\partial \bar{A})
+\end{equation}
+is true.
+
+With the same argument for any point inside the area it is clear that
+\begin{equation}
+  A = f(\bar{A})
+\end{equation}
+is true, too.
+From this
+\begin{equation}
+  \partial A = \partial f(\bar{A})
+\end{equation}
+follows immediately.
+Which then allows us to write
+\begin{equation}
+  \partial f(\bar{A}) = \partial A = f(\partial \bar{A})
+\end{equation}
+
 
 \section{Alternative to the transformation formula of multidimensional integrals} \label{TranformationFormula}
 
-The proof of the transformation formula of multidimensional integrals is not trivial. 
+The proof of the transformation formula of multidimensional integrals is not trivial.
 A nice heuristic explanation is given by \cite{Sterman}. There
 
 \begin{equation}

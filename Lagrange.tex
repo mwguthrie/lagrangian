@@ -70,27 +70,19 @@ The arc length of a function $y(x)$ between two points $(x_1,y_1)$ and $(x_2,y_2
 \begin{equation}
 S=\int\limits_{x_1}^{x_2}\sqrt{\dd x^2 + \dd y^2}.
 \end{equation}
-
 Factoring a $\dd x$ from the radical results in the following equation
-
 \begin{equation}
 S= \int\limits_{x_1}^{x_2}\sqrt{1 + \left(\frac{\dd y}{\dd x}\right)^2} \dd x,
 \end{equation}
-
 and defining $y' := \frac{\dd y}{\dd x}$ results in a convenient representation for the equation representing the arc length of $y(x)$ as a function of the way in which $y$ changes over its length, %``changes'' is not the best terminology.
 
 \begin{equation}
 S = \int\limits_{x_1}^{x_2}\sqrt{1 + y'^2} \dd x.
 \end{equation}
-
 We generalize this formula by writing
-
 \begin{equation}
 S=\int\limits_{x_1}^{x_2} G(y,y',x) \dd x
 \end{equation}
-
-
-
 and making the assumption that $G = \sqrt{1 + y'^2}$ only depends on $y'$ and not on $y$ or $x$. We further do as if $G$ would depend on more variables than it actually does. This does no harm to later back replacements of $G$ either. Should formulas we derive for $G$ contain derivatives of $G$ with respect to these new variables, we just replace these terms with zero as the derivative of a function with respect to a variable it does not depend on is always zero. %I'm struggling to find a situation where this would happen (but it is of course mathematically true)
 
 To find the function $y(x)$ that minimizes $S$, we make the simplifying assumption that it is sufficient to find the $y(x)$ that makes $S$ stationary. To do this, we consider small but arbitrary variations $\delta y$ of $y$ and try to find a condition that causes $\delta S$ to vanish. During this, the endpoints $(x_1,y_1)$ and $(x_2,y_2)$ are kept fixed; the variations $\delta y$ have the property $\delta y(x_1) = \delta y(x_2) = 0$. As a result,
@@ -99,30 +91,21 @@ To find the function $y(x)$ that minimizes $S$, we make the simplifying assumpti
 \delta S = \int\limits_{x_1}^{x_2} \left(\frac{\partial G}{\partial y} \delta y
 + \frac{\partial G}{\partial y'} \delta y' \right) \dd x.
 \end{equation}
-
 Using $\delta y' = y_2' - y_1' = \frac{\ddd }{\dd x}(y_2 - y_1) = \frac{\ddd}{\dd x} \delta y$ and integration by parts for the second term, we find
-
 \begin{equation}
 \delta S = \int\limits_{x_1}^{x_2} \left( \frac{\partial G}{\partial y} \delta y
 - \frac{\ddd}{\dd x}\frac{\partial G}{\partial y'} \delta y \right) \dd x
 + \left[\frac{\partial G}{\partial y'} \delta y \right]_{x_1}^{x_2}.
 \end{equation}
-
 The last term vanishes because $\delta y(x_1) = \delta y(x_2) = 0$, and we are left with
-
-
 \begin{equation}
 \delta S = \int\limits_{x_1}^{x_2} \left( \frac{\partial G}{\partial y}
 - \frac{\ddd}{\dd x}\frac{\partial G}{\partial y'} \right) \delta y \; \dd x.
 \end{equation}
-
 For $S$ to be stationary, $\delta S$ must vanish. Since $\delta y$ is arbitrary the condition must be
-
-
 \begin{equation}\label{e-l}
 \frac{\partial G}{\partial y} - \frac{\ddd}{\dd x}\frac{\partial G}{\partial y'} = 0.
 \end{equation}
-
 This equation is called an Euler-Lagrange equation. The procedure of looking for a condition to make $S$ stationary under a function $G(y,y',x)$ is called the Lagrangian formalism. If we substitute $G = \sqrt{1+y'^2}$ into equation \eqref{e-l}, it is straightforward to show that $y'$ must to be constant and thus $y(x)$ is a straight line connecting $(x_1,y_1)$ and $(x_2,y_2)$.
 
 \section{Invariance of the Euler-Lagrange equation under coordinate transformations \cite{hagen2009path}} \label{invariance}
@@ -132,48 +115,38 @@ Let $y=f(Y,x)$ be an invertible and differentiable coordinate transformation. We
 \begin{equation} \label{lagrangian-transform}
 \widetilde{G}(Y,Y',x) := G(f,f',x).
 \end{equation}
-
 Using the derivation from section \ref{distance}, we find that making $S = \int\limits_{x_1}^{x_2} \widetilde{G}(Y,Y',x) \dd x$ stationary requires the Euler-Lagrange equation
 
 \begin{equation}
 \frac{\partial \widetilde{G}}{\partial Y}
 - \frac{\ddd}{\dd x}\frac{\partial \widetilde{G}}{\partial Y'} = 0
 \end{equation}
-
 be satisfied. This result is again reached by considering a small but arbitrary variation $\delta Y$ which again vanishes at its endpoints.
 
 Likewise, the variation of the same $S$ can be expressed by
-
 \begin{equation}
 \delta S = \int\limits_{x_1}^{x_2} \left( \frac{\partial G}{\partial f} \delta f
 + \frac{\partial G}{\partial f'} \delta f' \right) \dd x
 \end{equation}
-
-where $\delta f$ is given by $\delta f = \frac{\partial f}{\partial Y} \delta Y$. 
+where $\delta f$ is given by $\delta f = \frac{\partial f}{\partial Y} \delta Y$.
 
 
 Using $\delta f' = f_2' - f_1' = \frac{\ddd}{\dd x}(f_2 - f_1) = \frac{\dd}{\dd x} \delta f$ and integration by parts for the second term we find
-
-
 \begin{equation}
 \delta S = \int\limits_{x_1}^{x_2} \left( \frac{\partial G}{\partial f}
 - \frac{\ddd}{\dd x} \frac{\partial G}{\partial f'} \right) \delta f \, \dd x \;
 + \; \left[\frac{\partial G}{\partial f'} \delta f \right]_{x_1}^{x_2}.
 \end{equation}
-
-
 As $\delta Y$ vanishes at the endpoints, so does $\delta f$ which causes the last term to vanish. From the arbitrariness of $\delta Y$ follows the arbitrariness of $\delta f$. The only mechanism for $\delta S$ to vanish is
 
 \begin{equation}
 0 = \frac{\partial G}{\partial f} - \frac{\ddd}{\dd x} \frac{\partial G}{\partial f'}
 = \frac{\partial G}{\partial y} - \frac{\ddd}{\dd x} \frac{\partial G}{\partial y'}.
 \end{equation}
-
-This shows that the Euler-Lagrange equation takes the same form under any coordinate transformation as long as the transformation of the function $G$ is given by $\widetilde{G}(Y,Y',x) := G(f,f',x)$. Functions that behave this way under coordinate transformations as $G$ are called scalar functions, especially in physical contexts. 
+This shows that the Euler-Lagrange equation takes the same form under any coordinate transformation as long as the transformation of the function $G$ is given by $\widetilde{G}(Y,Y',x) := G(f,f',x)$. Functions that behave this way under coordinate transformations as $G$ are called scalar functions, especially in physical contexts.
 In the following section $G$ will be interpreted as the Lagrangian we mentioned in section \ref{introduction}. As we now see, $G$ does indeed have the transformation properties we claimed in section \ref{introduction}.
 
 \section{Application to Newtonian mechanics} \label{application}
-
 As we discussed in detail in section \ref{introduction}, it is desirable to write Newton's law $F=ma$ in the form of an Euler-Lagrange equation. Doing so will provide us with a function like $G$ from the former two sections. This function, which we derive, is called the Lagrangian of classical mechanics.
 
 To proceed, we rearrange Newton's second law
@@ -181,14 +154,12 @@ To proceed, we rearrange Newton's second law
 \begin{equation}
 0 = ma - F.
 \end{equation}
-
 The first term can be rewritten as follows:
 \begin{equation}
 ma = m \ddot{r} = \frac{\ddd}{\dd t} (m \dot{r})
 = \frac{\ddd}{\dd t} \frac{\partial}{\partial \dot{r}} \left(\frac{1}{2} m \dot{r}^2 \right)
 = \frac{\ddd}{\dd t} \frac{\partial T}{\partial \dot{r}},
 \end{equation}
-
 where $T:=\frac{1}{2} m \dot{r}^2$ is the classical kinetic energy of the system. For the second term, we assume the force $F$ to be conservative. If so, there exists a potential $V$ such that
 \begin{equation}
 F = - \frac{\partial V}{\partial r} = \frac{\partial (-V)}{\partial r}.
@@ -197,7 +168,6 @@ Using both rewritten terms, Newton's law becomes
 \begin{equation}
 0 = \frac{\ddd}{\dd t} \frac{\partial T}{\partial \dot{r}} - \frac{\partial (-V)}{\partial r}.
 \end{equation}
-
 If we assume that $\partial T/ \partial r = 0$ and $\partial V / \partial \dot{r} = 0$, which is nearly always true in Newtonian mechanics, we can convert the equation to
 \begin{equation}
 0 = \frac{\ddd}{\dd t} \frac{\partial (T-V)}{\partial \dot{r}} - \frac{\partial (T-V)}{\partial r}.
@@ -215,14 +185,13 @@ where
 \begin{equation}
  L := T-V.
 \end{equation}
-
 This $L$ is precisely the Lagrangian of classical mechanics that so many curricula imply is some divine quantity, while all we have shown is that $L$ is a simple change of variable to make Lagrange's equations more elegant. While elegance is certainly exhibited in this representation, it is often at the expense of increased abstraction.
 
 Using this representation of $L$ allows the Lagrangian formulation of mechanics to be derived by requiring that the trajectory $r(t)$ which a particle takes between two endpoints $(t_1,r_1)$ and $(t_2,r_2)$ makes the integral
 \begin{equation}\label{eqref:action}
 S=\int\limits_{t_1}^{t_2} L \; \dd t
 \end{equation}
-stationary. From this, the equations of motion for the particle follows, being the particle's Euler-Lagrange equation. This is called the principle of stationary action in physics\footnote{The principle of stationary action is also sometimes called the principle of \emph{least} action. This can be confusing because the Euler-Lagrange equation finds instances where action is extremized (e.g. a saddle point or even maximized) \cite{gray2007action}.}.
+stationary. From this, the equations of motion for the particle follow, being the particle's Euler-Lagrange equation. This is called the principle of stationary action in physics\footnote{The principle of stationary action is also sometimes called the principle of \emph{least} action. This can be confusing because the Euler-Lagrange equation finds instances where action is extremized (e.g. a saddle point or even maximized)  \cite{gray2007action}.}.
 
 It is unnecessary to speciously explain the form of the classical Lagrangian as having an innate property of interest. We have shown that the Lagrangian takes its classical form
 \begin{equation}

@@ -81,9 +81,14 @@ S = \int\limits_{x_1}^{x_2}\sqrt{1 + y'^2} \dd x.
 \end{equation}
 We generalize this formula by writing
 \begin{equation}
-S=\int\limits_{x_1}^{x_2} G(y,y',x) \dd x
+S=\int\limits_{x_1}^{x_2} G(y,y',x) \dd x .
 \end{equation}
-and making the assumption that $G = \sqrt{1 + y'^2}$ only depends on $y'$ and not on $y$ or $x$. We further do as if $G$ would depend on more variables than it actually does. This does no harm to later back replacements of $G$ either. Should formulas we derive for $G$ contain derivatives of $G$ with respect to these new variables, we just replace these terms with zero as the derivative of a function with respect to a variable it does not depend on is always zero. %I'm struggling to find a situation where this would happen (but it is of course mathematically true)
+Although in our example $G = \sqrt{1 + y'^2}$ only depends on $y'$ and not on $y$ or $x$ it does no harm to assume dependence on $y$ and $x$, too.
+This is to say that later back replacements of $G$ by $\sqrt{1 + y'^2}$ will still be possible.
+Should formulas we derive for $G$ contain derivatives of $G$ with respect to $y$ or $x$, we just replace these terms with zero as the derivative of a function with respect to a variable it does not depend on is always zero.
+
+% Former version:
+% and making the assumption that $G = \sqrt{1 + y'^2}$ only depends on $y'$ and not on $y$ or $x$. We further do as if $G$ would depend on more variables than it actually does. This does no harm to later back replacements of $G$ either. Should formulas we derive for $G$ contain derivatives of $G$ with respect to these new variables, we just replace these terms with zero as the derivative of a function with respect to a variable it does not depend on is always zero. %I'm struggling to find a situation where this would happen (but it is of course mathematically true)
 
 To find the function $y(x)$ that minimizes $S$, we make the simplifying assumption that it is sufficient to find the $y(x)$ that makes $S$ stationary. To do this, we consider small but arbitrary variations $\delta y$ of $y$ and try to find a condition that causes $\delta S$ to vanish. During this, the endpoints $(x_1,y_1)$ and $(x_2,y_2)$ are kept fixed; the variations $\delta y$ have the property $\delta y(x_1) = \delta y(x_2) = 0$. As a result,
 

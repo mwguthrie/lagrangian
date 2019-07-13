@@ -151,7 +151,7 @@ As $\delta Y$ goes to $0$ at the endpoints, so does $\delta f$ which causes the 
 = \frac{\partial G}{\partial y} - \frac{\ddd}{\dd x} \frac{\partial G}{\partial y'}.
 \end{equation}
 This shows that the Euler-Lagrange equation takes the same form under any coordinate transformation as long as the transformation of the function $G$ is given by $\widetilde{G}(Y,Y',x) := G(f,f',x)$. Functions that behave this way under coordinate transformations as $G$ are called scalar functions, especially in physical contexts. %Can we give an example of a scalar function in undergraduate level mechanics? "Such as the gravitational potential or temperature over an object"
-In section \ref{application}, $G$ will be interpreted as the Lagrangian we mentioned in section \ref{introduction}. As we now see, $G$ does indeed have the transformation properties we claimed in section \ref{introduction}.
+In section \ref{lagrangian-def}, $G$ will be interpreted as the Lagrangian we mentioned in section \ref{introduction}. As we now see, $G$ does indeed have the transformation properties we claimed in section \ref{introduction}.
 
 \section{Application to Newtonian mechanics} \label{application}
 As we discussed in detail in section \ref{introduction}, it is desirable to write Newton's law $F=ma$ in the form of an Euler-Lagrange equation. Doing so will provide us with a function like $G$ from the former two sections. This function is called the Lagrangian of classical mechanics.
@@ -180,7 +180,7 @@ If we assume that $\partial T/ \partial r = 0$ and $\partial V / \partial \dot{r
 0 = \frac{\ddd}{\dd t} \frac{\partial (T-V)}{\partial \dot{r}} - \frac{\partial (T-V)}{\partial r}.
 \end{equation}
 
-\section{Definition of the Lagrangian} %We can easily remove this section header if a reviewer suggests it, though for now I think defining the Lagrangian is important enough to warrant it
+\section{Definition of the Lagrangian}\label{lagrangian-def} %We can easily remove this section header if a reviewer suggests it, though for now I think defining the Lagrangian is important enough to warrant it
 
 Looking back at the original Euler-Lagrange equation \eqref{e-l}, let time $t$ take the place of a general independent variable $x$, position $r$ take the place of a general coordinate $y$, and $T-V$ take the place of $G$, we arrive at the following results:
 
@@ -235,7 +235,7 @@ Most physical theories are field theories, and as a result the widest variety of
 
 
 \subsection{Constrained motion \cite{Kuypers}}
-The simplest example of a problem of constrained motion is that of particle on an inclined plane in a uniform gravitational field. There are, of course, situations with more complex constraints than an inclined plane. In these cases it can be difficult to find the equations of motion for the particle through using Newtons law. At this point, the transformation law we derived in section \ref{invariance} becomes very helpful: Assume there is a transformation of coordinates that well suits the constraints to the coordinates in which the Lagrangian is formulated. Once that is done, formula \ref{lagrangian-transform} can be used to rewrite the Lagrangian in the coordinates that suit the constraints. The equations of the constrained motion are then the Euler-Lagrange equations of the transformed Lagrangian.
+The simplest example of a problem of constrained motion is that of particle on an inclined plane in a uniform gravitational field. There are, of course, situations with more complex constraints than an inclined plane. In these cases it can be difficult to find the equations of motion for the particle through using Newton's laws. At this point, the transformation law we derived in section \ref{invariance} becomes very helpful: assume there is a transformation of coordinates that well suits the constraints to the coordinates in which the Lagrangian is formulated. Once that is done, formula \eqref{lagrangian-transform} can be used to rewrite the Lagrangian in the coordinates that suit the constraints. The equations of the constrained motion are then the Euler-Lagrange equations of the transformed Lagrangian.
 
 \acknowledgments{We would like to thank the many friends and teachers who helped us clarify numerous points in this manuscript and encouraged the curiosity that sparked this writing. Namely, John Jaszczak, Tony Szedlak, David McGhan, and Chris Riley.}
 

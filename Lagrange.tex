@@ -6,7 +6,8 @@
 
 \usepackage{amsmath}  % needed for \tfrac, \bmatrix, etc.
 \usepackage{amsfonts} % needed for bold Greek, Fraktur, and blackboard bold
-\usepackage{graphicx} % needed for figures
+\usepackage{graphicx}
+\usepackage{amssymb} % needed for figures
 
 \DeclareMathOperator{\dd}{d\!}
 \DeclareMathOperator{\ddd}{\mathrm{d}}
@@ -53,9 +54,12 @@ Lagrangian mechanics is a powerful description of classical mechanics. To some s
 
 The most popular undergraduate level treatments of the Lagrangian simply accept the definition as it is given and move on to using it to solve problems. Taylor\cite[p.~238]{taylor2005classical} includes the explicit statement that the reader is ``certainly entitled to ask why the quantity $T-U$ should be of any interest''\footnote{Taylor uses $U$ for the potential energy function.} and continues to say that ``there seems to be no simple answer to this question except that it is.'' Marion \cite[p.~198-199]{marion1970classical} and Folwes and Cassiday \cite[p.~393]{fowles1999analytical} merely define the Lagrangian and move to its utility. Gregory\cite[p.~348]{gregory2006classical} explains the Lagrangian in further detail, including a detailed derivation, although the information is presented over multiple sections and chapters with numerous digressions.
 
-In this paper, the Lagrangian formalism arises naturally through an introductory example from geometry. After the formalism is derived, we prove the invariance of the Euler-Lagrange equation under arbitrary coordinate transformations. To make clear why this property is important for physics we remind the reader that the laws of nature do not depend on the coordinates we use to describe them. On the other hand, physicists cannot formulate laws without coordinates and physical equations usually look different in different coordinates\footnote{Coordinate-free laws of physics do exist (see Maxwell's equations written in the language of differential forms or Einstein's equations). However, these formulations are not very useful until a coordinate system is chosen.}. This is why the relation of physical theories to coordinates should be as well defined and restricted as possible. The Lagrangian formalism fulfills this demand through the Euler-Lagrange equation being independent of coordinate transformations. Lagrangian functionals do depend on coordinates but in the simplest way physicists can think of: they transform like scalars. 
+In this paper, the Lagrangian formalism arises naturally through an introductory example from geometry. After the formalism is derived, we prove the invariance of the Euler-Lagrange equation under arbitrary coordinate transformations. To make clear why this property is important for physics we remind the reader that the laws of nature do not depend on the coordinates we use to describe them. On the other hand, physicists cannot formulate laws without coordinates and physical equations usually look different in different coordinates\footnote{Coordinate-free laws of physics do exist (see Maxwell's equations written in the language of differential forms or Einstein's equations). However, these formulations are not very useful until a coordinate system is chosen.}. This is why the relation of physical theories to coordinates should be as well defined and restricted as possible. The Lagrangian formalism fulfills this demand through the Euler-Lagrange equations being independent of coordinate transformations. Lagrangian functionals do depend on coordinates but in the simplest way physicists can think of: they transform like scalars.
 
-Thinking about the relation of the laws of physics to coordinates proved fruitful in the past. %Can we find a good citation for this? Or just explain in what context/way are we thinking of?
+Thinking about the relation of the laws of physics to coordinates proved fruitful in the past.
+Probably the most famous example is Einstein's first paper on special relativity \cite{EinsteinSpecialRelativity}.
+
+%Can we find a good citation for this? Or just explain in what context/way are we thinking of?
 In this paper we follow this tradition, reformulating Newton's second law in the form of Euler-Lagrange equations. As a result, the Lagrangian of classical mechanics appears naturally without requiring further motivation or derivation. 
 
 
@@ -65,7 +69,10 @@ This section is adapted from many sources, chiefly Goldstein's Classical Mechani
 
 We limit ourselves to lines that can be written as one dimensional functions $y=f(x)$ while curves in two dimensions would be more general. We assume the shortest distance has to be a differentiable function although continuous would be sufficient. First and foremost we satisfy ourselves with finding a condition that makes the curve only stationary instead of minimal.}
 
-The arc length $S$ of a function $y(x)$ \footnote{Our choices $x$ and $y$ for the abstract formulation of the Lagrangian do not mean the normal $(x,y)$ Euclidean coordinates beloved by physicists. We are saying that some function $y$, whatever it may be, can be parameterized by a variable $x$.} between two points $(x_1,y_1)$ and $(x_2,y_2)$ is given by
+The arc length $S$ of a function $y(x)$
+
+% I doubt that footnote. Doesn't out formula for the arc lenght differential ds^2 = dx^2 + dy^2 imply the euclidian metric?
+%\footnote{Our choices $x$ and $y$ for the abstract formulation of the Lagrangian do not mean the normal $(x,y)$ Euclidean coordinates beloved by physicists. We are saying that some function $y$, whatever it may be, can be parameterized by a variable $x$.} between two points $(x_1,y_1)$ and $(x_2,y_2)$ is given by
 
 \begin{equation}
 S=\int\limits_{x_1}^{x_2}\sqrt{\dd x^2 + \dd y^2}.
@@ -150,7 +157,35 @@ As $\delta Y$ goes to $0$ at the endpoints, so does $\delta f$ which causes the 
 0 = \frac{\partial G}{\partial f} - \frac{\ddd}{\dd x} \frac{\partial G}{\partial f'}
 = \frac{\partial G}{\partial y} - \frac{\ddd}{\dd x} \frac{\partial G}{\partial y'}.
 \end{equation}
-This shows that the Euler-Lagrange equation takes the same form under any coordinate transformation as long as the transformation of the function $G$ is given by $\widetilde{G}(Y,Y',x) := G(f,f',x)$. Functions that behave this way under coordinate transformations as $G$ are called scalar functions, especially in physical contexts. %Can we give an example of a scalar function in undergraduate level mechanics? "Such as the gravitational potential or temperature over an object"
+This shows that the Euler-Lagrange equation takes the same form under any coordinate transformation as long as the transformation of the function $G$ is given by $\widetilde{G}(Y,Y',x) := G(f,f',x)$. Functions that behave this way under coordinate transformations as $G$ are called scalar functions, especially in physical contexts.
+%Can we give an example of a scalar function in undergraduate level mechanics? "Such as the gravitational potential or temperature over an object"
+\footnote{An example for a scalar is air temperature:
+To analyze this example we consider two coordinate systems with coordinates $x$ and $X$ and their transformation $x=f(X)$.
+To come to the analogue of definition \ref{lagrangian-transform} we write the temperature $T$ in the first coordinate system as $T=T(x)$.
+Based on this we define the temperature in the second coordinate system by
+\begin{equation} \label{definitionOfTemperatureTransform}
+  \tilde{T}(X) := T(f(x))
+\end{equation}
+This is the analogue of what we did in the beginning of section \ref{invariance}.
+But we possibly contradict the readers intuition because up to here temperature is not said to be the same in both coordinate systems.
+The same is true for the transformation of Lagrangians: Definition \ref{lagrangian-transform} does not imply that the Lagrangians in the two coordinate systems are the same.
+It only defines the rule how to calculate the transformation of a Lagrangian.
+
+For temperature our usual intuition is that $\tilde{T}(X) = T(x)$ or by using definition \ref{definitionOfTemperatureTransform}
+\begin{equation} \label{invarianceOfTemperature}
+  T(f(x)) = T(x)
+\end{equation}
+Scalars that fulfill this condition are called invariant with respect to the transformation $f$.
+We can make equation \ref{invarianceOfTemperature} even clearer if we consinder a fixed point $p$ in the atmosphere.
+If we denote the coordinates of $p$ in the two coordinate systems by $x_p$ and $X_p=f(x_p)$,
+then what our intuition says is that in both coordinate systems the temperature at $p$ is measured to be the same:
+\begin{equation}
+  T(X_p)=T(x_p) \iff T(f(x_p))=T(x_p) \;\; \text{which is just equation \ref{invarianceOfTemperature}}
+\end{equation}
+
+An interesting point of the temperature example is that equation \ref{invarianceOfTemperature} becomes invalid if one of the two coordinate systems moves with a velocity that is not negligible compared to the average motion of the air molecules while the other is relative to the air at rest.
+In this case equation \ref{invarianceOfTemperature} will cease to be valid while of course the definition \ref{definitionOfTemperatureTransform} remains unchanged.
+}
 In section \ref{lagrangian-def}, $G$ will be interpreted as the Lagrangian we mentioned in section \ref{introduction}. As we now see, $G$ does indeed have the transformation properties we claimed in section \ref{introduction}.
 
 \section{Application to Newtonian mechanics} \label{application}
@@ -198,7 +233,7 @@ Using this representation of $L$ allows the Lagrangian formulation of mechanics 
 \begin{equation}\label{eqref:action}
 S=\int\limits_{t_1}^{t_2} L \; \dd t
 \end{equation}
-stationary. From this, the equations of motion for the particle follow, being the particle's Euler-Lagrange equation. This is called the principle of stationary action in physics\footnote{The principle of stationary action is also sometimes called the principle of \emph{least} action. This can be confusing because the Euler-Lagrange equation finds instances where action is extremized (e.g. a saddle point or even maximized)  \cite{gray2007action}.}.
+stationary. From this, the equations of motion for the particle follow, being the particle's Euler-Lagrange equation. This is called the principle of stationary action in physics\footnote{The principle of stationary action is also sometimes called the principle of \emph{least} action. This can be confusing because the Euler-Lagrange equation finds instances where action is stationary (e.g. a saddle point or even maximized)  \cite{gray2007action}.}.
 
 It is unnecessary to speciously explain the form of the classical Lagrangian as having an innate property of interest. We have shown that the Lagrangian takes its classical form
 \begin{equation}

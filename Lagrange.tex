@@ -58,8 +58,6 @@ In this paper, the Lagrangian formalism arises naturally through an introductory
 
 Thinking about the relation of the laws of physics to coordinates proved fruitful in the past.
 Probably the most famous example is Einstein's first paper on special relativity \cite{EinsteinSpecialRelativity}.
-
-%Can we find a good citation for this? Or just explain in what context/way are we thinking of?
 In this paper we follow this tradition, reformulating Newton's second law in the form of Euler-Lagrange equations. As a result, the Lagrangian of classical mechanics appears naturally without requiring further motivation or derivation. 
 
 
@@ -69,10 +67,7 @@ This section is adapted from many sources, chiefly Goldstein's Classical Mechani
 
 We limit ourselves to lines that can be written as one dimensional functions $y=f(x)$ while curves in two dimensions would be more general. We assume the shortest distance has to be a differentiable function although continuous would be sufficient. First and foremost we satisfy ourselves with finding a condition that makes the curve only stationary instead of minimal.}
 
-The arc length $S$ of a function $y(x)$
-
-% I doubt that footnote. Doesn't out formula for the arc lenght differential ds^2 = dx^2 + dy^2 imply the euclidian metric?
-%\footnote{Our choices $x$ and $y$ for the abstract formulation of the Lagrangian do not mean the normal $(x,y)$ Euclidean coordinates beloved by physicists. We are saying that some function $y$, whatever it may be, can be parameterized by a variable $x$.} between two points $(x_1,y_1)$ and $(x_2,y_2)$ is given by
+The arc length $S$ of a function $y(x)$ between two points $(x_1,y_1)$ and $(x_2,y_2)$ is given by
 
 \begin{equation}
 S=\int\limits_{x_1}^{x_2}\sqrt{\dd x^2 + \dd y^2}.
@@ -159,32 +154,32 @@ As $\delta Y$ goes to $0$ at the endpoints, so does $\delta f$ which causes the 
 \end{equation}
 This shows that the Euler-Lagrange equation takes the same form under any coordinate transformation as long as the transformation of the function $G$ is given by $\widetilde{G}(Y,Y',x) := G(f,f',x)$. Functions that behave this way under coordinate transformations as $G$ are called scalar functions, especially in physical contexts.
 %Can we give an example of a scalar function in undergraduate level mechanics? "Such as the gravitational potential or temperature over an object"
-\footnote{An example for a scalar is air temperature:
-To analyze this example we consider two coordinate systems with coordinates $x$ and $X$ and their transformation $x=f(X)$.
-To come to the analogue of definition \ref{lagrangian-transform} we write the temperature $T$ in the first coordinate system as $T=T(x)$.
+\footnote{An example for a scalar is air temperature. To analyze this example we consider two coordinate systems with coordinates $x$ and $X$ and their transformation $x=f(X)$.
+To come to the analogue of definition \eqref{lagrangian-transform} we write the temperature $T$ in the first coordinate system as $T=T(x)$.
 Based on this we define the temperature in the second coordinate system by
 \begin{equation} \label{definitionOfTemperatureTransform}
   \tilde{T}(X) := T(f(x))
 \end{equation}
 This is the analogue of what we did in the beginning of section \ref{invariance}.
-But we possibly contradict the readers intuition because up to here temperature is not said to be the same in both coordinate systems.
-The same is true for the transformation of Lagrangians: Definition \ref{lagrangian-transform} does not imply that the Lagrangians in the two coordinate systems are the same.
+But we possibly contradict intuition because up to here temperature is not said to be the same in both coordinate systems.
+The same is true for the transformation of Lagrangians: Definition \eqref{lagrangian-transform} does not imply that the Lagrangians in the two coordinate systems are the same.
 It only defines the rule how to calculate the transformation of a Lagrangian.
 
-For temperature our usual intuition is that $\tilde{T}(X) = T(x)$ or by using definition \ref{definitionOfTemperatureTransform}
+For temperature our usual intuition is that $\tilde{T}(X) = T(x)$ or by using definition \eqref{definitionOfTemperatureTransform}
 \begin{equation} \label{invarianceOfTemperature}
   T(f(x)) = T(x)
 \end{equation}
 Scalars that fulfill this condition are called invariant with respect to the transformation $f$.
-We can make equation \ref{invarianceOfTemperature} even clearer if we consinder a fixed point $p$ in the atmosphere.
+We can make equation \eqref{invarianceOfTemperature} even clearer if we consider a fixed point $p$ in the atmosphere.
 If we denote the coordinates of $p$ in the two coordinate systems by $x_p$ and $X_p=f(x_p)$,
 then what our intuition says is that in both coordinate systems the temperature at $p$ is measured to be the same:
 \begin{equation}
-  T(X_p)=T(x_p) \iff T(f(x_p))=T(x_p) \;\; \text{which is just equation \ref{invarianceOfTemperature}}
+  T(X_p)=T(x_p) \iff T(f(x_p))=T(x_p),
 \end{equation}
+which is just equation \eqref{invarianceOfTemperature}.
 
-An interesting point of the temperature example is that equation \ref{invarianceOfTemperature} becomes invalid if one of the two coordinate systems moves with a velocity that is not negligible compared to the average motion of the air molecules while the other is relative to the air at rest.
-In this case equation \ref{invarianceOfTemperature} will cease to be valid while of course the definition \ref{definitionOfTemperatureTransform} remains unchanged.
+An interesting point of the temperature example is that equation \eqref{invarianceOfTemperature} becomes invalid if one of the two coordinate systems moves with a velocity that is not negligible compared to the average motion of the air molecules while the other is relative to the air at rest.
+In this case equation \eqref{invarianceOfTemperature} will cease to be valid while of course the definition \eqref{definitionOfTemperatureTransform} remains unchanged.
 }
 In section \ref{lagrangian-def}, $G$ will be interpreted as the Lagrangian we mentioned in section \ref{introduction}. As we now see, $G$ does indeed have the transformation properties we claimed in section \ref{introduction}.
 
@@ -254,9 +249,7 @@ Although the transformation properties of the Lagrangian and the Euler-Lagrange 
 The principle of stationary action allows derivation of conservation laws from transformation properties of the Lagrangian. From this, energy, momentum, angular momentum, and other quantities that may be conserved, are given formulations which depend only on the Lagrangian, coordinates, and time. Thus, concepts like energy, momentum, and angular momentum gain well-defined meaning for any physical system that has a Lagrangian. Since every physical theory can be described by the principle of stationary action (for examples see section \ref{field.theory}), the concepts of energy, momentum, angular momentum, and other conserved quantities are consistently defined for all of these theories.
 
 \subsection{Quantum mechanics \cite{Schwabl}}
-The rules of quantum mechanics are mostly based on Hamiltonian physics and Poisson brackets which are both continuations of the principle of stationary action.
-
-A recent and in depth discussion of an Lagrangian underlying the Schr{\"o}dinger equation can be found in Deriglazov's paper \cite{Deriglazov}.
+The rules of quantum mechanics are mostly based on Hamiltonian physics and Poisson brackets which are both continuations of the principle of stationary action. A recent and in-depth discussion of an Lagrangian underlying the Schr{\"o}dinger equation can be found in Deriglazov's paper \cite{Deriglazov}.
 
 
 \subsection{Field theory \cite{Sterman,Dirac}} \label{field.theory}

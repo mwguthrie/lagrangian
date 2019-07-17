@@ -154,32 +154,17 @@ As $\delta Y$ goes to $0$ at the endpoints, so does $\delta f$ which causes the 
 \end{equation}
 This shows that the Euler-Lagrange equation takes the same form under any coordinate transformation as long as the transformation of the function $G$ is given by $\widetilde{G}(Y,Y',x) := G(f,f',x)$. Functions that behave this way under coordinate transformations as $G$ are called scalar functions, especially in physical contexts.
 %Can we give an example of a scalar function in undergraduate level mechanics? "Such as the gravitational potential or temperature over an object"
-\footnote{An example for a scalar is air temperature. To analyze this example we consider two coordinate systems with coordinates $x$ and $X$ and their transformation $x=f(X)$.
-To come to the analogue of definition \eqref{lagrangian-transform} we write the temperature $T$ in the first coordinate system as $T=T(x)$.
-Based on this we define the temperature in the second coordinate system by
+\footnote{An example for a scalar is air temperature.
+To analyze this example we consider two coordinate systems with coordinates $x$ and $X$ and their transformation $x=f(X)$.
+If $T=T(x)$ denotes temperature in the first coordinate system then as an analog to definition \ref{lagrangian-transform} we define the temperature in the second coordinate system by
 \begin{equation} \label{definitionOfTemperatureTransform}
   \tilde{T}(X) := T(f(x))
 \end{equation}
-This is the analogue of what we did in the beginning of section \ref{invariance}.
-But we possibly contradict intuition because up to here temperature is not said to be the same in both coordinate systems.
-The same is true for the transformation of Lagrangians: Definition \eqref{lagrangian-transform} does not imply that the Lagrangians in the two coordinate systems are the same.
-It only defines the rule how to calculate the transformation of a Lagrangian.
 
-For temperature our usual intuition is that $\tilde{T}(X) = T(x)$ or by using definition \eqref{definitionOfTemperatureTransform}
-\begin{equation} \label{invarianceOfTemperature}
-  T(f(x)) = T(x)
-\end{equation}
+Now the physical fact that temperature is the same in both coordinate systems leads to the condition $\tilde{T}(X) = T(x)$ which by using definition \ref{definitionOfTemperatureTransform} can be turned into $T(f(x)) = T(x)$.
 Scalars that fulfill this condition are called invariant with respect to the transformation $f$.
-We can make equation \eqref{invarianceOfTemperature} even clearer if we consider a fixed point $p$ in the atmosphere.
-If we denote the coordinates of $p$ in the two coordinate systems by $x_p$ and $X_p=f(x_p)$,
-then what our intuition says is that in both coordinate systems the temperature at $p$ is measured to be the same:
-\begin{equation}
-  T(X_p)=T(x_p) \iff T(f(x_p))=T(x_p),
-\end{equation}
-which is just equation \eqref{invarianceOfTemperature}.
 
-An interesting point of the temperature example is that equation \eqref{invarianceOfTemperature} becomes invalid if one of the two coordinate systems moves with a velocity that is not negligible compared to the average motion of the air molecules while the other is relative to the air at rest.
-In this case equation \eqref{invarianceOfTemperature} will cease to be valid while of course the definition \eqref{definitionOfTemperatureTransform} remains unchanged.
+An interesting point of the temperature example is that this condition becomes invalid if one of the two coordinate systems moves with a velocity that is not negligible compared to the average motion of the air molecules while the other stays relative to the air at rest.
 }
 In section \ref{lagrangian-def}, $G$ will be interpreted as the Lagrangian we mentioned in section \ref{introduction}. As we now see, $G$ does indeed have the transformation properties we claimed in section \ref{introduction}.
 

@@ -1,0 +1,2404 @@
+\documentclass{article}
+%\documentclass[journal]{IEEEtran}
+%\documentclass{report}
+%\documentclass{acta}
+
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{xcolor}
+
+\DeclareMathOperator{\dd}{d\!}
+\DeclareMathOperator{\ddd}{\mathrm{d}}
+
+
+\begin{document}
+
+\title{Special Relativity and Lagrangians}
+\author{Gerd Wagner}
+
+\maketitle
+
+\begin{abstract}
+In the first part of the paper we derive two foundations of special relativity.
+Both are based on the invariance of the space time interval $c^2\Delta t^2 - \Delta x^2 - \Delta y^2 - \Delta z^2$,
+i.e. the constance of the speed of light.
+These foundations are:
+\begin{itemize}
+    \item[1.] The invariance for any space time interval not only for that of light.
+    \item[2.] The Lorentz transformation.
+\end{itemize}
+
+The second part is about some aspects of the Lagrange formulation of particle dynamics:
+\begin{itemize}
+    \item[1.] We show how the energy of a particle can be derived from studying how its action $S$ changes with time translations.
+    \item[2.] We do a detailed discussion of the relativistic particle in an electromagnetic field.
+              The major result will be the transformation law of the electromagnetic potentials.
+    \item[3.] We motivate the Lagrangian for the free particle in special relativity.
+    \item[4.] We derive $E=mc^2$
+\end{itemize}
+
+The third part is about relativistic field Lagrangians and their transformation properties.
+It's the continuation of our study of non relativistic field theory in \cite{LagrangeOfField}:
+\begin{itemize}
+    \item[1. (*)] We formulate the Lagrangian formlism of fields for special relativity where in contrast to \cite{LagrangeOfField} time is not a special coordinate anymore.
+    \item[2. (**)] We show the invariance of the Euler-Lagrange equations under arbitray transformations of space and time as well as arbitrary transformations of the fields.
+              We also explain how the Lagrangian changes under these transformations.
+    \item[3.] We use (*) and (**) to turn the classical Lagrangian of electrodynamics into its relativistic form.
+    \item[4.] We use (*) and (**) once more and show that the Lagrangian is invariant under Lorentz transformations.
+              Which means we show the functional form of the Lagrangian doesn't change and thus that the equations of motion (Maxwell's equations) don't change.
+\end{itemize}
+
+
+\end{abstract}
+
+
+\section{Introduction}
+
+Lagrangians clear up the relation of equations of motion to coordinates.
+This is especially important for special relativity which foundations lie in considering the laws of physics from within different coordinate systems i.e. inertial reference frames.
+We want to make clear that once the transformation rules of the Lagrange formalism are derived, major results of relativistic electrodynamics can be found by simply applying these rules.
+These results are:
+\begin{itemize}
+\item[1.] Turning the non relativistic Lagrangian of electrodynamics into its relativistic form by defining a simple coordinate transformation and applying the rules.
+\item[2.] Proof that the Lagrangian of electrodynamics and the laws of electrodynamics (Maxwell's equations) are invariant under Lorentz transformations by applying the rules.
+\end{itemize}
+
+The second point requires some detailed discussion of relativistic particle physics, which is done in section \ref{particleLagrangian}.
+In this discussion we will derive the way electromagnetic potentials transform under Lorentz transformations.
+
+Once we stepped so deep into relativistic particle physics we felt we also had to include the relativistic free particle and derive its famous energy $E=m c^2$
+
+
+\section{Two foundations of special relativity} \label{foundations}
+
+\subsection{Invariance of the space time interval \\ $\Delta s = \sqrt{c^2\Delta t^2 - \Delta x^2 - \Delta y^2 - \Delta z^2}$ \cite{LandauInterval}} \label{sectionInvarianceSpaceTime}
+We consider two inertial reference frames $T$, $T'$ with coordinates $t,x,y,z$ and $t',x',y',z'$.
+Inertial reference frames are reference frames in which a body with zero net force acting upon it is not accelerating.
+The possible transformations between inertial reference frames are translations in space and time, rotations in space and motion with constant velocity.
+
+From within $T$ and $T'$ we observe a particle and a light pulse.
+The light pulse we assume traveling in one direction with velocity $c$ such that it has nearly as well defined position as the particle.
+
+The empiric fact, which started the theory of special relativity is that
+\begin{equation} \label{constantsSpeedOfLight}
+0 = c^2\Delta t^2 - \Delta x^2 - \Delta y^2 - \Delta z^2 = c^2\Delta t'^2 - \Delta x'^2 - \Delta y'^2 - \Delta z'^2
+\end{equation}
+holds the for the light pulse's coordinates in the two inertial reference frames $T$ and $T'$.
+\footnote{This is the ususal mathematical way to state that the speed of light is the same in all inertial reference frames.
+That the speed of light is the same in all inertial reference frames is also known as the second postulate of special relativity.
+There are altogether two postulates of special relativity.
+The two-postulate basis for special relativity is the one historically used by Einstein, and it remains the starting point today.
+The first postulate, which is also called "principle of relativity" and postulates that the laws of physics are the same in all inertial frames of reference,
+will become relevant in section \ref{sectionFirstPostulate} of this paper.}
+
+
+If $T$ and $T'$ are relative to each other at rest the equality
+\begin{equation}
+c^2\Delta t^2 - \Delta x^2 - \Delta y^2 - \Delta z^2 = c^2\Delta t'^2 - \Delta x'^2 - \Delta y'^2 - \Delta z'^2
+\end{equation}
+is true for the particle, too.
+This is because without relative motion the only transformations left are translations in space and time and rotations in space.
+For these transformations the even more restrictive relations
+
+\begin{equation} \label{noVelocityTransform}
+\Delta t = \Delta t' \; \text{and} \; \Delta x^2 + \Delta y^2 + \Delta z^2 = \Delta x'^2 + \Delta y'^2 + \Delta z'^2
+\end{equation}
+hold. (Note 1: If these relations wouldn't hold when $T$ and $T'$ are relative to each other at rest, this would be a strong hint that space wasn't homogeneous and isotropic.
+Note 2: The issues that led to special relativity arise only when $T$ and $T'$ are moving relative to each other.)\\
+
+The question we now aim to answer is: Is it true that for any transformation connecting the two inertial reference frames the equation
+
+\begin{equation} \label{invarianceSpaceTimeInterv}
+    c^2\Delta t^2 - \Delta x^2 - \Delta y^2 - \Delta z^2 = c^2\Delta t'^2 - \Delta x'^2 - \Delta y'^2 - \Delta z'^2
+\end{equation}
+holds for the particle's coordinates in $T$ and $T'$, too?
+
+As we already reasoned the only transformations this question isn't already answered for, are those which include a constant relative velocity $\vec{v}$ between $T$ and $T'$.
+Since we already know that rotations in space have no effect on
+
+\begin{align*}
+    &\Delta s^2 := c^2\Delta t^2 - \Delta x^2 - \Delta y^2 - \Delta z^2 \\
+    &\text{and} \\
+    &\Delta s'^2 := c^2\Delta t'^2 - \Delta x'^2 - \Delta y'^2 - \Delta z'^2
+\end{align*}
+the direction of $\vec{v}$ can't have an effect either. So only the absolute value $|\vec{v}|$ of $\vec{v}$ could be responsible for $\Delta s^2 \neq \Delta s'^2 $.
+Thus the possible relation between $\Delta s'$ and $\Delta s$ can be expressed by a family of functions $F$ parametrized by $|\vec{v}|$ such that
+
+\begin{equation}
+    \Delta s' = F_{|\vec{v}|} (\Delta s)
+\end{equation}
+
+Below we will show that $F$ can't depend on $|\vec{v}|$ at all.
+If so, then $F$ relates $\Delta s'$ and $\Delta s$ the same way no matter what the transformation between $T$ and $T'$ is.
+Thus we can use any special case of a transformation to determine $F$.
+Since any of \ref{noVelocityTransform} and \ref{constantsSpeedOfLight} lead to
+
+\begin{equation}
+    \Delta s' = \Delta s
+\end{equation}
+$F$ must be the identity function.
+So \ref{invarianceSpaceTimeInterv} holds for the particle, too.
+\\
+
+
+To prove $F$ cannot depend on $|\vec{v}|$ we consider three inertial reference frames $T_1$,$T_2$,$T_3$ with constant relative velocities
+
+\begin{align*}
+    &\vec{v_{12}} \; \text{between} \; T_1 \; \text{and} \; T_2 \\
+    &\vec{v_{23}} \; \text{between} \; T_2 \; \text{and} \; T_3 \\
+    &\vec{v_{13}} \; \text{between} \; T_1 \; \text{and} \; T_3 \\
+\end{align*}
+The equations for the relations between $\Delta s_1$, $\Delta s_2$, $\Delta s_3$ then would read
+
+\begin{equation}\label{Fofv1}
+\Delta s_2 = F_{|\vec{v_{12}}|}(\Delta s_1)
+\end{equation}
+
+\begin{equation} \label{Fofv2}
+\Delta s_3 = F_{|\vec{v_{13}}|}(\Delta s_1)
+\end{equation}
+
+\begin{equation} \label{Fofv3}
+\Delta s_3 = F_{|\vec{v_{23}}|}(\Delta s_2)
+\end{equation}
+Plugin \ref{Fofv1} into \ref{Fofv3} leads to $\Delta s_3 = F_{|\vec{v_{23}}|} \circ F_{|\vec{v_{12}}|} (\Delta s_1)$ which with \ref{Fofv2} leads to the function identity
+
+\begin{equation} \label{FRelation}
+F_{|\vec{v_{13}}|} = F_{|\vec{v_{23}}|} \circ F_{|\vec{v_{12}}|}
+\end{equation}
+at the same time the vector equation $\vec{v_{13}} = \vec{v_{12}} + \vec{v_{23}}$ must hold. For the absolute values this means
+
+\begin{equation}
+    |\vec{v_{13}}| = \sqrt{|\vec{v_{12}}|^2 + |\vec{v_{23}}|^2 + 2 |\vec{v_{12}}||\vec{v_{23}}| \cos(\alpha)}
+\end{equation}
+where $\alpha$ is the angle between $\vec{v_{12}}$ and $\vec{v_{23}}$.
+
+This way the left hand side of equation \ref{FRelation} would depend on $\alpha$ but the right hand side would not. Because of this contradiction $F$ cannot depend on the relative velocity between inertial reference frames.
+
+
+
+
+\subsection{The Lorentz transformation} \label{sectionLorentzTransformation}
+
+\subsubsection{Non relativistic setup} \label{setup}
+We observe a particle from within two inertial reference frames $T$ and $T'$.
+Inertial reference frames are reference frames in which a body with zero net force acting upon it is not accelerating.
+The axis of the frames point in the same direction and $T'$ moves with velocity $v$ along $T$'s $x$-axis such that their classical Galilean transformation is given by:
+
+\begin{equation} \label{Galilei}
+\left(\begin{array}{c}
+t'
+\\
+x'
+\end{array} \right)
+=
+\begin{pmatrix}
+1 & 0
+\\
+-v & 1
+\end{pmatrix}
+\left(\begin{array}{c}
+t
+\\
+x
+\end{array} \right)
+\;,\; y'=y \;,\; z'=z
+\end{equation}
+
+where $t,x,y,z$ are the coordinates of the particle in $T$ and $t',x',y',z'$ are the coordinates of the particle in $T'$.
+As we can see from these equations we chose $t=t'=0$ to be the time when the coordinate frames are on top of each other.
+
+\subsubsection{Invariance of the space time interval}
+
+Since at $t=t'=0$ the two reference frames $T$ and $T'$ are on top of each other \ref{invarianceSpaceTimeInterv} turns into
+
+\begin{equation} \label{spaceTimeElement}
+c^2t'^2-x'^2-y'^2-z'^2 = c^2t^2-x^2-y^2-z^2
+\end{equation}
+
+As an ansatz for a coordinate transformation between the two reference frames which is consistent with \ref{spaceTimeElement} we write:
+
+\begin{equation} \label{ansatz}
+\left(\begin{array}{c}
+ct'
+\\
+x'
+\end{array} \right)
+=
+\begin{pmatrix}
+a & d
+\\
+b & e
+\end{pmatrix}
+\left(\begin{array}{c}
+ct
+\\
+x
+\end{array} \right)
+
+\end{equation}
+
+
+\subsubsection{Finding the matrix elements of the ansatz}
+
+Because of $y'=y, z'=z$, equation \ref{spaceTimeElement} and the ansatz \ref{ansatz} result in the following matrix equation
+
+\begin{equation} \label{matrixEquationLorentzTransform}
+\left[
+\begin{pmatrix}
+a & d
+\\
+b & e
+\end{pmatrix}
+\left(\begin{array}{c}
+ct
+\\
+x
+\end{array} \right)
+\right]^t
+\begin{pmatrix}
+1 & 0
+\\
+0 & -1
+\end{pmatrix}
+\left[
+\begin{pmatrix}
+a & d
+\\
+b & e
+\end{pmatrix}
+\left(\begin{array}{c}
+ct
+\\
+x
+\end{array} \right)
+\right]
+=
+\left(\begin{array}{c}
+ct
+\\
+x
+\end{array} \right)^t
+\begin{pmatrix}
+1 & 0
+\\
+0 & -1
+\end{pmatrix}
+\left(\begin{array}{c}
+ct
+\\
+x
+\end{array} \right)
+\end{equation}
+
+Since $t$ and $x$ are arbitrary the only way for this equation to be true is
+
+\begin{equation} \label{minkowski}
+\begin{pmatrix}
+a & b
+\\
+d & e
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0
+\\
+0 & -1
+\end{pmatrix}
+\begin{pmatrix}
+a & d
+\\
+b & e
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & 0
+\\
+0 & -1
+\end{pmatrix}
+\end{equation}
+
+\begin{equation}
+\iff
+\begin{pmatrix}
+a & b
+\\
+d & e
+\end{pmatrix}
+\begin{pmatrix}
+a & d
+\\
+-b & -e
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & 0
+\\
+0 & -1
+\end{pmatrix}
+\end{equation}
+
+\begin{equation}
+\iff
+\begin{pmatrix}
+a^2-b^2 & ad-be
+\\
+ad-be & d^2-e^2
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & 0
+\\
+0 & -1
+\end{pmatrix}
+\end{equation}
+
+
+
+
+These are three equations for four parameters $a,b,d,e$. This means one free parameter will remain.
+We are now going to solve these equations in such a way that $a,d,e$ are expressed through $b$:
+
+\begin{equation}
+a(b) = \pm \sqrt{1+b^2}
+\end{equation}
+
+\begin{equation}
+-1 = d^2-e^2 = \frac{b^2e^2}{a^2} -e^2 = e^2 \bigg(\frac{b^2}{a^2} - 1 \bigg)
+\end{equation}
+
+\begin{equation}
+\iff e^2 = \frac{1}{1-\frac{b^2}{a^2}} = \frac{1}{1-\frac{b^2}{1+b^2}} = \frac{1}{\frac{1+b^2-b^2}{1+b^2}} = 1+b^2
+\end{equation}
+
+\begin{equation}
+\iff e(b) = \pm \sqrt{1+b^2}
+\end{equation}
+
+
+\begin{equation}
+d^2 = e^2 -1 = b^2 \iff d(b) = \pm b
+\end{equation}
+
+\begin{equation} \label{matrixExpressedByB}
+\implies
+\begin{pmatrix}
+a & d
+\\
+b & e
+\end{pmatrix}
+=
+\begin{pmatrix}
+\sqrt{1+b^2} & b
+\\
+b & \sqrt{1+b^2}
+\end{pmatrix}
+\end{equation}
+
+In \ref{matrixExpressedByB} we chose the positive solutions only.
+This can be rectified by checking that the matrix \ref{matrixExpressedByB} solves equation \ref{minkowski}.
+
+The transformation law now reads
+
+\begin{equation}
+\left(\begin{array}{c}
+ct'
+\\
+x'
+\end{array} \right)
+=
+\begin{pmatrix}
+\sqrt{1+b^2} & b
+\\
+b & \sqrt{1+b^2}
+\end{pmatrix}
+\left(\begin{array}{c}
+ct
+\\
+x
+\end{array} \right)
+\;,\; y'=y \;,\; z'=z
+\end{equation}
+
+Next we want to move the speed of light $c$ from the vectors to the matrix.
+To do so we write the above equation in the following form:
+
+\begin{equation}
+\begin{pmatrix}
+c & 0
+\\
+0 & 1
+\end{pmatrix}
+\left(\begin{array}{c}
+t'
+\\
+x'
+\end{array} \right)
+=
+\begin{pmatrix}
+\sqrt{1+b^2} & b
+\\
+b & \sqrt{1+b^2}
+\end{pmatrix}
+\begin{pmatrix}
+c & 0
+\\
+0 & 1
+\end{pmatrix}
+\left(\begin{array}{c}
+t
+\\
+x
+\end{array} \right)
+\end{equation}
+
+\begin{equation}
+\iff
+\left(\begin{array}{c}
+t'
+\\
+x'
+\end{array} \right)
+=
+\begin{pmatrix}
+1/c & 0
+\\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+\sqrt{1+b^2} & b
+\\
+b & \sqrt{1+b^2}
+\end{pmatrix}
+\begin{pmatrix}
+c & 0
+\\
+0 & 1
+\end{pmatrix}
+\left(\begin{array}{c}
+t
+\\
+x
+\end{array} \right)
+\end{equation}
+
+\begin{equation}
+\iff
+\left(\begin{array}{c}
+t'
+\\
+x'
+\end{array} \right)
+=
+\begin{pmatrix}
+\sqrt{1+b^2} /c & b /c
+\\
+b & \sqrt{1+b^2}
+\end{pmatrix}
+\begin{pmatrix}
+c & 0
+\\
+0 & 1
+\end{pmatrix}
+\left(\begin{array}{c}
+t
+\\
+x
+\end{array} \right)
+\end{equation}
+
+\begin{equation} \label{transformationBasedOnb}
+\iff
+\left(\begin{array}{c}
+t'
+\\
+x'
+\end{array} \right)
+=
+\begin{pmatrix}
+\sqrt{1+b^2} & b /c
+\\
+c b  & \sqrt{1+b^2}
+\end{pmatrix}
+\left(\begin{array}{c}
+t
+\\
+x
+\end{array} \right)
+\end{equation}
+
+\subsubsection{Calculation of $b$} \label{calcOfB}
+
+We would now like to give a physical interpretation of $b$.
+To do so we consider \ref{spaceTimeElement} for the special case where the particle moves with the origin of reference frame $T'$.
+
+First we use $y'=y, z'=z$ to simplify \ref{spaceTimeElement} to
+
+\begin{equation} \label{spaceTimeElementReduced}
+c^2t'^2-x'^2 = c^2t^2-x^2
+\end{equation}
+
+Since the particle resides in the origin of $T'$, $x'$ is zero which simplifies \ref{spaceTimeElementReduced} to
+
+\begin{equation}
+ct' = \sqrt{c^2 t^2 - x^2}
+\end{equation}
+
+Furthermore the velocity of the particle in $T$ is given by the relative speed $v$ between the two reference frames.
+This provides us with a relation between $x$ and $t$: $x/t=v$. Using this we can write
+
+\begin{equation}
+ct' = \sqrt{c^2 t^2 - x^2} = \sqrt{1 - \frac{x^2}{c^2t^2}} \; \; \; ct = \sqrt{1 - \frac{v^2}{c^2}} \; \; \; ct
+\end{equation}
+
+\begin{equation} \label{timeDilation}
+\iff t' = \sqrt{1 - \frac{v^2}{c^2}} \; \; \; t
+\end{equation}
+
+This special case of the transformation has to be consistent with our more general transformation given by \ref{transformationBasedOnb}.
+Thus the following two equations must hold for our special case:
+
+\begin{equation}
+t' = \sqrt{1+b^2} \; \; t + \frac{b}{c} x = \sqrt{1+b^2} \; \; t + \frac{b}{c} v t
+\end{equation}
+and
+\begin{equation}
+t' = \sqrt{1 - \frac{v^2}{c^2}} \; \; \; t
+\end{equation}
+
+This results in the following condition for b:
+
+
+\begin{equation}
+\sqrt{1 - \frac{v^2}{c^2}} \; \; t = \sqrt{1+b^2} \; \; t + \frac{b}{c} v t
+\end{equation}
+
+\begin{equation} \label{find_b}
+\iff \sqrt{1 - \frac{v^2}{c^2}} = \sqrt{1+b^2} + \frac{b}{c} v
+\end{equation}
+
+
+It is certainly possible, but tedious to solve \ref{find_b} for $b$. So we provide the solution
+
+\begin{equation}
+b = \frac{-v/c}{\sqrt{1 - \frac{v^2}{c^2}}}
+\end{equation}
+
+and check it is right:
+
+\begin{equation}
+\sqrt{1+b^2} + \frac{b}{c} v
+= \sqrt{1+\frac{v^2/c^2}{1 - \frac{v^2}{c^2}}} - \frac{v^2/c^2}{\sqrt{1 - \frac{v^2}{c^2}}}
+= \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}  - \frac{v^2/c^2}{\sqrt{1 - \frac{v^2}{c^2}}}
+=  \sqrt{1 - \frac{v^2}{c^2}}
+\end{equation}
+
+q.e.d.
+
+
+\subsubsection{Lorentz transformation} \label{sectLorentzTransform}
+
+In preparation to plug $b$ into \ref{transformationBasedOnb} we first consider
+
+\begin{equation}
+\sqrt{1+b^2}
+= \sqrt{1 + \frac{v^2/c^2}{1 - \frac{v^2}{c^2}}}
+= \sqrt{\frac{1 - v^2/c^2 + v^2/c^2}{1 - \frac{v^2}{c^2}}}
+= \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}
+\end{equation}
+
+Using this \ref{transformationBasedOnb} turns into
+
+\begin{equation} \label{lorentz}
+\left(\begin{array}{c}
+t'
+\\
+x'
+\end{array} \right)
+=
+\begin{pmatrix}
+\frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} & \frac{-v/c^2}{\sqrt{1 - \frac{v^2}{c^2}}}
+\\
+\frac{-v}{\sqrt{1 - \frac{v^2}{c^2}}}  & \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}
+\end{pmatrix}
+\left(\begin{array}{c}
+t
+\\
+x
+\end{array} \right)
+=
+\frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}
+\begin{pmatrix}
+1 & -v/c^2
+\\
+-v & 1
+\end{pmatrix}
+\left(\begin{array}{c}
+t
+\\
+x
+\end{array} \right)
+\end{equation}
+
+which is called Lorentz transformation.
+
+\subsubsection{Interpretation and generalization} \label{sectionGeneralizationLorentz}
+
+This result with rigor is valid for the inertial reference frame $T'$ in which the particle is at rest at the frames origin.
+Even if the particle is accelerated along the $x$ axis, for small time intervals there always exists such an inertial reference frame.
+Those reference frames are called 'the particles momentary rest frame'.
+\\
+\\
+If we look at \ref{lorentz} in its full 4 dimensional form
+
+\begin{equation}
+\left(\begin{array}{c}
+              t'
+              \\
+              x'
+              \\
+              y'
+              \\
+              z'
+\end{array} \right)
+=
+\frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}
+\begin{pmatrix}
+    1 & -v/c^2 & 0 & 0
+    \\
+    -v & 1 & 0 & 0
+    \\
+    0 & 0 & 1 & 0
+    \\
+    0 & 0 & 0 & 1
+\end{pmatrix}
+\left(\begin{array}{c}
+          t
+          \\
+          x
+          \\
+          y
+          \\
+          z
+\end{array} \right)
+\end{equation}
+it is obvious that it can be multiplied by rotation matrices
+\begin{equation}
+\begin{pmatrix}
+    1 & 0
+    \\
+    0 & R
+\end{pmatrix}
+\;,\; \text{where $R$ denotes a 3 dimensional rotation matrix}
+\end{equation}
+and that these products still fulfill \ref{spaceTimeElement}.
+This in mind we can claim, that our derivation is valid for the momentary rest frame of a particle moving in an arbitrary direction relative to $T$.
+\\
+\\
+With less rigor we can claim that for any two inertial reference frames $T$, $T'$ the particle's coordinates transform according to \ref{lorentz}.
+But still, \ref{lorentz} fulfills the central proposition \ref{spaceTimeElement} and thus is a good candidate for being the right transformation.
+If this was true, the generalizations we just discussed will be applicable, too.
+
+
+\section{Concepts and notations}
+
+\subsection{Proper time} \label{sectionProperTime}
+
+Be $T'$ with coordinates $t', x_1',x_2',x_3'$ a particle's momentary rest inertial reference frame (IRF) and be $T$ with coordinates $t, x_1,x_2,x_3$ an IRF from which we observe the particle.
+Then
+\begin{equation}
+    c^2dt'^2 - dx'^2 = c^2dt^2 - dx^2
+\end{equation}
+with $x' := (x_1',x_2',x_3')$ and $x := (x_1,x_2,x_3)$ holds.
+
+Because in the particle's momentary rest IRF $dx'=0$ we are left with
+\begin{equation} \label{defProperTime}
+c dt' = \sqrt{c^2dt^2 - dx^2} = c \sqrt{1- \frac{v^2}{c^2}} \; dt \iff dt' = \sqrt{1- \frac{v^2}{c^2}} \; dt
+\end{equation}
+where $v=v(t)$ is the particles momentary velocity in the observer IRF.
+
+According to its definition $dt' = \sqrt{1-\frac{v^2}{c^2}} \; dt$ is the time interval in the particles momentary rest IRF that corresponds to the time interval $dt$ in the observer IRF.
+So any observer can calculate how long a time interval $dt$ in his IRF will be in the particles momentary rest IRF by $\sqrt{1-\frac{v^2}{c^2}} \; dt$.
+Thus all observers in IRFs will agree upon the time interval $dt'$ in the particles momentary rest IRF.
+Through this recipe $dt'$ is the same in any IRF. By convention time intervals in the particle's momentary rest IRF are named $d\tau$ and are called "proper time":
+\begin{equation}
+    d\tau = \sqrt{1-\frac{v^2}{c^2}} \; dt
+\end{equation}
+A more formal and even simpler way to see that $d\tau$ is the same in every IRF is: If in one observer IRF the particle travels the distance
+\begin{equation}
+    dx = \left(\begin{array}{c}
+                   dx_1\\
+                   dx_2\\
+                   dx_3\\
+    \end{array} \right)
+\end{equation}
+in time $dt$ then the value of $c^2 dt^2 - dx^2$ is the same in every other IRF, too.
+The same is true for its square root:
+\begin{equation}
+    \sqrt{c^2 dt^2 - dx^2} = \sqrt{1-\frac{v^2}{c^2}} \; dt = d\tau
+\end{equation}
+
+\subsection{4-velocity} \label{section4Velocity}
+The invariance of proper time $d\tau$ allows us to define a new object which under Lorentz transformations transforms like $(c \; dt,dx_1,dx_2,dx_3)$:
+\begin{equation}
+    u := \frac{1}{d \tau}
+    \left(\begin{array}{c}
+              c \; dt\\
+              dx_1\\
+              dx_2\\
+              dx_3\\
+    \end{array} \right)
+    = \frac{1}{\sqrt{1-\frac{v^2}{c^2}}}
+    \left(\begin{array}{c}
+              c \\
+              v_1\\
+              v_2\\
+              v_3\\
+    \end{array} \right)
+\end{equation}
+$u$ is called the particles "4-velocity".
+
+\subsection{Notations} \label{sectionNotations}
+From section \ref{sectionGeneralizationLorentz} we know that Lorentz transformations can be written as $4 \times 4$ matrices.
+In the following we consider $\Lambda$ as such a matrix:
+
+For any Lorentz transformation $\Lambda$ of a particle's coordinates and time $X := (c t,x_1,x_2,x_3)$ the following equation must hold
+\begin{equation} \label{generalConditionForLorentzTransformations}
+\Lambda^t g \Lambda = g \;\; \text{where} \;\;
+g :=
+\begin{pmatrix}
+    1 & 0 & 0 & 0
+    \\
+    0 & -1 & 0 & 0
+    \\
+    0 & 0 & -1 & 0
+    \\
+    0 & 0 & 0 & -1
+\end{pmatrix}
+\;\begin{array}{c}\text{In special relativity} \\ \text{$g$ is called metric tensor} \\ \text{or simply metric.}\end{array}
+\end{equation}
+This is the general form of \ref{matrixEquationLorentzTransform} and a direct consequence of \ref{invarianceSpaceTimeInterv}.
+It is the formal definition of a general Lorentz transformation, i.e. any $4 \times 4$-matrix that fulfills this equation is a Lorentz transformation of $X$.
+With these definitions the transformation of $X$ by $\Lambda$ is given by matrix-vector multiplication $\Lambda X$.
+Up to now we know three 4-component objects that transform like $X$.
+Those are $X$ itself, intervals $dX$ of $X$ and the 4-velocity $u$ from the former section.
+Any 4-component object that transforms like $X$ is called a "4-vector".
+
+\subsection{Invariance of the 4-vector product} \label{invarianceOf4VectorProduct}
+The product $V^t g W$ of two 4-vectors $V,W$ is invariant under Lorentz-Transformations, i.e. is the same in any IRF.
+Proof:
+\begin{equation}
+    (\Lambda V)^t g (\Lambda W) = V^t \Lambda^t g \Lambda W = V^t g W
+\end{equation}
+
+\subsubsection{Proper time revisited}
+With the concept of the 4-vector product we can write
+\begin{align}
+    & dX^{t} g \; dX = c^2 dt^2 - dx^2 \\
+    \iff & \sqrt{dX^{t} g \; dX} = c \; \sqrt{1-\frac{v^2}{c^2}} \; dt = c \; d\tau
+\end{align}
+This is another proof of the invariance of $d\tau$ is invariant under Lorentz-Transformations.
+\footnote{
+According to the upcoming section \ref{sectionInvariance} the invariance of $d\tau$ under Lorentz-Transformations is given by the fact that
+\begin{equation}
+    d\tau = \sqrt{1-\frac{v^2}{c^2}} \; dt = \sqrt{1-\frac{v'^2}{c^2}} \; dt'
+\end{equation}
+is true for any two IRFs $T$ and $T'$ where time is given by $t$ and $t'$ respectively and the particle's velocity is given by $v$ and $v'$ respectively.
+}
+
+
+\section{On the Lagrange formulation of particle dynamics} \label{particleLagrangian}
+
+The main result of this section will be the derivation of the transformation law of the electromagnetic potentials $A,\phi$ as given in \cite{LagrangeOfField} from the invariance of the Lorentz force.
+Another important result will be the derivation of $E=mc^2$.
+
+Quite a few preparations in the field of classical non relativistic particle physics will be needed for this.
+These preparations are done in the first subsection.
+
+\subsection{On the Lagrange formulation of classical non relativistic particle dynamics}
+
+\subsubsection{Energy conservation} \label{energyConservation}
+The Lagrange formalism for particle physics as described in \cite{WagnerGuthrie}, as we will show, allows to derive energy conservation from analyzing how the action $S$ behaves under infinitesimal time translations. 
+By doing so we will find a definition for the energy of any physical system that is described by a particle Lagrangian. \\
+
+To kick off we consider the action
+
+\begin{equation}
+S = \int_{t_1}^{t_2} L(q(t), \dot{q}(t), t) \dd t
+\end{equation}
+
+where $L(q(t), \dot{q}(t), t)$ is the particle's Lagrange function, $q$ the particle's position coordinates and $t$ time. $t_1$,$t_2$ are fixed but arbitrary endpoints of a time interval of which we calculate the particle's action $S$. 
+($S$ can be considered as a function of $t_1$ and $t_2$: $S = S(t_1,t_2)$)
+
+We now ask by what amount $S$ changes if time is changed from $t$ to $t + \delta t$ with $\delta t$ being a small time interval.
+The resulting change $\delta S$ of $S$ is given by
+
+\begin{equation} \label{defDelS}
+\delta S = \int_{t_1 + \delta t}^{t_2 + \delta t} L(q(t), \dot{q}(t), t) \dd t 
+- \int_{t_1}^{t_2} L(q(t), \dot{q}(t), t) \dd t
+\end{equation}
+
+Next we use the substitution rule which is given by
+\begin{equation}
+\int_{\varphi(t_1)}^{\varphi(t_2)} f(x) \dd x = \int_{t_1}^{t_2} f(\varphi(t)) \; \dot{\varphi}(t) \dd t
+\end{equation}
+
+For $\varphi (t) = t + \delta t$ the rule reads
+\begin{equation}
+\int_{t_1 + \delta t}^{t_2 + \delta t} f(t) \dd t = \int_{t_1}^{t_2} f(t + \delta t) \dd t
+\end{equation}
+
+Since $\delta t$ is small we can write
+\begin{equation}
+\int_{t_1 + \delta t}^{t_2 + \delta t} f(t) \dd t 
+= \int_{t_1}^{t_2} \bigg(f(t) + \frac{\dd f}{\dd t} \delta t \bigg) \dd t
+\end{equation} 
+
+Applying this to \ref{defDelS} we arrive at
+
+\begin{equation}
+\delta S = \int_{t_1}^{t_2} \bigg(L + \frac{\dd L}{\dd t} \delta t \bigg) \dd t - \int_{t_1}^{t_2} L \dd t
+= \delta t \int_{t_1}^{t_2} \frac{\dd L}{\dd t} \dd t
+\end{equation}
+
+We will now assume that the particle's trajectory $q(t)$ is its physical trajectory which fulfills the Euler-Lagrange-Equation
+
+\begin{equation} \label{ParticleEulLagEqu}
+\frac{\dd}{\dd t} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L}{\partial q} = 0
+\end{equation}
+
+To make use of this equation we reformulate $\delta S$ as follows
+
+\begin{equation}
+\delta S = \delta t \int_{t_1}^{t_2} \frac{\dd L}{\dd t} \dd t
+= \delta t \int_{t_1}^{t_2} \bigg(
+\frac{\partial L}{\partial q} \dot{q} + \frac{\partial L}{\partial \dot{q}} \ddot{q} + \frac{\partial L}{\partial t} 
+\bigg) \dd t
+\end{equation}
+
+Integration by parts of the second term leads to
+
+\begin{equation}
+\delta S = \delta t \int_{t_1}^{t_2} \bigg(
+\frac{\partial L}{\partial q} \dot{q} -\bigg( \frac{\dd }{\dd t}\frac{\partial L}{\partial \dot{q}} \bigg) \dot{q} 
+ + \frac{\partial L}{\partial t}
+\bigg) \dd t
++ \delta t \bigg[ \frac{\partial L}{\partial \dot{q}} \dot{q} \bigg]_{t_1}^{t_2}
+\end{equation}
+
+With \ref{ParticleEulLagEqu} we are left with
+
+\begin{equation}
+\delta S = \delta t \int_{t_1}^{t_2} \frac{\partial L}{\partial t} \dd t
++ \delta t \bigg[ \frac{\partial L}{\partial \dot{q}} \dot{q} \bigg]_{t_1}^{t_2}
+= \delta t \int_{t_1}^{t_2} \frac{\partial L}{\partial t} \dd t
++ \delta t \int_{t_1}^{t_2} \frac{\dd}{\dd t} \bigg( \frac{\partial L}{\partial \dot{q}} \dot{q} \bigg) \dd t
+\end{equation}
+
+We now found two expressions for $\delta S$:
+
+\begin{equation}
+\delta S = \delta t \int_{t_1}^{t_2} \frac{\dd L}{\dd t} \dd t 
+\;\; \text{and} \;\;
+\delta S = \delta t \int_{t_1}^{t_2} \frac{\partial L}{\partial t} \dd t
++ \delta t \int_{t_1}^{t_2} \frac{\dd}{\dd t} \bigg( \frac{\partial L}{\partial \dot{q}} \dot{q} \bigg) \dd t
+\end{equation}
+
+Setting these to equal gives
+
+\begin{align}
+\int_{t_1}^{t_2} \frac{\dd L}{\dd t} \dd t
+&=  \int_{t_1}^{t_2} \frac{\partial L}{\partial t} \dd t
++ \int_{t_1}^{t_2} \frac{\dd}{\dd t} \bigg( \frac{\partial L}{\partial \dot{q}} \dot{q} \bigg) \dd t \\
+\iff
+- \int_{t_1}^{t_2} \frac{\partial L}{\partial t} \dd t  
+&=  \int_{t_1}^{t_2} \bigg(
+\frac{\dd}{\dd t} \bigg( \frac{\partial L}{\partial \dot{q}} \dot{q} \bigg) - \frac{\dd L}{\dd t} \bigg) \dd t \\
+\iff
+- \int_{t_1}^{t_2} \frac{\partial L}{\partial t} \dd t  
+&=  \int_{t_1}^{t_2} \frac{\dd}{\dd t} \bigg(\frac{\partial L}{\partial \dot{q}} \dot{q}  - L \bigg) \dd t
+\end{align}
+
+
+For the case $\partial L / \partial t = 0 $ this leads to
+\begin{equation}
+0 = \int_{t_1}^{t_2} \frac{\dd}{\dd t} \bigg(\frac{\partial L}{\partial \dot{q}} \dot{q}  - L \bigg) \dd t
+\end{equation}
+
+Since $t_1$ and $t_2$ are arbitrary this equation can only be true if
+
+\begin{equation} \label{legendre}
+0 = \frac{\dd}{\dd t} \bigg(\frac{\partial L}{\partial \dot{q}} \dot{q}  - L \bigg) 
+\implies 
+E := \frac{\partial L}{\partial \dot{q}} \dot{q}  - L = const
+\end{equation}
+
+\textbf{Interpretation}
+\begin{itemize}
+\item $E$ is called energy of the particle. $E$ is defined for any particle that can be described by the Lagrange formalism for particle physics. It is constant in time when $\partial L / \partial t = 0 $ i.e. when the particle's Lagrangian doesn't explicitly depend on time but depends on time through the particles coordinates $q(t)$ only.
+
+\item 
+$E$ was derived from analyzing how $S$ behaves under infinitesimal time translation. So energy conservation can be considered as a consequence of the behavior of a particle's action $S$ under infinitesimal time translations.
+
+\item
+There are more transformations, e.g. spacial translations and rotations, which also lead to conserved quantities. 
+Those are easier to derive because for them $\delta S = 0$. They can be found in any classical mechanics text book.
+
+\item
+For the standard classical mechanics Lagrangian
+\begin{equation}
+L = T-V = \frac{1}{2} m v^2 - V 
+\end{equation}
+the energy calculates to
+\begin{equation}
+E = \frac{\partial}{\partial v} \bigg(\frac{1}{2} m v^2 - V \bigg) v - \bigg(\frac{1}{2} m v^2 - V\bigg) =  \frac{1}{2} m v^2 + V
+\end{equation}
+
+\end{itemize}
+
+\subsubsection{Invariance of a Lagrangian} \label{sectionInvariance}
+Let $q=f(\bar{q},t)$ be an invertible and differentiable transformation of coordinates $q=(q_1,q_2, ...,q_n)$ and let $L=L(q, \dot{q},t)$ be a Lagrangian of the $q$.
+$L$ is called invariant under the transformation $f$ if
+
+\begin{equation} \label{defInvarianceLagrange1}
+    \bar{L}(\bar{q},\dot{\bar{q}},t) = L(\bar{q},\dot{\bar{q}},t)
+\end{equation}
+where $\bar{L}$ is as usual defined by $\bar{L}(\bar{q},\dot{\bar{q}},t) := L(f(\bar{q}), \dot{f}(\bar{q}),t)$.
+From this definition another equivalent formulation of \ref{defInvarianceLagrange1} follows immediately:
+
+\begin{equation} \label{defInvarianceLagrange2}
+L(q,\dot{q},t) = L(\bar{q},\dot{\bar{q}},t)
+\end{equation}
+
+A good way to picture invariance is that the structure of the Lagrangian is such that the transformation cancels out.
+\\ \\
+\textbf{Example:}
+An example is a Lagrangian of a particle in classical mechanics in cartesian coordinates of the form $L=\frac{1}{2}m v^2 - V(|x|)$ where $x$ and $v$ denote a particle's position and velocity respectively.
+If in this case the transformation is a rotation of the particles coordinates $x = f(\bar{x}) := R\bar{x}$ with $1 = R^tR $ then $L$ is invariant under this transformation.
+\\ \\
+Since the Euler-Lagrange equations are never changed by transformations of the form $q=f(\bar{q},t)$ the following is true:
+If a Lagrangian is invariant under $f$ the equations of motion in both coordinates will be the same with just the untransformed and transformed coordinates interchanged.
+
+\subsubsection{Generalization of the invariance of a Lagrangian} \label{sectionGeneralizationInvariance}
+We are going to generalize the ideas of the last section in such a way that we are able to include fields.
+An example for a particle Lagrangian with fields is that of a charged particle in an electromagnetic field.
+
+The generalized particle Lagrangian we assume to be of the form
+\begin{equation}
+    L = L \bigg(\psi,\frac{\partial \psi}{\partial q},\frac{\partial \psi}{\partial t},q,\dot{q},t\bigg)
+\end{equation}
+where $\psi$ denotes a field that generally consists of multiple components (like for example the electric field).
+Be
+\begin{align}
+    &q=f(\bar{q}) \\
+    &\psi = F(\bar{\psi})
+\end{align}
+transformations of the coordinates and the field, then the transformed Lagrangian is as usual defined by
+\begin{equation} \label{defineGeneralizedParticleLagrangianTransform}
+    \bar{L} \bigg(\bar{\psi},\frac{\partial \bar{\psi}}{\partial \bar{q}},\frac{\partial \bar{\psi}}{\partial t},\bar{q},\dot{\bar{q}},t\bigg)
+    := L \bigg(F,\frac{\partial F}{\partial f},\frac{\partial F}{\partial t}, f,\dot{f},t\bigg)
+\end{equation}
+The Lagrangian is called invariant under the transformations $f$ and $F$, if
+\begin{equation} \label{defInvarianceLagrange1Generalized}
+    \bar{L} \bigg(\bar{\psi},\frac{\partial \bar{\psi}}{\partial \bar{q}},\frac{\partial \bar{\psi}}{\partial t},\bar{q},\dot{\bar{q}},t\bigg)
+    = L \bigg(\bar{\psi},\frac{\partial \bar{\psi}}{\partial \bar{q}},\frac{\partial \bar{\psi}}{\partial t},\bar{q},\dot{\bar{q}},t\bigg)
+\end{equation}
+from which again immediately follows that
+\begin{equation} \label{defInvarianceLagrange2Generalized}
+    L \bigg(\bar{\psi},\frac{\partial \bar{\psi}}{\partial \bar{q}},\frac{\partial \bar{\psi}}{\partial t},\bar{q},\dot{\bar{q}},t\bigg)
+    = L \bigg(\psi,\frac{\partial \psi}{\partial q},\frac{\partial \psi}{\partial t},q,\dot{q},t\bigg)
+\end{equation}
+Notes:
+\begin{itemize}
+    \item The concept of invariance may be generalized to any function which transforms according to \ref{defineGeneralizedParticleLagrangianTransform}.
+    \item In the following we will learn that the Lagrangian of a particle in special relativity takes the form $L \sqrt{1 - \frac{v^2}{c^2}}$,
+    where only the part $L$ will turn out to be invariant under Lorentz transformations, while $L \sqrt{1 - \frac{v^2}{c^2}}$ as a whole is not invariant under Lorentz transformations.
+\end{itemize}
+
+
+
+\subsubsection{The Lorentz force and its Lagrangian} \label{sectionLorentzForceLagrangian}
+
+The Lorentz force on a particle with charge $e$ in cartesian coordinates is given by
+
+\begin{equation} \label{lorentzForceLaw}
+    F_L = e E + e v \times B
+\end{equation}
+where $v$ is the particles velocity and $E,B$ are respectively the electric and magnetic fields at the particle's coordinates.
+The Lagrangian that corresponds to the Lorentz force is given by
+
+\begin{equation} \label{lorentzForceLagrangian}
+    L_L = - e (\phi - A \cdot v)
+\end{equation}
+where $\phi, A$ are respectively the electric and magnetic potentials as discussed in \cite{LagrangeOfField}
+
+$L_L$ is the part of the Lagrangian of a charged particle in an electro magnetic field that represents the particle's interaction with the electro magnetic field.
+In classical mechanics the whole Lagrangian is
+\begin{equation}
+    L = \frac{1}{2}mv^2 + L_L
+\end{equation}
+
+To show that $L_L$ reproduces the Lorentz force $F_L$ we prove
+
+\begin{equation}
+    F_L = -\bigg(\frac{\dd}{\dd t} \frac{\partial L_L}{\partial v} - \frac{\partial L_L}{\partial x} \bigg)
+\end{equation}
+
+We start with
+
+\begin{equation}
+    \frac{\partial L_L}{\partial v_i} = e A_i
+\end{equation}
+
+\begin{align}
+    \implies & \frac{\dd}{\dd t} \frac{\partial L_L}{\partial v_i} = e \bigg(\frac{\partial A_i}{\partial t} + \frac{\partial A_i}{\partial x_j} v_j\bigg) \\
+    & \text{with} \;\; i,j \in \{1,2,3\} \\
+    & \text{and implicit sum over duplicate indices} \nonumber
+\end{align}
+To understand the term $\frac{\partial A_i}{\partial x_j} v_j$ we consider that during some small time interval $\dd t$ the particles coordinates change by $\dd x_j = v_j \dd t$.
+Hence $A_i$'s change resulting from the change $\dd x_j$ is given by $\frac{\partial A_i}{\partial x_j} \dd x_j = \frac{\partial A_i}{\partial x_j} v_j \dd t$.
+So the coordinate wise contribution of $A_i$ to the total time derivative of $\frac{\partial L_L}{\partial v_i}$ is $\frac{\partial A_i}{\partial x_j} v_j$.
+
+We continue with $\frac{\partial L_L}{\partial x_i}$:
+
+\begin{equation}
+    \frac{\partial L_L}{\partial x_i} = -e \frac{\partial \phi}{\partial x_i} + e \frac{\partial A_j}{\partial x_i} v_j
+\end{equation}
+Thus
+\begin{align}
+    \frac{\dd}{\dd t} \frac{\partial L_L}{\partial v_i} - \frac{\partial L_L}{\partial x_i}
+    & = e \bigg(\frac{\partial A_i}{\partial t} + \frac{\partial A_i}{\partial x_j} v_j\bigg)
+    - \bigg( -e \frac{\partial \phi}{\partial x_i} + e \frac{\partial A_j}{\partial x_i} v_j \bigg) \nonumber \\
+    & = - e \bigg( -\frac{\partial \phi}{\partial x_i} - \frac{\partial A_i}{\partial t} \bigg)
+    - e \bigg( v_j \frac{\partial A_j}{\partial x_i}  - v_j \frac{\partial A_i}{\partial x_j}  \bigg)
+\end{align}
+We next use the relations $B = \nabla \times A$ and $E = - \nabla \phi - \frac{\partial A}{\partial t}$ which were introduced in  \cite{LagrangeOfField}.
+
+As an intermediate step we consider
+\begin{align}
+[v \times B]_i &= [v \times (\nabla \times A)]_i \nonumber \\
+&=\epsilon_{ijk} v_j [\nabla \times A]_k \nonumber \\
+&=\epsilon_{ijk} v_j \epsilon_{kln} \frac{\partial A_n}{\partial x_l} \nonumber \\
+&=\epsilon_{kij} \epsilon_{kln} v_j  \frac{\partial A_n}{\partial x_l} \nonumber \\
+&=(\delta_{il} \delta_{jn} - \delta_{in} \delta_{jl} ) v_j  \frac{\partial A_n}{\partial x_l} \nonumber \\
+&=v_j \frac{\partial A_j}{\partial x_i} - v_j \frac{\partial A_i}{\partial x_j} \nonumber
+\end{align}
+where $\epsilon_{ijk}$ is the Levi-Civita symbol, $\delta_{ij}$ is the Kronecker delta and where we made use of the rule
+$\epsilon_{ijk} \epsilon_{ilm} = \delta_{jl}\delta_{km} - \delta_{jm}\delta_{kl}$.
+
+With that we arrive at
+\begin{equation}
+    \frac{\dd}{\dd t} \frac{\partial L_L}{\partial v_i} - \frac{\partial L_L}{\partial x_i}
+    = - e E_i - e [v \times B]_i = -F_L_i
+\end{equation}
+which is the result we wanted to prove.
+
+
+\subsubsection{Gauge} \label{sectionGauge}
+We will define gauge in the context of a particle Lagrangian and will explore how it is connected to gauge in the context of the electromagnetic potentials.
+The aim of this section is to clarify the influence of gauges of the electromagnetic potentials in order lay out a basis for discussions on what
+impact it may have on the Lorentz transformation properties of the potentials.
+It will turn out that they have no influence,
+i.e. the four components of $(\phi/c, A_1,A_2,A_3)$ will turn out to transform under Lorentz transformations like the components of $(ct,x_1,x_2,x_3)$ in any gauge.
+\\
+\\
+\textbf{Gauge of a particle Lagrangian}
+
+\noindent A particle Lagrangian can be changed the following way without changing its equation of motion:
+
+\begin{equation}
+    L(q,\dot{q}, t) \rightarrow L(q,\dot{q}, t) + \frac{\dd}{ \dd t} F(q,t)
+\end{equation}
+where F ist an arbitrary function of the coordinates and time.
+A change of this kind is called a gauge.
+
+To prove that the equations of motion are not changed by a gauge we calculate the Euler-Lagrange equations for the right hand side:
+
+\begin{align}
+    & \frac{\dd}{\dd t} \frac{\partial \big(L + \frac{\dd F}{\dd t}\big)}{\partial \dot{q}} - \frac{\partial \big(L + \frac{\dd F}{\dd t}\big)}{\partial q} \nonumber \\
+    & = \frac{\dd}{\dd t} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L }{\partial q}
+        + \frac{\dd}{\dd t} \frac{\partial}{\partial \dot{q}} \frac{\dd F}{\dd t}  - \frac{\partial}{\partial q} \frac{\dd F}{\dd t} \nonumber \\
+    & = \frac{\dd}{\dd t} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L }{\partial q}
+        + \frac{\dd}{\dd t} \frac{\partial}{\partial \dot{q}} \bigg( \frac{\partial F}{\partial q} \dot{q} + \frac{\partial F}{\partial t} \bigg)
+        - \frac{\partial}{\partial q} \bigg( \frac{\partial F}{\partial q} \dot{q} + \frac{\partial F}{\partial t} \bigg) \nonumber \\
+    & = \frac{\dd}{\dd t} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L }{\partial q}
+        + \frac{\dd}{\dd t} \frac{\partial F}{\partial q}
+        - \bigg(\frac{\partial^2 F}{\partial q^2} \dot{q} + \frac{\partial }{\partial t} \frac{\partial F}{\partial q} \bigg) \nonumber \\
+    & = \frac{\dd}{\dd t} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L }{\partial q}
+        + \frac{\dd}{\dd t} \frac{\partial F}{\partial q}
+        - \frac{\dd}{\dd t} \bigg(\frac{\partial F}{\partial q} \bigg) \nonumber \\
+    & = \frac{\dd}{\dd t} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L }{\partial q} + 0
+\end{align}
+This is the same term as without gauge, which proves that the gauge doesn't change the equations of motion.
+\\
+\\
+\textbf{Connection between the gauges of the particle Lagrangian and the electro magnetic field}
+
+\noindent A gauge of the electromagnetic potentials is given by
+
+\begin{align}
+    A &\rightarrow A + \nabla \lambda(x,t) \\
+    \phi &\rightarrow \phi - \frac{\partial}{\partial t} \lambda(x,t)
+\end{align}
+where $\lambda$ is an arbitrary function of the spacial coordinates and time.
+
+It is a well known and easy to prove that this gauge does not affect the electromagnetic fields $E,B$ given by $B = \nabla \times A$ and $E = - \nabla \phi - \frac{\partial A}{\partial t}$.
+
+Next we will calculate in which way this gauge will affect the Lagrangian $L_L$ of the Lorentz force:
+The way $L_L$ changes by a gauge of the electromagnetic potentials is given by
+
+\begin{align}
+    L_L = - e (\phi - A \cdot v) \rightarrow & -e(\phi-\frac{\partial \lambda}{\partial t}) - (A + \nabla \lambda) \cdot v) \nonumber \\
+    & = - e (\phi - A \cdot v) - e (\frac{\partial \lambda}{\partial t} - \nabla \lambda \cdot v) \nonumber \\
+    & = - e (\phi - A \cdot v) - e \frac{\dd \lambda}{\dd t} \nonumber \\
+    & = - e (\phi - A \cdot v) - \frac{\dd \; (e \lambda)}{\dd t}
+\end{align}
+This shows that changing the gauge of the electromagnetic potentials changes the Lagrangian by a total time derivative.
+As we saw above this change won't affect the equations of motion.
+Both gauges are consistent in so far as they don't effect physical, i.e. measurable, phenomena.
+
+Because of these results the impact of gauges is well defined and restricted.
+
+\subsection{On the Lagrange formulation of relativistic particle dynamics} \label{sectionOnRelativisticParticles}
+
+\subsubsection{The first postulate of special relativity} \label{sectionFirstPostulate}
+The first postulate of special relativity says that the laws of physics are the same in all IRFs.
+The way to translate this into the Lagrange formalism is to require that a particle's action integral
+\begin{equation} \label{relativisticAction}
+    S = \int\limits_{\tau_1}^{\tau_2} L \dd \tau
+\end{equation}
+over it's proper time $\tau$ must be invariant
+\footnote{For brevity in the sub sections of \ref{sectionOnRelativisticParticles} by invariant we mean invariant under Lorentz transformations.}.
+Notable aspects of this are:
+\begin{itemize}
+    \item The invariance of $S$ is to be understood in the sense of sections \ref{sectionInvariance} and \ref{sectionGeneralizationInvariance}.
+    \item Since the interval $d  \tau$ of proper time is invariant then for $S$ to be invariant the Lagrangian $L$ must be invariant, too.
+    \item When $S$ is invariant any stationary point of $S$ is invariant, too.
+    \item The equations of motion will be the same in every IRF.
+\end{itemize}
+In an observer IRF with time $t$ and where the particle's velocity is $v$ we may write \ref{relativisticAction} in the form
+\begin{equation} \label{relativisticActionWithObserver}
+    S = \int\limits_{\tau_1}^{\tau_2} L \dd \tau = \int\limits_{t_1}^{t_2} L \; \sqrt{1-\frac{v^2}{c^2}} \; \dd t
+\end{equation}
+where in the last equation we used the substitution rule $\int_{\varphi(t_1)}^{\varphi(t_2)} f(x) \dd x = \int_{t_1}^{t_2} f(\varphi(t)) \; \dot{\varphi}(t) \dd t$ with $\dot{\varphi}(t)= \frac{d \tau}{d t} = \sqrt{1-\frac{v(t)^2}{c^2}}$.
+
+
+\subsubsection{Application to the Lorentz force law} \label{sectionConsequencesOfInvarianceLorentzForce}
+
+Einstein assumed that the first postulate is true for the laws of electrodynamics.
+Here we make the weaker assumption that the Lorentz force law $F_L = eE + ev \times B$ (see \ref{lorentzForceLaw}) is the same in every IRF.
+We used to write the part of the action that represents $F_L$ in the following form
+\begin{equation}
+    S_L = \int\limits_{t_1}^{t_2} L_L \; \dd t \;\; \text{with} \;\; L_L = - e (\phi - A \cdot v)
+\end{equation}
+which can be given the form \ref{relativisticActionWithObserver} by writing
+\begin{equation}
+    S_L = \int\limits_{t_1}^{t_2} \frac{L_L}{\sqrt{1-\frac{v^2}{c^2}}} \; \sqrt{1-\frac{v^2}{c^2}} \; \dd t
+        = \int\limits_{\tau_1}^{\tau_2} \frac{L_L}{\sqrt{1-\frac{v^2}{c^2}}} \;  \dd \tau
+\end{equation}
+This equation now requires
+\begin{equation}
+    \frac{L_L}{\sqrt{1-\frac{v^2}{c^2}}} = \frac{- e (\phi - A \cdot v)}{\sqrt{1-\frac{v^2}{c^2}}}
+\end{equation}
+to be invariant.
+This is equivalent to
+\begin{align}
+    \frac{L_L}{\sqrt{1-\frac{v^2}{c^2}}} &= \frac{- e (\phi - A \cdot v)}{\sqrt{1-\frac{v^2}{c^2}}}  = - \frac{1}{\sqrt{1-\frac{v^2}{c^2}}} \; e (\frac{\phi}{c} , A_1, A_2, A_3) \; g
+    \left(\begin{array}{c}
+      c \\
+      v_1\\
+      v_2\\
+      v_3\\
+    \end{array} \right) \nonumber \\
+    &= - e (\frac{\phi}{c} , A_1, A_2, A_3) \; g \; u \label{invariantLorentzForceLagrangian}
+\end{align}
+being invariant.
+Note that in this formula we used the 4-velocity $u$ from section \ref{section4Velocity}.
+
+To explicitly study the meaning of this we consider the following:
+Be $T$ and $T'$ two IRFs.
+From both we observe a particle.
+Let the particles space and time coordinates in $T$ and $T'$ be given by $X = (ct,x_1,x_2,x_3)$ and $X' = (ct',x_1',x_2',x_3')$ respectively.
+Then there exists a Lorentz transformation $\Lambda$ such that $X' = \Lambda X$.
+(Note that $X$ and $X'$ describe the same position in space and time, namely the particle's position.)
+What invariance of \ref{invariantLorentzForceLagrangian} means, is
+\begin{align}
+    &\;e (\frac{\phi'(X')}{c} , A_1'(X'), A_2'(X'), A_3'(X')) \; g \; u' \nonumber \\
+    = &\;e (\frac{\phi(X)}{c} , A_1(X), A_2(X), A_3(X)) \; g \; u \;\;\; \text{see \ref{defInvarianceLagrange1Generalized} and \ref{defInvarianceLagrange2Generalized}} \nonumber \\
+%    = &\;e (\frac{\phi(\Lambda X)}{c} , A_1(\Lambda X), A_2(\Lambda X), A_3(\Lambda X)) \; g \; u
+\end{align}
+From section \ref{section4Velocity} we know that $u'=\Lambda u$.
+Thus the above equation turns into
+\begin{align}
+    &\;e (\frac{\phi'(X')}{c} , A_1'(X'), A_2'(X'), A_3'(X')) \; g \; \Lambda u \nonumber \\
+    = &\;e (\frac{\phi(X)}{c} , A_1(X), A_2(X), A_3(X)) \; g \; u \label{invarianceLorentzLagrange}
+\end{align}
+The simplest way to fulfill this equation is that
+\begin{equation}
+    (\frac{\phi'(X')}{c} , A_1'(X'), A_2'(X'), A_3'(X'))
+    = \left[ \Lambda
+           \left(\begin{array}{c}
+                     \phi(X) / c \\
+                     A_1(X)\\
+                     A_2(X)\\
+                     A_3(X)\\
+           \end{array} \right) \right]^t
+\end{equation}
+because then \ref{invarianceLorentzLagrange} turns into
+\begin{align}
+&\;e (\frac{\phi(X)}{c} , A_1(X), A_2(X), A_3(X)) \; \Lambda^t \; g \; \Lambda u \nonumber \\
+= &\;e (\frac{\phi(X)}{c} , A_1(X), A_2(X), A_3(X)) \; g \; u \nonumber
+\end{align}
+which with \ref{generalConditionForLorentzTransformations} is true.
+
+So we find that in the sense of section \ref{sectionNotations}
+\begin{equation}
+    \left(\begin{array}{c}
+              \phi / c \\
+              A_1\\
+              A_2\\
+              A_3\\
+    \end{array} \right) \nonumber \\
+\end{equation}
+is a 4-vector.
+This is an important result!
+
+
+\subsubsection{The relativistic free particle} \label{sectionRelativisticFreeParticle}
+Next we are going to find the Lagrangian for the free particle in special relativity.
+Remember: A free particle is a particle with zero net force acting upon it.
+\footnote{As in classical mechanics the Lagrangian of a particle in an electromagnetic field will be the sum of the Lagrangian of the free particle and $L_L$.}
+
+The simplest guess that can be thought of is that $L$ is some constant $k$ which is just the same in any IRF.
+The way we will proceed is to compare this guess with the classical limit and see if it works.
+In case it works we will find out what the value of $k$ is.
+
+We assume we observe the particle from within some observer IRF with time $t$.
+In the observer IRF we assume particle's velocity to be given by $v$.
+The particles Lagrangian in the observer IRF according to \ref{relativisticActionWithObserver} will then be
+\begin{equation}
+    L = k \sqrt{1-\frac{v^2}{c^2}}
+\end{equation}
+
+To compare $k \sqrt{1 - \frac{v^2}{c^2}}$ to its classical limit, i.e. for the limit $v << c$, we first consider some some mathematical preliminaries:\\
+
+$(1+\epsilon)^\alpha$ for small $\epsilon$ can be approximated by the first two terms of its Taylor series:
+\begin{equation}
+    (1+\epsilon)^\alpha
+    \approx (1+\epsilon)^\alpha \Big|_{\epsilon = 0}
+    + \frac{\dd \; (1+\epsilon)^\alpha}{\dd \epsilon}\Big|_{\epsilon = 0} \cdot \epsilon
+    = 1 + \alpha (1+\epsilon)^{\alpha -1} \Big|_{\epsilon = 0} \cdot \epsilon
+    = 1 + \alpha \epsilon
+\end{equation}
+
+Applying this approximation to our relativistic Lagrangian with $\epsilon = - v^2/c^2$ results in
+
+\begin{equation}
+    L \approx k \bigg(1 + \frac{1}{2} \bigg(-\frac{v^2}{c^2} \bigg) \bigg)
+    = k + \frac{1}{2} \bigg(-\frac{k}{c^2} \bigg) v^2
+\end{equation}
+
+Since additional constants (in our case $k$) do not have effect on the equation of motion (i.e. the Euler-Lagrange-Equation) it is sufficient to compare the second term of this approximation to the free particle Lagrangian of classical mechanics, which is given by $L=1/2 m v^2$.
+The two become identical if we choose
+\begin{equation}
+    - \frac{k}{c^2} = m \iff k = -mc^2
+\end{equation}
+
+Thus our guess of the relativistic free particle Lagrangian is consistent with classical mechanics for small particle velocity $v$ if we write
+
+\begin{equation} \label{freeRelativistivParticleLagrangian}
+L = -mc^2 \sqrt{1-\frac{v^2}{c^2}}
+\end{equation}
+
+
+\subsubsection{Energy of the relativistic free particle ($E=mc^2$)}
+
+With \ref{freeRelativistivParticleLagrangian} the energy of the free particle can according to \ref{legendre} be calculated as follows:
+
+\begin{align}
+    E &= \frac{\partial L}{\partial v} v - L \\
+    &= -m c^2 \frac{1}{2 \sqrt{1-\frac{v^2}{c^2}}} \bigg(-\frac{2v}{c^2} \bigg) \cdot v
+    -\bigg(-mc^2 \sqrt{1-\frac{v^2}{c^2}} \bigg) \\
+    &= m c^2 \bigg(\frac{v^2/c^2}{\sqrt{1-\frac{v^2}{c^2}}} + \sqrt{1-\frac{v^2}{c^2}} \bigg) \\
+    &= m c^2 \bigg(\frac{v^2/c^2 + 1 - v^2/c^2}{\sqrt{1-\frac{v^2}{c^2}}} \bigg) \\
+    &= \frac{m c^2}{\sqrt{1-\frac{v^2}{c^2}}}
+\end{align}
+
+For a particle at rest ($v=0$) this takes Einstein's famous form, which tells us that in the theory of special relativity a particle with mass $m$ is assigned an energy $E = m c^2$.
+
+
+\subsubsection{The equations of motion of the free relativistic particle} \label{sectionEquOfMotionFreeParticle}
+
+The equations of motion for the free relativistic particle are given by
+
+\begin{align}
+    &0 = \frac{\dd}{\dd t} \frac{\partial }{\partial v_i} \bigg(-mc^2 \sqrt{1-\frac{v^2}{c^2}}\bigg) - \frac{\partial }{\partial x_i} \bigg(-mc^2 \sqrt{1-\frac{v^2}{c^2}}\bigg)
+    \nonumber \\
+    \iff &0 = \frac{\dd}{\dd t} \frac{\partial }{\partial v_i} \bigg(-mc^2 \sqrt{1-\frac{v^2}{c^2}}\bigg) \;\; \text{for} \;\; i \in \{1,2,3\}
+\end{align}
+
+We start with
+
+\begin{equation}
+    \frac{\partial L}{\partial v_i} = - m c^2 \frac{1}{2 \sqrt{1 - \frac{v^2}{c^2}}} \bigg(- \frac{2 v_i}{c^2}\bigg) = \frac{m v_i}{\sqrt{1 - \frac{v^2}{c^2}}}
+\end{equation}
+
+
+\begin{align}
+   \implies \frac{\dd}{\dd t} \frac{\partial L}{\partial v_i}
+   &= \frac{m \dot{v_i}}{\sqrt{1 - \frac{v^2}{c^2}}} + \frac{m v_i}{-2 \sqrt{1 - \frac{v^2}{c^2}}^3} \frac{-2 v_j \dot{v_j}}{c^2} \;\; \text{with imlicit sum over} \;\; j \in \{1,2,3\} \nonumber \\
+   &= \frac{m \dot{v_i}}{\sqrt{1 - \frac{v^2}{c^2}}} + \frac{m v_i}{\sqrt{1 - \frac{v^2}{c^2}}^3} \frac{v_j \dot{v_j}}{c^2} \nonumber \\
+   &= \frac{m}{\sqrt{1 - \frac{v^2}{c^2}}} \bigg( \dot{v_i} + \frac{v_i}{\frac{c^2 - v^2}{c^2}} \frac{v_j \dot{v_j}}{c^2} \bigg)\nonumber \\
+   &= \frac{m}{\sqrt{1 - \frac{v^2}{c^2}}} \bigg( \dot{v_i} + \frac{v_i}{c^2 - v^2} v_j \dot{v_j} \bigg)\nonumber \\
+   &= \frac{m}{\sqrt{1 - \frac{v^2}{c^2}}} \frac{1}{c^2 -v^2} \bigg( (c^2 -v^2) \dot{v_i} + v_i v_j \dot{v_j} \bigg)\nonumber \\
+   &= \frac{m}{\sqrt{1 - \frac{v^2}{c^2}}} \frac{1}{c^2 -v^2} \bigg( c^2 \dot{v_i} - v_j v_j \dot{v_i} + v_i v_j \dot{v_j} \bigg)\nonumber \\
+   &= \frac{m}{\sqrt{1 - \frac{v^2}{c^2}}} \frac{c^2}{c^2 -v^2} \bigg( \dot{v_i} + \frac{v_i v_j \dot{v_j} - v_j v_j \dot{v_i}}{c^2} \bigg)\nonumber \\
+   &= \frac{m}{\sqrt{1 - \frac{v^2}{c^2}}} \frac{c^2}{c^2\big(1- \frac{v^2}{c^2}\big)} \bigg( \dot{v_i} + \frac{v_i v_j \dot{v_j} - v_j v_j \dot{v_i}}{c^2} \bigg)\nonumber \\
+   &= \frac{m}{\sqrt{1 - \frac{v^2}{c^2}}^3} \bigg( \dot{v_i} + \frac{v_i v_j \dot{v_j} - v_j v_j \dot{v_i}}{c^2} \bigg) \label{relativisticFreeEquationOfMotion}
+\end{align}
+
+
+The identity
+
+
+\begin{align}
+    [ v \times (v \times \dot{v})]_i &= \epsilon _{ijk} v_j (v \times \dot{v})_k \nonumber \\
+    &= \epsilon _{ijk} v_j \epsilon _{kln} v_l \dot{v}_n \nonumber \\
+    &= \epsilon_{kij} \epsilon _{kln}  v_j v_l \dot{v}_n \nonumber \\
+    &= (\delta_{il} \delta_{jn} - \delta_{in} \delta_{jl})  v_j v_l \dot{v}_n \nonumber \\
+    &= v_j v_i \dot{v}_j - v_j v_j \dot{v}_i \nonumber \\
+\end{align}
+
+allows to write \ref{relativisticFreeEquationOfMotion} as
+
+\begin{equation}
+    \frac{\dd}{\dd t} \frac{\partial L}{\partial v} = \frac{m}{\sqrt{1 - \frac{v^2}{c^2}}^3} (\dot{v} + \frac{1}{c^2} v \times (v \times \dot{v}))
+\end{equation}
+
+So the equation of motion for the free relativistic particle reads
+
+\begin{equation}
+    0 = \frac{m}{\sqrt{1 - \frac{v^2}{c^2}}^3} (\dot{v} + \frac{1}{c^2} v \times (v \times \dot{v}))
+\end{equation}
+
+\subsubsection{Lagrangian of the relativistic particle in an electromagnetic field}
+
+As a results from sections \ref{sectionConsequencesOfInvarianceLorentzForce} and \ref{sectionRelativisticFreeParticle} we can write down the Lagrangian of the relativistic particle in an electromagnetic field:
+\begin{align} \label{lagrangianOfRelativisticParticleInEMField}
+L &= -mc^2 \sqrt{1-\frac{v^2}{c^2}} \; - e (\phi - A \cdot v) \nonumber \\
+&= ( -mc^2 - e (\frac{\phi}{c} , A_1, A_2, A_3) \; g \; u)) \sqrt{1-\frac{v^2}{c^2}}
+\end{align}
+
+
+\subsubsection{The equations of motion of the relativistic particle in an electromagnetic field}
+The equations of motion of the relativistic particle in an electromagnetic field
+can be calculate from \ref{lagrangianOfRelativisticParticleInEMField} and with the results from sections \ref{sectionLorentzForceLagrangian} and \ref{sectionEquOfMotionFreeParticle} reads:
+
+\begin{align}
+    &F_L = \frac{m}{\sqrt{1 - \frac{v^2}{c^2}}^3} (\dot{v} + \frac{1}{c^2} v \times (v \times \dot{v})) \nonumber \\
+    \iff & eE + e v \times B = \frac{m}{\sqrt{1 - \frac{v^2}{c^2}}^3} (\dot{v} + \frac{1}{c^2} v \times (v \times \dot{v}))
+\end{align}
+
+
+\section{Relativistic field Lagrangians}
+
+In \cite{LagrangeOfField} we derived the Lagrange formalism for classical fields.
+Classical in the sence that time was a special coordinate which was treated well separated from spacial coordinates.
+As we learned in section \ref{foundations}, in special relativity spacial coordinates and time are not clearly separated anymore.
+This becomes obvious when we look at \ref{lorentz} where in contrast to \ref{Galilei} the spacial coordinate $x$ contributes to time.
+
+That's the reason why we strive to modify the Lagrange formalism for fields in such a way that time and spacial coordinates are treated uniformly:
+
+\begin{equation} \label{relativisticFielLagrangian}
+    \mathcal{L} = \mathcal{L}\bigg(\psi,\frac{\partial \psi}{\partial q}\bigg)
+\end{equation}
+
+where $q$ denotes spacial coordinates including time and $\psi$ denotes the field.
+The field may consist of multiple components.
+A well known example for a multiple component field is the electric field which in classical non relativistic electrodynamics consists of three components, that make up its direction in space.
+
+The most intuitive ansatz for an action $S$ created from $\mathcal{L}$ is
+
+\begin{equation} \label{relativisticFielAction}
+    S = \int\limits_{A} \mathcal{L}\bigg(\psi,\frac{\partial \psi}{\partial q}\bigg) \dd q^{n}
+\end{equation}
+
+where $n$ denotes the number (dimension) of the coordiantes $q$ and $A$ an arbitrary n-dimensional area in the space of the $q$.
+\\
+
+As laid out in \cite{WagnerGuthrie} and \cite{LagrangeOfField} we have clear criteria to decide if the Lagrangian formalism arising
+from \ref{relativisticFielLagrangian} and \ref{relativisticFielAction} is useful. These criteria are:
+
+\begin{itemize}
+    \item[1.] Does the principle of stationary action lead to Euler-Lagrange equations?
+    \item[2.] Are the Euler-Lagrange equations invariant under arbitrary differentiable and invertible transformations of the coordinates $q$ and the fields $\psi$?
+    \item[3.] Does the Lagrangian $\mathcal{L}$ transform in a well defined way.
+\end{itemize}
+
+If these criteria are fulfilled we are well motivated to find Lagrangians for physical field theories such that their field equations
+become the Euler-Lagrange equations of these Lagrangians.
+
+\subsection{Euler Lagrange equations \cite{LagrangeOfField}} \label{sectionEulerLagrangeEquation}
+
+We consider the variations $\delta S$ of $S$ that result from variations $\delta \psi$ of the fields.
+The variation of the fields is arbitrary except from the condition that it vanishes on the border of $A$ which we denote by $\partial A$:
+
+\begin{equation}
+    \delta \psi(q) = 0 \; \text{when} \; q \in \partial A
+\end{equation}
+
+
+The variation of $S$ is given by
+
+\begin{equation} \label{actionVariation}
+    \delta S = \int\limits_{A} \frac{\partial \mathcal{L}}{\partial \psi} \delta \psi
+               + \frac{\partial \mathcal{L}}{\partial \frac{\partial \psi}{\partial q}} \cdot  \delta \bigg(\frac{\partial \psi}{\partial q}\bigg) \dd q ^n
+\end{equation}
+
+
+If we consider the possibly multidimensional components of $\psi$ indexed by $j$ and the $q$ coordinates by $i$ these summands mean:
+\begin{equation}
+    \frac{\partial \mathcal{L}}{\partial \psi} \cdot \delta \psi
+    = \sum_{j} \frac{\partial \mathcal{L}}{\partial \psi_{j}} \; \delta \psi_{j}
+\end{equation}
+\begin{equation}
+    \frac{\partial \mathcal{L}}{\partial \frac{\partial \psi}{\partial q}} \cdot \delta \bigg(\frac{\partial \psi} {\partial q}\bigg)
+    = \sum_{i,j} \frac{\partial \mathcal{L}}{\partial \frac{\partial \psi_{j}}{\partial q_{i}}} \; \delta \bigg(\frac{\partial \psi_{j}} {\partial q_{i}}\bigg)
+\end{equation}
+
+We integrate the second summand of \ref{actionVariation} by parts. To do so we use the identity
+$\delta \big(\frac{\partial \psi} {\partial q}\big)
+= \frac{\partial \psi_2} {\partial q} - \frac{\partial \psi_1} {\partial q}
+= \frac{\partial (\psi_2 - \psi_1)} {\partial q}
+= \frac{\partial \delta \psi} {\partial q}$
+
+\begin{equation}
+    \delta S = \int\limits_{A}
+    \frac{\partial \mathcal{L}}{\partial \psi} \cdot \delta \psi
+    -\bigg(\frac{\partial}{\partial q} \cdot \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial \psi}{\partial q}} \bigg)\bigg) \cdot \delta \psi
+    \dd q^n
+    + \int\limits_{A} \frac{\partial}{\partial q} \cdot \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial \psi}{\partial q}} \cdot \delta \psi \bigg) \dd q^n
+\end{equation}
+The second integral vanishes because of Gauss's theorem and $\delta \psi(q) = 0$ for any $q$ on the surface $\partial A$ of $A$.
+
+\begin{equation}
+\delta S = \int\limits_{A}
+\frac{\partial \mathcal{L}}{\partial \psi} \cdot \delta \psi
+-\bigg(\frac{\partial}{\partial q} \cdot \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial \psi}{\partial q}} \bigg)\bigg) \cdot \delta \psi
+\dd q^n
+\end{equation}
+
+
+If we use the same index conventions for the field $\psi$ and $q$ as we did above the last term means
+
+\begin{equation}
+    \bigg(\frac{\partial}{\partial q} \cdot \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial \psi}{\partial q}} \bigg)\bigg) \cdot \delta \psi
+    = \sum_j \bigg(\sum_i \frac{\partial}{\partial q_i} \; \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial \psi_j}{\partial q_i}} \bigg)\bigg) \; \delta \psi_j
+\end{equation}
+where the sum over $i$ is called the divergence of $\partial \mathcal{L} / \partial \frac{\partial \psi_j}{\partial q}$.
+
+The last rewrite of $\delta S$ we do is
+
+\begin{equation}
+    \delta S = \int\limits_{A}
+    \bigg(
+    \frac{\partial \mathcal{L}}{\partial \psi}
+    -\frac{\partial}{\partial q} \cdot \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial \psi}{\partial q}} \bigg)\bigg) \cdot \delta \psi
+    \dd q^n
+\end{equation}
+
+Since $\delta \psi$ is arbitrary (except from its border conditions) the only way to make $S$ stationary (which is equivalent to require $\delta S = 0$) is that $\mathcal{L}$ fulfills the condition
+
+\begin{equation} \label{EulerLagrangeField}
+    0 = \frac{\partial \mathcal{L}}{\partial \psi}
+    -\frac{\partial}{\partial q} \cdot \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial \psi}{\partial q}} \bigg)
+\end{equation}
+This is the Euler-Lagrange equation we were looking for.
+Of course this equation actually consist of multiple equations for the coordinates and the field components.
+That is why it is common to use the plural and speak of the Euler-Lagrange equation\textbf{s}.
+
+\subsection{Invariance of the Euler-Lagrange equations under transformations \cite{LagrangeOfField}} \label{LagrangeTranformation}
+
+This section is very close to what we did in section 3 of \cite{LagrangeOfField}.
+Nonetheless it is worth verifying that the arguments work without time as a special coordinate, too.
+\\
+
+Let $q=f(\bar{q})$ be an invertible and differentiable transformation of the coordinates and $\psi=F(\bar{\psi})$ be an invertible and differentiable transformation of the field.
+We define the transformed Lagrangian  $\bar{\mathcal{L}}$ by
+
+\begin{equation} \label{LagrTransform}
+\bar{\mathcal{L}}\bigg(\bar{\psi}, \frac{\partial \bar{\psi}}{\partial \bar{q}}\bigg)
+:= \mathcal{L}\bigg(F(\bar{\psi}) , \frac{\partial F(\bar{\psi})}{\partial f}\bigg)
+\bigg| det \frac{\partial f}{\partial \bar{q}} \bigg|
+\end{equation}
+where $\big| det \frac{\partial f}{\partial \bar{q}} \big|$ is the absolute value of the determinant of the Jacobian matrix of $f$ with respect to the coordinates $\bar{q}$. \\
+
+We will prove that from requiring $S$ to be stationary the two equations
+
+\begin{equation} \label{ELGTransformed}
+0 = \frac{\partial \bar{\mathcal{L}}}{\partial \bar{\psi}}
+-\frac{\partial}{\partial \bar{q}} \cdot \bigg( \frac{\partial \mathcal{\bar{L}}}{\partial \frac{\partial \bar{\psi}}{\partial \bar{q}}} \bigg)
+\end{equation}
+and
+
+\begin{equation} \label{ELGUntransformed}
+0 = \frac{\partial \mathcal{L}}{\partial \psi}
+-\frac{\partial}{\partial q} \cdot \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial \psi}{\partial q}} \bigg)
+\end{equation}
+follow and thus that the Euler-Lagrange equations are independent of arbitrary coordinate and field transformations as long as the transformation of the Lagrangian is given by \ref{LagrTransform}. \\
+
+To do so we consider arbitrary but small variations $\delta \bar{\psi}$ of the field $\bar{\psi}$ that vanish on the surface of an area of space $\bar{A}$.
+These we use to find the condition for
+
+\begin{equation}
+    S = \int\limits_{\bar{A}} \bar{\mathcal{L}}\bigg(\bar{\psi}, \frac{\partial \bar{\psi}}{\partial \bar{q}}\bigg) \dd \bar{q}^n
+    = \int\limits_{\bar{A}} \mathcal{L}\bigg(F(\bar{\psi}), \frac{\partial F(\bar{\psi})}{\partial f}\bigg)
+    \bigg| det \frac{\partial f}{\partial \bar{q}} \bigg| \dd \bar{q}^n
+\end{equation}
+to become stationary.\\
+
+\ref{ELGTransformed} just follows from repeating the considerations of section \ref{sectionEulerLagrangeEquation}. \\
+
+To prove \ref{ELGUntransformed} we look at
+
+\begin{equation}
+    S = \int\limits_{\bar{A}} \mathcal{L}\bigg(F(\bar{\psi}), \frac{\partial F(\bar{\psi})}{\partial f}\bigg)
+    \bigg| det \frac{\partial f}{\partial \bar{q}} \bigg| \dd \bar{q}^n
+\end{equation}
+which by using the transformation formula of multidimensional integrals can be turned into
+
+\begin{equation}
+    S = \int\limits_{f(\bar{A})} \mathcal{L}\bigg(F(\bar{\psi}), \frac{\partial F(\bar{\psi})}{\partial f}\bigg) \dd f^n
+\end{equation}
+where $f(\bar{A})$ is the picture of $\bar{A}$ under the coordinate transformation $f$.
+
+
+Based on this formula the variation $\delta S$ of $S$ is given by
+
+\begin{equation}
+    \delta S = \int\limits_{f(\bar{A})}
+    \frac{\partial \mathcal{L}}{\partial F} \cdot \delta F
+    + \frac{\partial \mathcal{L}}{\partial \frac{\partial F}{\partial f}} \cdot \delta \bigg(\frac{\partial F} {\partial f}\bigg)
+    \dd f^n
+\end{equation}
+where
+
+\begin{equation} \label{deltaFDefinition}
+\delta F = \frac{\partial F}{\partial \bar{\psi}} \delta \bar{\psi}
+\end{equation}
+
+
+Integration by parts of the second term leads to
+
+\begin{equation} \label{calcDeltaSSection3}
+\begin{split}
+    \delta S = \int\limits_{f(\bar{A})}
+    \frac{\partial \mathcal{L}}{\partial F} \cdot \delta F
+    -\bigg(\frac{\partial}{\partial f} \cdot \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial F}{\partial f}} \bigg)\bigg) \cdot \delta F
+    \dd f^n
+    + \int\limits_{f(\bar{A})} \frac{\partial}{\partial f} \cdot \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial F}{\partial f}} \cdot \delta F \bigg) \dd f^n
+\end{split}
+\end{equation}
+where the identity
+$\delta \big(\frac{\partial F} {\partial f}\big)
+= \frac{\partial F_2} {\partial f} - \frac{\partial F_1} {\partial f}
+= \frac{\partial (F_2 - F_1)} {\partial f}
+= \frac{\partial \delta F} {\partial f}$
+was used. \\
+
+The second integral of \ref{calcDeltaSSection3} can be transformed into an integral over the surface of $f(\bar{A})$ which we denote by $\partial (f(\bar{A}))$. This surface is the same as the picture of the surface of $\bar{A}$ under $f$:
+\begin{equation}
+    \partial (f(\bar{A})) = f(\partial \bar{A})
+    \footnote {The simplest way to picture this equation is to imagine a real area in space, which is described from within two systems of coordinates.}
+\end{equation}
+To show that the third term vanishes, we will prove, that $\delta F$ is zero for any $q \in \partial (f(\bar{A}))$:
+\\
+\\
+
+\noindent \textbf{Begin proof}
+\\
+Let $q$ be an element of $\partial (f(\bar{A}))$.
+\footnote{The simplest way to picture this element is to imagine a real point on the surface of the area in space, which is described from within two systems of coordinates.}
+Then for $q$ there exists an unique $\bar{q} \in \partial \bar{A}$ which is defined by $q=f(\bar{q})$.
+We are going to use the fact from above that $\delta \bar{\psi}(\bar{q}) = 0$.
+We recall that the variation $\delta \bar{\psi}$ is a difference between two fields which we name $\bar{\psi}_1$ and $\bar{\psi}_2$ such that
+\begin{equation}
+    \delta \bar{\psi} = \bar{\psi}_2 - \bar{\psi}_1
+\end{equation}
+The value of $F$ considered as a function of $q$ is given by
+\begin{equation}
+    F(q) = F(\bar{\psi}(\bar{q})) \;\; \text{with} \;\; \bar{q} \;\; \text{defined through} \;\; q=f(\bar{q})
+    \iff \bar{q} = f^{-1}(q)
+\end{equation}
+The variation $\delta F$ that results from the difference $\delta \bar{\psi}$ between $\bar{\psi}_1$ and $\bar{\psi}_2$ is given by
+\begin{equation}
+    \delta F(q) = F(\bar{\psi}_2(\bar{q})) - F(\bar{\psi}_1(\bar{q}))
+    = F(\bar{\psi}_1(\bar{q}) + \delta \bar{\psi} (\bar{q})) - F(\bar{\psi}_1(\bar{q}))
+    = \frac{\partial F}{\partial \bar{\psi}} \delta \bar{\psi} (\bar{q})
+\end{equation}
+Since $\delta \bar{\psi}(\bar{q})$ is zero by assumption, $\delta F(q)$ is zero, too, which finishes the proof.
+\\
+\textbf{End proof}
+\\
+\\
+
+\noindent As to $\delta S$ we are now left with
+
+
+\begin{equation}
+    \delta S = \int\limits_{f(\bar{A})}
+    \bigg(
+    \frac{\partial \mathcal{L}}{\partial F}
+    -\frac{\partial}{\partial f} \cdot \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial F}{\partial f}} \bigg)\bigg) \cdot \delta F
+    \dd q^n
+\end{equation}
+
+Because of \ref{deltaFDefinition} $\delta F$ is equally arbitrary as $\delta \bar{\psi}$. Thus the only way for $\delta S$ to become zero is
+
+\begin{equation}
+    0 =
+    \frac{\partial \mathcal{L}}{\partial F}
+    -\frac{\partial}{\partial f} \cdot \bigg( \frac{\partial \mathcal{L}}{\partial \frac{\partial F}{\partial f}} \bigg)
+\end{equation}
+
+If we now replace $F$ and $f$ according to their definitions by $\psi$ and $q$ this equation turns into \ref{ELGUntransformed} and thus finishes the proof.
+
+
+\subsection{Relativistic electrodynamics}
+
+\subsubsection{Relativistic from of the Lagrangian of electrodynamics} \label{sectionRelativisticLagrangianElectrodynamics}
+In literature on electrodynamics it is common to state that electrodynamics is a relativistic theory.
+This is to say that the first postulate, see section \ref{sectionFirstPostulate}, applies to the laws of electrodynamics.
+
+Based on the previous two sections we will show that by two simple transformations of the
+non relativistic Lagrangian of electrodynamics it can be made clear what this statement exactly means and in which sense it is true.
+
+In fact based on the results from section \ref{sectionConsequencesOfInvarianceLorentzForce} and appendix \ref{appendixConinuity} we are able to prove that the laws of electrodynamics are the same in every inertial reference frame.
+\\
+
+We start with the non relativistic Lagrangian of electrodynamics from \cite{LagrangeOfField}:
+
+\begin{equation} \label{LagrangianElectDynClassical}
+    \mathcal{L} = \epsilon_0 \frac{(-\nabla\phi - \frac{\partial A}{\partial t})^2 - c^2 (\nabla \times A)^2}{2} - \rho\phi + j \cdot A
+\end{equation}
+
+
+In the sense of section \ref{LagrangeTranformation} we consider the following transfomations of
+\begin{itemize}
+    \item time $t$ and the three spacial coodinates $x$
+    \item the fields $\phi$ and $A$
+    \item the charge density $\rho$ and the current density $j$
+\end{itemize}
+
+\begin{equation} \label{coordinateTransformClassical}
+\left(\begin{array}{c}
+          t
+          \\
+          x_1
+          \\
+          x_2
+          \\
+          x_3
+\end{array} \right)
+= f(x_0,x_1,x_2,x_3)
+:=
+\begin{pmatrix}
+    1/c & 0 & 0 & 0
+    \\
+    0 & 1 & 0 & 0
+    \\
+    0 & 0 & 1 & 0
+    \\
+    0 & 0 & 0 & 1
+\end{pmatrix}
+\left(\begin{array}{c}
+          x_0
+          \\
+          x_1
+          \\
+          x_2
+          \\
+          x_3
+\end{array} \right)
+=
+\left(\begin{array}{c}
+          x_0/c
+          \\
+          x_1
+          \\
+          x_2
+          \\
+          x_3
+\end{array} \right)
+\end{equation}
+
+
+\begin{equation} \label{fieldTransformClassical}
+    \left(\begin{array}{c}
+              \phi
+              \\
+              A_1
+              \\
+              A_2
+              \\
+              A_3
+    \end{array} \right)
+    = F_A(A_0,A_1,A_2,A_3)
+    :=
+    \begin{pmatrix}
+        c & 0 & 0 & 0
+        \\
+        0 & 1 & 0 & 0
+        \\
+        0 & 0 & 1 & 0
+        \\
+        0 & 0 & 0 & 1
+    \end{pmatrix}
+    \left(\begin{array}{c}
+              A_0
+              \\
+              A_1
+              \\
+              A_2
+              \\
+              A_3
+    \end{array} \right)
+    =
+    \left(\begin{array}{c}
+              c A_0
+              \\
+              A_1
+              \\
+              A_2
+              \\
+              A_3
+    \end{array} \right)
+\end{equation}
+
+\begin{equation} \label{currentTransformClassical}
+    \left(\begin{array}{c}
+              \rho
+              \\
+              j_1
+              \\
+              j_2
+              \\
+              j_3
+    \end{array} \right)
+    = F_J (J_0,J_1,J_2,J_3)
+    :=
+    \begin{pmatrix}
+        1/c & 0 & 0 & 0
+        \\
+        0 & 1 & 0 & 0
+        \\
+        0 & 0 & 1 & 0
+        \\
+        0 & 0 & 0 & 1
+    \end{pmatrix}
+    \left(\begin{array}{c}
+              J_0
+              \\
+              J_1
+              \\
+              J_2
+              \\
+              J_3
+    \end{array} \right)
+    =
+    \left(\begin{array}{c}
+              J_0/c
+              \\
+              J_1
+              \\
+              J_2
+              \\
+              J_3
+    \end{array} \right)
+\end{equation}
+
+
+\footnote{
+One may argue that this transformation is nothing but a change of variables or a change of units and to treat it as a transformation of the Lagrangian is exaggerated.
+This true in the sense that the equations of motions (Maxwell's equations) can be rewritten in the new variables/units straight forward.
+But since this paper stressed the importance of the transformation behavior of the Lagrangian and the Euler-Lagrange equations much, we found it adequate to use it at this point, too.
+
+After all when the transformation is defined there is no discussion needed how it applies to the Lagrangian or to the equations of motion.
+All there is to do it is to apply rule \ref{LagrTransform}, algebra and calculus.
+Furthermore we think it's worth pointing out that a change of units can be interpreted as a coordinate transformation.
+As discussed in \cite{WagnerGuthrie} coordinates are not part of nature but are just a human means  to think about nature.
+Realizing that this holds for units too, makes the argument relevant to every day life, where units are quite inevitable.
+Nonetheless because of their are arbitrariness units can't be part of reality itself.
+
+Those who tend to philosophize may find that units are a suitable means to illustrate the shadows in Plato's Cave.
+
+Anyway we feel it satisfying that the Lagrange formalism restricts and makes clear the influence that coordinates and units have in scientific thinking.
+} % end \footnote
+
+
+The transformed Lagrangian, which we denote $\mathcal{L}_R$, is according to \ref{LagrTransform} given by
+
+\begin{equation}
+    \mathcal{L}_R = \frac{1}{c} \mathcal{L} \bigg(F, \frac{\partial F}{\partial f} \bigg) \;,\; \text{$F$ symbolizes $F_A$ and $F_J$}
+\end{equation}
+The factor $1/c$ comes from the determinant of the matrix in \ref{coordinateTransformClassical}.
+This matrix is the Jacobi matrix of $f$ with respect to $x_0,x_1,x_2,x_3$ and thus according to \ref{LagrTransform} the determinant of this matrix has to be included.
+
+Replacing $\mathcal{L}$, $F$ and $f$ by their definitions results in
+
+\begin{equation}
+    \mathcal{L}_R = \frac{1}{c} \bigg\{ \frac{\epsilon_0}{2} \bigg[ \bigg(-c \nabla A_0 - \frac{\partial A}{\partial (\frac{x_0}{c})}\bigg)^2 - c^2 \bigg(\nabla \times A\bigg)^2 \bigg]
+    - \big( J_0 A_0 - J \cdot A \big) \bigg\}
+\end{equation}
+
+\begin{equation} \label{maxwellHalfRelatifistic}
+    = \frac{1}{c} \bigg\{ - \frac{c^2 \epsilon_0}{2} \bigg[ -\bigg(\frac{\partial A}{\partial x_0} + \nabla A_0 \bigg)^2 + \bigg(\nabla \times A\bigg)^2 \bigg]
+    - \big( J_0 A_0 - J \cdot A \big) \bigg\}
+\end{equation}
+where $A$ and $J$ without index denote  $\left( \begin{array}{c} A_1 \\ A_2 \\ A_3 \end{array} \right)$ and $\left( \begin{array}{c} J_1 \\ J_2 \\ J_3 \end{array} \right)$ respectively.
+For the next steps we will concentrate on the two terms in square brackets.
+First we look at $\big(\frac{\partial A}{\partial x_0} + \nabla A_0 \big)^2$:
+
+\begin{equation} \label{A0_Equation}
+    \bigg(\frac{\partial A}{\partial x_0} + \nabla A_0 \bigg)^2
+      = \bigg(\frac{\partial A_i}{\partial x_0} + \frac{\partial A_0}{\partial x_i} \bigg) \bigg(\frac{\partial A_i}{\partial x_0} + \frac{\partial A_0}{\partial x_i} \bigg)
+\end{equation}
+where we implicitly sum over the duplicate index $i$ from $1$ to $3$.
+\\
+\\
+\noindent We will now use the following definition of a new symbol $\partial$:
+
+\begin{equation} \label{partialDerivTimesG}
+\partial_0 := \frac{\partial}{\partial x_0} \;,\;
+\partial_1 := -\frac{\partial}{\partial x_1} \;,\;
+\partial_2 := -\frac{\partial}{\partial x_2} \;,\;
+\partial_3 := -\frac{\partial}{\partial x_3}
+\end{equation}
+\\
+\noindent
+\textbf{Note:} The defintion can also be written as:
+\begin{equation}
+    \left(\begin{array}{c}
+              \partial_0
+              \\
+              \partial_1
+              \\
+              \partial_2
+              \\
+              \partial_3
+    \end{array} \right)
+    := g
+    \left(\begin{array}{c}
+              \frac{\partial}{\partial x_0}
+              \\
+              \frac{\partial}{\partial x_1}
+              \\
+              \frac{\partial}{\partial x_2}
+              \\
+              \frac{\partial}{\partial x_3}
+    \end{array} \right)
+    =
+    \left(\begin{array}{c}
+              \frac{\partial}{\partial x_0}
+              \\
+              -\frac{\partial}{\partial x_1}
+              \\
+              -\frac{\partial}{\partial x_2}
+              \\
+              -\frac{\partial}{\partial x_3}
+    \end{array} \right)
+\end{equation}
+where the metric tensor $g$ was defined in \ref{generalConditionForLorentzTransformations}.
+\\
+\\
+\noindent
+With definition \ref{partialDerivTimesG} equation \ref{A0_Equation} turns into
+
+\begin{equation}
+\bigg(\frac{\partial A}{\partial x_0} + \nabla A_0 \bigg)^2
+= \big(\partial_0 A_i - \partial_i A_0 \big) \big(\partial_0 A_i - \partial_i A_0 \big)
+\end{equation}
+
+\begin{equation}
+= \frac{1}{2} \bigg[  \big(\partial_0 A_i - \partial_i A_0 \big) \big(\partial_0 A_i - \partial_i A_0 \big)
+                    + \big(\partial_i A_0 - \partial_0 A_i \big) \big(\partial_i A_0 - \partial_0 A_i \big)\bigg]
+\end{equation}
+
+
+with $F_{0i} := \partial_0 A_i - \partial_i A_0 $ and $F_{i0} := \partial_i A_0 - \partial_0 A_i \big$
+
+\begin{equation}
+    = \frac{1}{2} \bigg[ F_{0i}F_{0i} + F_{i0}F_{i0} \bigg]
+\end{equation}
+
+
+Next we look at $(\nabla \times A)^2$:
+
+\begin{equation}
+    (\nabla \times A)^2 = \epsilon_{ijk} \epsilon_{ilm} \frac{\partial A_k}{\partial x_j} \frac{\partial A_m}{\partial x_l}
+\end{equation}
+
+
+where again we implicitly sum over all duplicate indexes from $1$ to $3$.
+
+
+\begin{equation}
+    = \epsilon_{ijk} \epsilon_{ilm} \partial_j A_k \partial_l A_m
+\end{equation}
+
+with the rule $\epsilon_{ijk} \epsilon_{ilm} = \delta_{jl}\delta_{km} - \delta_{jm}\delta_{kl}$ this can be written as
+
+\begin{equation}
+    = (\delta_{jl}\delta_{km} - \delta_{jm}\delta_{kl}) \partial_j A_k \partial_l A_m
+\end{equation}
+
+\begin{equation}
+    = \partial_j A_k \partial_j A_k - \partial_j A_k \partial_k A_j
+\end{equation}
+
+\begin{equation}
+    = \frac{1}{2} \bigg[   \partial_j A_k \partial_j A_k - \partial_j A_k \partial_k A_j
+                         + \underbrace{\partial_k A_j \partial_k A_j}_\text{$= \partial_j A_k \partial_j A_k$}  - \partial_j A_k \partial_k A_j \bigg]
+\end{equation}
+
+\begin{equation}
+    = \frac{1}{2} \bigg[ (\partial_j A_k - \partial_k A_j) (\partial_j A_k - \partial_k A_j)  \bigg]
+\end{equation}
+
+with $F_{jk} := (\partial_j A_k - \partial_k A_j)$
+
+\begin{equation}
+    = \frac{1}{2} F_{jk} F_{jk}
+\end{equation}
+
+Thus for the term $\bigg[ -\bigg(\frac{\partial A}{\partial x_0} + \nabla A_0 \bigg)^2 + \bigg(\nabla \times A\bigg)^2 \bigg]$
+of equation \ref{maxwellHalfRelatifistic} we find:
+
+\begin{equation}
+    -\bigg(\frac{\partial A}{\partial x_0} + \nabla A_0 \bigg)^2 + \bigg(\nabla \times A\bigg)^2
+    = \frac{1}{2} \bigg[ -(F_{0i} F_{0i} + F_{i0} F_{i0}) + F_{jk} F_{jk}\bigg]
+\end{equation}
+
+
+We define $F_{\mu\nu} := \partial_\mu A_\nu - \partial_\nu A_\mu$ with $\mu, \nu \in \{0,1,2,3\}$.
+If we take into account that from this definition $F_{00} = 0$ follows, we can write
+
+\begin{equation}
+-\bigg(\frac{\partial A}{\partial x_0} + \nabla A_0 \bigg)^2 + \bigg(\nabla \times A\bigg)^2
+= \frac{1}{2} F_{\mu\nu}F_{\alpha\beta} g_{\mu\alpha} g_{\nu\beta}
+\end{equation}
+where $g_{\mu\nu}$ are the elements of the metric tensor \ref{generalConditionForLorentzTransformations}.
+\\
+\\
+\noindent
+\textbf{Note:} For the rest of this paper we will always consider greek indexes to run from $0$ to $3$ and will always implicitly sum over duplicate indexes.
+\footnote{A note for experienced readers: In this paper we don't user upper and lower indices, we write metric tensors instead.}
+\\
+\\
+\noindent
+We are now ready to put this result back into \ref{maxwellHalfRelatifistic}:
+
+\begin{equation}
+    \mathcal{L}_R = \frac{1}{c} \bigg\{ - \frac{c^2 \epsilon_0}{2} \frac{1}{2} F_{\mu\nu}F_{\alpha\beta} g_{\mu\alpha} g_{\nu\beta} - \big( J_0 A_0 - J \cdot A \big) \bigg\}
+\end{equation}
+
+with $1/\mu_0=c^2 \epsilon_0 $ this turns into
+
+\begin{equation} \label{electrodynLagrangeRelativistic}
+    \mathcal{L}_R = \frac{1}{c} \bigg\{ - \frac{1}{4 \mu_0} F_{\mu\nu}F_{\alpha\beta} g_{\mu\alpha} g_{\nu\beta} - J_\mu A_\nu g_{\mu\nu} \bigg\}
+\end{equation}
+
+\subsubsection{Interpretation}
+\begin{itemize}
+    \item[1.] $\mathcal{L}_R$ in the form \ref{electrodynLagrangeRelativistic} is called the relativistic Lagrangian of electrodynamics.
+              The reason why it is called "relativistic" will be explained in the next section.
+    \item[2.] \ref{electrodynLagrangeRelativistic} is the result of the transformation given by \ref{coordinateTransformClassical},
+              \ref{fieldTransformClassical} and \ref{currentTransformClassical} and the application of the transformation rule \ref{LagrTransform}.
+\end{itemize}
+
+\subsubsection{Why the laws of electrodynamics are the same in every inertial reference frame}
+
+For $\mathcal{L}_R$ in the form \ref{electrodynLagrangeRelativistic} we consider another transformation of the coordinates $x_0, x_1, x_2, x_3$ the fields $A_0,A_1,A_2,A_3$ and $J_0,J_1,J_2,J_3$:
+
+\begin{equation} \label{coordinateTransform}
+    x_\mu = f(\bar{x})_\mu := \Lambda_{\mu\nu} \bar{x}_\nu
+\end{equation}
+
+\begin{equation} \label{fieldTransform}
+    A_\mu = F_A(\bar{A})_\mu := \Lambda_{\mu\nu} \bar{A}_\nu
+\end{equation}
+
+\begin{equation} \label{currentTransform}
+    J_\mu = F_J(\bar{J})_\mu := \Lambda_{\mu\nu} \bar{J}_\nu
+\end{equation}
+where $\Lambda$ is an arbitrary Lorentz transformation as discussed in section \ref{sectionNotations}.
+In the above equations we used the same index based notation as we did in the end of section \ref{sectionRelativisticLagrangianElectrodynamics}.
+In the following we will go on to use this notation.
+Please be aware that based on this notation equation \ref{generalConditionForLorentzTransformations} can be written as
+\begin{equation} \label{invarianceWithMetricTensor}
+    g_{\mu\nu} = \Lambda^t_{\mu\alpha} g_{\alpha\beta} \Lambda_{\beta\nu}
+    \; \iff \; g_{\mu\nu} = \Lambda_{\alpha\mu} g_{\alpha\beta} \Lambda_{\beta\nu}
+\end{equation}
+\\
+\noindent
+\textbf{Note:}
+
+\noindent
+First and foremost we are  interested in what happens to $\mathcal{L}_R$ when this transformation is applied using rule \ref{LagrTransform}.
+To do so we don't have to be aware of the physical meaning of the transformation.
+But for readers who don't appreciate this abstraction it might be helpful that
+\begin{itemize}
+    \item \ref{coordinateTransform} is the way the coordinates transform in the real physical world.
+    This was discussed in section \ref{sectionLorentzTransformation}.
+    \item \ref{fieldTransform} was shown to be true in section \ref{sectionConsequencesOfInvarianceLorentzForce}.
+    \item \ref{currentTransform} is shown in appendix \ref{appendixConinuity}.
+\end{itemize}
+\\
+\noindent
+First we look after the absolute value of the determinant of the Jacobian matrix in \ref{LagrTransform}:
+
+\begin{equation}
+    \frac{\partial f}{\partial \bar{x}} = \Lambda \implies \bigg| det \frac{\partial f}{\partial \bar{x}} \bigg| = |det \Lambda|
+\end{equation}
+
+from $g = \Lambda^t g \Lambda$ follows
+\begin{equation} \label{determinantOfLorentzTransform}
+    -1 = det g = det g \;  det^2 \Lambda \; \implies \; 1 = det^2 \Lambda \; \implies \; |det \Lambda | = 1
+\end{equation}
+
+As a preparation for writing down $\bar{\mathcal{L}}_R$ we rewrite \ref{electrodynLagrangeRelativistic} with $F$ and $\partial$ replaced by there definitions:
+
+\begin{align}
+    \mathcal{L}_R = & \frac{1}{c} \bigg\{ -\frac{1}{4\mu_0} \label{LagrangePartialA}
+    \big(\partial_\mu A_\nu - \partial_\nu A_\mu \big)
+    g_{\mu\alpha} g_{\nu\beta}
+    \big(\partial_\alpha A_\beta - \partial_\beta A_\alpha\big) - J_\mu g_{\mu\nu} A_\nu \bigg\}
+    \\
+     = & \frac{1}{c} \bigg\{ -\frac{1}{4\mu_0}  \nonumber \\
+    & \bigg(g_{\mu\tau} \frac{\partial A_\nu}{\partial x_\tau} - g_{\nu\epsilon} \frac{\partial A_\mu}{\partial x_\epsilon} \bigg)
+    g_{\mu\alpha} g_{\nu\beta}
+    \bigg(g_{\alpha\pi} \frac{\partial A_\beta}{\partial x_\pi} - g_{\beta\gamma} \frac{\partial A_\alpha}{\partial x_\gamma} \bigg) - J_\mu g_{\mu\nu} A_\nu \bigg\}
+\end{align}
+
+
+
+By applying \ref{LagrTransform} we find the transformed Lagrangian $\bar{\mathcal{L}}_R$ to be
+
+\begin{align}
+    \bar{\mathcal{L}}_R = & \frac{1}{c} \bigg\{ -\frac{1}{4\mu_0}  \nonumber \\
+    & \bigg(g_{\mu\tau} \frac{\partial F_A(\bar{A})_\nu}{\partial f(\bar{x})_\tau} - g_{\nu\epsilon} \frac{\partial F_A(\bar{A})_\mu}{\partial f(\bar{x})_\epsilon} \bigg)
+    g_{\mu\alpha} g_{\nu\beta}
+    \bigg(g_{\alpha\pi} \frac{\partial F_A(\bar{A})_\beta}{\partial f(\bar{x})_\pi} - g_{\beta\gamma} \frac{\partial F_A(\bar{A})_\alpha}{\partial f(\bar{x})_\gamma} \bigg) \nonumber \\
+    & - F_J(\bar{J})_\mu g_{\mu\nu} F_A(\bar{A})_\nu \bigg\}
+\end{align}
+
+We look for a way to express $g_{\mu\tau} \frac{\partial}{\partial f(\bar{x})_\tau}$ by components of $\frac{\partial}{\partial \bar{x}}$.
+To do so we start with the chain rule:
+
+\begin{equation}
+    \frac{\partial}{\partial \bar{x}_\alpha} = \frac{\partial f_\nu}{\partial \bar{x}_\alpha} \frac{\partial}{\partial f_\nu}
+\end{equation}
+because of \ref{coordinateTransform} this turns into
+
+\begin{equation}
+    \frac{\partial}{\partial \bar{x}_\alpha} = \Lambda_{\nu\alpha} \frac{\partial}{\partial f_\nu}
+\end{equation}
+multiplying both sides with $\Lambda^{-1}_{\alpha\mu}$ gives
+
+\begin{equation}
+    \Lambda^{-1}_{\alpha\mu} \frac{\partial}{\partial \bar{x}_\alpha} = \frac{\partial}{\partial f_\nu} \delta_{\nu\mu} = \frac{\partial}{\partial f_\mu}
+\end{equation}
+multiplying both sides with $g_{\mu\beta}$ leads to
+
+\begin{equation}
+    \Lambda^{-1}_{\alpha\mu} g_{\mu\beta} \frac{\partial}{\partial \bar{x}_\alpha} = g_{\mu\beta} \frac{\partial}{\partial f_\mu}
+    \iff (\Lambda^{-1}  g )_{\alpha\beta} \; \frac{\partial}{\partial \bar{x}_\alpha} = g_{\mu\beta} \frac{\partial}{\partial f_\mu}
+\end{equation}
+using $g = g^t$ and $(\Lambda^{-1} g)^t = g \Lambda^{-1 t}$ this turns into
+
+\begin{equation}
+    (g \Lambda^{-1 t} )_{\beta\alpha} \; \frac{\partial}{\partial \bar{x}_\alpha} = g_{\beta\mu} \frac{\partial}{\partial f_\mu}
+\end{equation}
+By inverting both sides of \ref{invarianceWithMetricTensor} and using $g=g^{-1}$ we find
+$\Lambda^{-1}g\Lambda^{-1t} = g \iff g\Lambda^{-1t} = \Lambda g$.
+Thus we can write
+
+\begin{equation}
+    (\Lambda g )_{\beta\alpha} \; \frac{\partial}{\partial \bar{x}_\alpha} = g_{\beta\mu} \frac{\partial}{\partial f_\mu}
+\end{equation}
+We use definition \ref{partialDerivTimesG} for the transformed coordinates and write $\bar{\partial}_\nu := g_{\nu\mu} \frac{\partial}{\partial \bar{x}_\mu}$.
+This leads us to
+
+\begin{equation} \label{transformPartial}
+    \Lambda_{\beta\nu} \bar{\partial}_\nu = g_{\beta\mu} \frac{\partial}{\partial f_\mu}
+    \iff (\Lambda \bar{\partial})_\beta = g_{\beta\mu} \frac{\partial}{\partial f_\mu}
+\end{equation}
+
+
+
+Now $\bar{\mathcal{L}}_R$ can be written as
+
+\begin{align}
+    \bar{\mathcal{L}}_R = \frac{1}{c} \bigg\{ & -\frac{1}{4\mu_0}  \nonumber \\
+    & \bigg((\Lambda \bar{\partial})_\mu F_A(\bar{A})_\nu - (\Lambda \bar{\partial})_\nu F_A(\bar{A})_\mu \bigg)
+    g_{\mu\alpha} g_{\nu\beta}
+    \bigg((\Lambda \bar{\partial})_\alpha F_A(\bar{A})_\beta - (\Lambda \bar{\partial})_\beta F_A(\bar{A})_\alpha \bigg) \nonumber \\
+    & - F_J(\bar{J})_\mu g_{\mu\nu} F_A(\bar{A})_\nu \bigg\}
+\end{align}
+Next we use \ref{fieldTransform} and \ref{currentTransform}:
+
+\begin{align} \label{LagrangeTransformed2}
+    \bar{\mathcal{L}}_R = \frac{1}{c} \bigg\{ & -\frac{1}{4\mu_0}  \nonumber \\
+    & \bigg((\Lambda \bar{\partial})_\mu (\Lambda\bar{A})_\nu - (\Lambda \bar{\partial})_\nu (\Lambda \bar{A})_\mu \bigg)
+    g_{\mu\alpha} g_{\nu\beta}
+    \bigg((\Lambda \bar{\partial})_\alpha (\Lambda \bar{A})_\beta - (\Lambda \bar{\partial})_\beta (\Lambda \bar{A})_\alpha \bigg) \nonumber \\
+    & - (\Lambda \bar{J})_\mu g_{\mu\nu} (\Lambda \bar{A})_\nu \bigg\}
+\end{align}
+Multplying out the first summand one of the resulting terms is
+
+\begin{align}
+    & (\Lambda \bar{\partial})_\mu (\Lambda\bar{A})_\nu g_{\mu\alpha} g_{\nu\beta} (\Lambda \bar{\partial})_\alpha (\Lambda \bar{A})_\beta \nonumber
+    \\
+    & =
+      \Lambda_{\mu\epsilon} \bar{\partial}_\epsilon \Lambda_{\nu\tau} \bar{A}_\tau
+      g_{\mu\alpha} g_{\nu\beta}
+      \Lambda_{\alpha\pi} \bar{\partial}_\pi \Lambda_{\beta\sigma} \bar{A}_\sigma \nonumber
+    \\
+    & =
+      \Lambda_{\mu\epsilon} g_{\mu\alpha} \Lambda_{\alpha\pi} \;\;
+      \Lambda_{\nu\tau} g_{\nu\beta} \Lambda_{\beta\sigma} \;\;
+      \bar{\partial}_\epsilon \bar{A}_\tau \bar{\partial}_\pi \bar{A}_\sigma \nonumber
+    \\
+      & =
+      (\Lambda^tg\Lambda)_{\epsilon\pi} \;\; (\Lambda^tg\Lambda)_{\tau\sigma} \;\;
+      \bar{\partial}_\epsilon \bar{A}_\tau \bar{\partial}_\pi \bar{A}_\sigma \nonumber
+    \\
+    & = g_{\epsilon\pi} \;\; g_{\tau\sigma} \;\; \bar{\partial}_\epsilon \bar{A}_\tau \bar{\partial}_\pi \bar{A}_\sigma
+\end{align}
+Interchanging indexes the following way $\epsilon \rightarrow \mu, \tau \rightarrow \nu, \pi \rightarrow \alpha, \sigma \rightarrow \beta$ turns this into
+
+\begin{equation}
+    g_{\mu\alpha} \;\; g_{\nu\beta} \;\; \bar{\partial}_\mu \bar{A}_\nu \bar{\partial}_\alpha \bar{A}_\beta
+\end{equation}
+With analogous calculations for the remaining terms \ref{LagrangeTransformed2} turns into
+
+\begin{equation} \label{LagrangeTransformFinal}
+    \bar{\mathcal{L}}_R = \frac{1}{c} \bigg\{ -\frac{1}{4\mu_0}
+    \big(\bar{\partial}_\mu \bar{A}_\nu - \bar{\partial}_\nu \bar{A}_\mu \big)
+    g_{\mu\alpha} g_{\nu\beta}
+    \big(\bar{\partial}_\alpha \bar{A}_\beta - \bar{\partial}_\beta \bar{A}_\alpha\big)
+    - \bar{J}_\mu g_{\mu\nu} \bar{A}_\nu \bigg\}
+\end{equation}
+
+\subsubsection{Interpretation} \label{invarianceMaxwell}
+
+We found that the following equation holds:
+\begin{equation}
+    \bar{\mathcal{L}}_R(\bar{A}, \frac{\partial \bar{A}}{\partial \bar{x}}) = \mathcal{L}_R(\bar{A}, \frac{\partial \bar{A}}{\partial \bar{x}})
+\end{equation}
+using \ref{LagrTransform} and the fact that $|det\lambda| = 1$, see \ref{determinantOfLorentzTransform}, we can also write
+\begin{equation}
+    \bar{\mathcal{L}}_R(\bar{A}, \frac{\partial \bar{A}}{\partial \bar{x}}) = \mathcal{L}_R(A, \frac{\partial A}{\partial x})
+\end{equation}
+So we find that the Lagrangian of the electromagnetic field satisfies a similar notion of invariance as discussed in sections \ref{sectionInvariance} and \ref{sectionGeneralizationInvariance}
+for particle Lagrangians.
+
+Since the Euler-Lagrange equations don't change under transformations at all, it is obvious that the fields' equations of motion also look the same
+in the transformed and untransformed coordinates and fields.
+That is why the laws of electrodynamics (Maxwell's equations) are the same in every inertial reference frame.
+
+
+
+\appendix
+
+\section{Transformation of $J_\mu$} \label{appendixConinuity}
+
+
+We are going to motivate why \ref{currentTransform} is the physically correct behavior of $J_\mu$ under Lorentz transformations.
+We use the empiric fact that the electric charge is conserved in every inertial reference frame.
+The formula that describes this fact is the continuity equation:
+
+\begin{equation}
+    0 = \frac{\partial \rho}{\partial t} + \nabla \cdot j = \frac{\partial (c \rho)}{\partial (ct)} + \frac{\partial j_i}{\partial x_i}
+\end{equation}
+with \ref{coordinateTransformClassical}, \ref{currentTransformClassical} and \ref{partialDerivTimesG} this equation can be written as
+
+\begin{equation} \label{relativisticContinuity}
+    0 = \partial_0 J_0 - \partial_i J_i = g_{\mu\nu} \partial_\mu J_{\nu}
+\end{equation}
+
+
+Let $T$ and $\bar{T}$ be two inertial reference frames with coordinates $x_0, x_1, x_2, x_3$ and $\bar{x}_0, \bar{x}_1, \bar{x}_2, \bar{x}_3$
+If we denote the current in $\bar{T}$ by $\bar{J}$ the continuity equation in $\bar{T}$ reads:
+
+\begin{equation} \label{relativisticContinuityTransfored}
+    0 = g_{\mu\nu} \bar{\partial}_\mu \bar{J}_{\nu}
+\end{equation}
+
+If $\Lambda$ is the Lorentz transformation that connects the frames' coordinates ($x_\mu = \Lambda_{\mu\nu} \bar{x}_\nu$) then according to \ref{transformPartial}
+$\partial_\mu = \Lambda_{\mu\nu} \bar{\partial}_\nu$ is true.
+
+Next we need an expression for the connection between $J$ and $\bar{J}$.
+Thus we write $J_\mu=G(\bar{J})_\mu$, where $G$ is some yet undefined function.
+With this \ref{relativisticContinuity} can be written as
+
+\begin{align} \label{continuityTransformed}
+0 & =  g_{\mu\nu} \partial_\mu J_{\nu} \nonumber \\
+  & = g_{\mu\nu} \Lambda_{\mu\alpha} \bar{\partial}_\alpha  G(\bar{J})_\nu \nonumber \\
+  & = (g \Lambda)_{\nu\alpha} \bar{\partial}_\alpha  G(\bar{J})_\nu \nonumber \\
+  & = (\Lambda^t g )_{\alpha\nu} \bar{\partial}_\alpha  G(\bar{J})_\nu \nonumber \\
+\end{align}
+
+The simplest guess to make this formula consistent with \ref{relativisticContinuityTransfored} is $G(\bar{J})_\nu = \Lambda_{\nu\beta} \bar{J}_\beta$.
+Because then \ref{continuityTransformed} becomes equivalent to \ref{relativisticContinuityTransfored}:
+
+\begin{align}
+    0 & = (\Lambda^t g )_{\alpha\nu} \bar{\partial}_\alpha  \Lambda_{\nu\beta} \bar{J}_\beta \nonumber \\
+      & = (\Lambda^t g \Lambda)_{\alpha\beta} \bar{\partial}_\alpha  \bar{J}_\beta \nonumber \\
+      & = g_{\alpha\beta} \bar{\partial}_\alpha  \bar{J}_\beta \nonumber \\
+      & = g_{\mu\nu} \bar{\partial}_\mu  \bar{J}_\nu \nonumber
+\end{align}
+
+\section{Relativistic form of Maxwell's equations}
+We calculate the equation of motion \ref{EulerLagrangeField} for an arbitrary component $A_\tau$ of $A$.
+In this section we once and again make use of the definition $F_{\mu\nu} := \partial_\mu A_\nu - \partial_\nu A_\mu$ from section \ref{sectionRelativisticLagrangianElectrodynamics}.
+We start with
+
+\begin{align}
+    \frac{\partial \mathcal{L}}{\partial\frac{\partial A_\tau}{\partial x_\epsilon}}
+      = & \frac{\partial}{\partial\frac{\partial A_\tau}{\partial x_\epsilon}}
+         \bigg[
+            -\frac{1}{4 c \mu_0}
+            \big(\partial_\mu A_\nu - \partial_\nu A_\mu \big)
+            g_{\mu\alpha} g_{\nu\beta}
+            \big(\partial_\alpha A_\beta - \partial_\beta A_\alpha\big)
+        \bigg] \\
+     = & -\frac{1}{4 c \mu_0} \frac{\partial}{\partial\frac{\partial A_\tau}{\partial x_\epsilon}}
+        \bigg[
+            \bigg(g_{\mu\sigma} \frac{\partial A_\nu}{\partial x_\sigma} - g_{\nu\pi} \frac{\partial A_\mu}{\partial x_\pi} \bigg)
+            g_{\mu\alpha} g_{\nu\beta}
+            \bigg(g_{\alpha\eta} \frac{\partial A_\beta}{\partial x_\eta} - g_{\beta\gamma} \frac{\partial A_\alpha}{\partial x_\gamma} \bigg)
+        \bigg] \nonumber \\ \\
+     = & -\frac{1}{4 c \mu_0}
+        \bigg[
+             \bigg(g_{\mu\sigma} \delta_{\tau\nu}\delta_{\epsilon\sigma} - g_{\nu\pi}\delta_{\mu\tau}\delta_{\epsilon\pi} \bigg)
+                  g_{\mu\alpha} g_{\nu\beta}
+             \bigg(g_{\alpha\eta} \frac{\partial A_\beta}{\partial x_\eta} - g_{\beta\gamma} \frac{\partial A_\alpha}{\partial x_\gamma} \bigg) \nonumber \\
+        & +  \bigg(g_{\mu\sigma} \frac{\partial A_\nu}{\partial x_\sigma} - g_{\nu\pi} \frac{\partial A_\mu}{\partial x_\pi} \bigg)
+                g_{\mu\alpha} g_{\nu\beta}
+             \bigg( g_{\alpha\eta}\delta_{\tau\beta}\delta_{\epsilon\eta} - g_{\beta\gamma}\delta_{\tau\alpha}\delta_{\epsilon\gamma} \bigg)
+        \bigg] \nonumber \\ \\
+    = & -\frac{1}{4 c \mu_0}
+    \bigg[
+            \bigg(g_{\mu\epsilon} \delta_{\tau\nu} - g_{\nu\epsilon}\delta_{\mu\tau} \bigg)
+            g_{\mu\alpha} g_{\nu\beta}
+            \bigg(g_{\alpha\eta} \frac{\partial A_\beta}{\partial x_\eta} - g_{\beta\gamma} \frac{\partial A_\alpha}{\partial x_\gamma} \bigg) \nonumber \\
+        & +  \bigg(g_{\mu\sigma} \frac{\partial A_\nu}{\partial x_\sigma} - g_{\nu\pi} \frac{\partial A_\mu}{\partial x_\pi} \bigg)
+        g_{\mu\alpha} g_{\nu\beta}
+        \bigg( g_{\alpha\epsilon}\delta_{\tau\beta} - g_{\beta\epsilon}\delta_{\tau\alpha} \bigg)
+    \bigg] \nonumber \\ \\
+    = & -\frac{1}{4 c \mu_0}
+    \bigg[
+            \bigg(\delta_{\alpha\epsilon} g_{\tau\beta} - \delta_{\beta\epsilon}g_{\alpha\tau} \bigg)
+            \bigg(g_{\alpha\eta} \frac{\partial A_\beta}{\partial x_\eta} - g_{\beta\gamma} \frac{\partial A_\alpha}{\partial x_\gamma} \bigg) \nonumber \\
+        & + \bigg(g_{\mu\sigma} \frac{\partial A_\nu}{\partial x_\sigma} - g_{\nu\pi} \frac{\partial A_\mu}{\partial x_\pi} \bigg)
+            \bigg( \delta_{\mu\epsilon}g_{\nu\tau} - \delta_{\nu\epsilon}g_{\mu\tau} \bigg)
+    \bigg] \nonumber \\ \\
+    = & -\frac{1}{4 c \mu_0}
+    \bigg[
+        \bigg(
+            g_{\epsilon\eta}g_{\tau\beta}\frac{\partial A_\beta}{\partial x_\eta} - \delta_{\tau\gamma}\frac{\partial A_\epsilon}{\partial x_\gamma}
+          - \delta_{\tau\eta}\frac{\partial A_\epsilon}{\partial x_\eta} + g_{\epsilon\gamma}g_{\tau\alpha}\frac{\partial A_\alpha}{\partial x_\gamma}
+        \bigg) \nonumber \\
+    & + \bigg(
+           g_{\epsilon\sigma}g_{\nu\tau}\frac{\partial A_\nu}{\partial x_\sigma} - \delta_{\sigma\tau}\frac{\partial A_\epsilon}{\partial x_\sigma}
+         - \delta_{\pi\tau}\frac{\partial A_\epsilon}{\partial x_\pi} + g_{\epsilon\pi}g_{\mu\tau}\frac{\partial A_\mu}{\partial x_\pi}
+         \bigg)
+    \bigg] \nonumber \\ \\
+    = & -\frac{1}{4 c \mu_0}
+    \bigg[
+          g_{\epsilon\eta}g_{\tau\beta}\frac{\partial A_\beta}{\partial x_\eta} - \frac{\partial A_\epsilon}{\partial x_\tau}
+          - \frac{\partial A_\epsilon}{\partial x_\tau} + g_{\epsilon\gamma}g_{\tau\alpha}\frac{\partial A_\alpha}{\partial x_\gamma} \nonumber \\
+    & +   g_{\epsilon\sigma}g_{\nu\tau}\frac{\partial A_\nu}{\partial x_\sigma} - \frac{\partial A_\epsilon}{\partial x_\tau}
+          - \frac{\partial A_\epsilon}{\partial x_\tau} + g_{\epsilon\pi}g_{\mu\tau}\frac{\partial A_\mu}{\partial x_\pi}
+    \bigg] \nonumber \\ \\
+    = & -\frac{1}{4 c \mu_0}
+        \bigg[
+          4 \cdot g_{\epsilon\eta}g_{\tau\beta}\frac{\partial A_\beta}{\partial x_\eta} - 4 \cdot \frac{\partial A_\epsilon}{\partial x_\tau}
+        \bigg] \nonumber \\
+    = & -\frac{1}{c \mu_0}
+        \bigg[
+          g_{\epsilon\eta}g_{\tau\beta}\frac{\partial A_\beta}{\partial x_\eta} - \frac{\partial A_\epsilon}{\partial x_\tau}
+        \bigg] \nonumber \\
+    = & -\frac{1}{c \mu_0}
+        \bigg[
+          g_{\tau\beta} \partial_\epsilon A_\beta - g_{\tau\beta}g_{\beta\alpha}\frac{\partial A_\epsilon}{\partial x_\alpha}
+        \bigg] \nonumber \\
+    = & -\frac{1}{c \mu_0} g_{\tau\beta}
+        \bigg[
+           \partial_\epsilon A_\beta - \partial_\beta A_\epsilon
+        \bigg] \nonumber \\
+    = & -\frac{1}{c \mu_0} g_{\tau\beta} F_{\epsilon\beta} \nonumber
+\end{align}
+
+Next we look at
+\begin{equation}
+    \frac{\partial \mathcal{L}}{\partial A_\tau}
+    = \frac{\partial }{\partial A_\tau} \bigg( - \frac{1}{c} J_\mu g_{\mu\nu} A_\nu \bigg)
+    = - \frac{1}{c} J_\mu g_{\mu\nu} \delta_{\nu\tau}
+    = - \frac{1}{c} J_\mu g_{\mu\tau}
+    = - \frac{1}{c} g_{\tau\beta} J_\beta
+\end{equation}
+
+Thus according to \ref{EulerLagrangeField} the equation of motion is given by
+
+\begin{equation}
+     0 = - \frac{1}{c} g_{\tau\beta} J_\beta
+          + \frac{\partial}{\partial x_\epsilon}
+            \bigg(
+                \frac{1}{c \mu_0} g_{\tau\beta}
+                \bigg(
+                \partial_\epsilon A_\beta - \partial_\beta A_\epsilon
+                \bigg)
+            \bigg)
+\end{equation}
+\begin{equation}
+    \iff 0 = g_{\tau\beta} \bigg(J_\beta
+             - \frac{1}{\mu_0}  \frac{\partial}{\partial x_\epsilon}\big( \partial_\epsilon A_\beta - \partial_\beta A_\epsilon \big) \bigg)
+\end{equation}
+
+\begin{equation}
+    \iff 0 = J_\beta - \frac{1}{\mu_0}  \frac{\partial}{\partial x_\epsilon}\big( \partial_\epsilon A_\beta - \partial_\beta A_\epsilon \big)
+\end{equation}
+
+\begin{equation}
+    \iff \mu_0 J_\beta = g_{\epsilon\alpha}g_{\alpha\pi}\frac{\partial}{\partial x_\pi}\big( \partial_\epsilon A_\beta - \partial_\beta A_\epsilon \big)
+\end{equation}
+
+\begin{equation} \label{equationOfMotionUntransformed}
+    \iff \mu_0 J_\beta = g_{\epsilon\alpha}  \partial_\alpha \big(\partial_\epsilon A_\beta - \partial_\beta A_\epsilon \big)
+                       = g_{\epsilon\alpha}  \partial_\alpha F_{\epsilon\beta}
+\end{equation}
+
+This is the relativistic from of Maxwell's equations.
+
+\begin{thebibliography}{9}
+
+\bibitem{LandauInterval} L.D. Landau and E.M. Lifshitz, The classical theory of fields, Chapter 1 Paragraph 2 Intervals
+
+\bibitem{WagnerGuthrie} Gerd Wagner and Matt Guthrie, Demystifying the Lagrangian of Classical Mechanics
+
+\bibitem {SusskindRelativisticLagrange} Susskind Lectures, Special Relativity, Lecture 3, \url{https://theoreticalminimum.com/courses/special-relativity-and-classical-field-theory/2012/spring/lecture-3}
+
+\bibitem{LandauRelativisticLagrange} L.D. Landau and E.M. Lifshitz, The classical theory of fields, Chapter 2 Paragraph 1 The principle of least action
+
+\bibitem{LagrangeOfField} Gerd Wagner, Demystifying the Lagrange formalism of field theory
+
+
+
+\end{thebibliography}
+
+
+
+\end{document}

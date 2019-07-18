@@ -210,23 +210,21 @@ x
 where $t,x,y,z$ are the coordinates of the particle in $T$ and $t',x',y',z'$ are the coordinates of the particle in $T'$.
 As we can see from these equations we chose $t=t'=0$ to be the time when the coordinate frames are on top of each other.
 
-\subsubsection{Invariance of the space time interval}
+\subsubsection{Ansatz for a transformation compatible with invariance of the space time interval}
 
 Since at $t=t'=0$ the two reference frames $T$ and $T'$ are on top of each other \ref{invarianceSpaceTimeInterv} turns into
 
 \begin{equation} \label{spaceTimeElement}
-c^2t'^2-x'^2-y'^2-z'^2 = c^2t^2-x^2-y^2-z^2
+c^2t'^2-x'^2-y'^2-z'^2 = c^2t^2-x^2-y^2-z^2.
 \end{equation}
-
 As an ansatz for a coordinate transformation between the two reference frames which is consistent with \ref{spaceTimeElement} we write:
-
-\begin{equation} \label{ansatz}
+\begin{align} \label{ansatz}
 \left(\begin{array}{c}
 ct'
 \\
 x'
 \end{array} \right)
-=
+&=
 \begin{pmatrix}
 a & d
 \\
@@ -236,9 +234,10 @@ b & e
 ct
 \\
 x
-\end{array} \right)
-
-\end{equation}
+\end{array} \right) \\
+y' &= y \nonumber \\
+z' &= z \nonumber
+\end{align}
 
 
 \subsubsection{Finding the matrix elements of the ansatz}

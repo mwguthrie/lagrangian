@@ -1093,91 +1093,6 @@ With that we arrive at
 \end{equation}
 which is the result we wanted to prove.
 
-
-\section{Gauge and Lorentz transformations} \label{sectionGauge}
-We will define gauge in the context of a particle Lagrangian and will explore how it is connected to gauge in the context of the electromagnetic potentials.
-The aim of this section is to clarify the interaction beween gauges of the electromagnetic potentials and Lorentz transformation.
-It will turn out that they have no influence,
-i.e. the four components of $(\phi/c, A_1,A_2,A_3)$ will turn out to transform under Lorentz transformations like the components of $(ct,x_1,x_2,x_3)$ in any gauge.
-
-\subsection{Gauge of a particle Lagrangian}
-A particle Lagrangian can be changed the following way without changing its equation of motion:
-
-\begin{equation}
-    L(q,\dot{q}, t) \rightarrow L(q,\dot{q}, t) + \frac{\dd}{ \dd t} F(q,t)
-\end{equation}
-where F ist an arbitrary function of the coordinates and time.
-A change of this kind is called a gauge.
-
-To prove that the equations of motion are not changed by a gauge we calculate the Euler-Lagrange equations for the right hand side:
-
-\begin{align}
-    & \frac{\dd}{\dd t} \frac{\partial \big(L + \frac{\dd F}{\dd t}\big)}{\partial \dot{q}} - \frac{\partial \big(L + \frac{\dd F}{\dd t}\big)}{\partial q} \nonumber \\
-    & = \frac{\dd}{\dd t} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L }{\partial q}
-        + \frac{\dd}{\dd t} \frac{\partial}{\partial \dot{q}} \frac{\dd F}{\dd t}  - \frac{\partial}{\partial q} \frac{\dd F}{\dd t} \nonumber \\
-    & = \frac{\dd}{\dd t} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L }{\partial q}
-        + \frac{\dd}{\dd t} \frac{\partial}{\partial \dot{q}} \bigg( \frac{\partial F}{\partial q} \dot{q} + \frac{\partial F}{\partial t} \bigg)
-        - \frac{\partial}{\partial q} \bigg( \frac{\partial F}{\partial q} \dot{q} + \frac{\partial F}{\partial t} \bigg) \nonumber \\
-    & = \frac{\dd}{\dd t} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L }{\partial q}
-        + \frac{\dd}{\dd t} \frac{\partial F}{\partial q}
-        - \bigg(\frac{\partial^2 F}{\partial q^2} \dot{q} + \frac{\partial }{\partial t} \frac{\partial F}{\partial q} \bigg) \nonumber \\
-    & = \frac{\dd}{\dd t} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L }{\partial q}
-        + \frac{\dd}{\dd t} \frac{\partial F}{\partial q}
-        - \frac{\dd}{\dd t} \bigg(\frac{\partial F}{\partial q} \bigg) \nonumber \\
-    & = \frac{\dd}{\dd t} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L }{\partial q} + 0
-\end{align}
-This is the same term as without gauge, which proves that the gauge doesn't change the equations of motion.
-
-\subsection{Connection between the gauges of the particle Lagrangian and the electromagnetic field}
-A gauge of the electromagnetic potentials is given by
-
-\begin{align}
-    A &\rightarrow A' = A + \nabla \lambda(x,t) \\
-    \phi &\rightarrow \phi' = \phi - \frac{\partial}{\partial t} \lambda(x,t)
-\end{align}
-where $\lambda$ is an arbitrary function of the spacial coordinates and time.
-This gauge is defined in such a way that it has no effect on the fields $E,B$.
-To prove this we calculate the fields from the gauged potentials $A', \phi'$ using the formulas $B = \nabla \times A$ and $E = - \nabla \phi - \frac{\partial A}{\partial t}$ as defined for example in section 4 of \cite{LagrangeOfField}:
-\begin{align}
-  B' &= \nabla \times A' = \nabla \times (A + \nabla \lambda) = \nabla \times A + 0 = \nabla \times A = B \\
-  E' &= -\nabla \phi - \frac{\partial A'}{\partial t} = -\nabla \bigg( \phi - \frac{\partial \lambda}{\partial t} \bigg) -\frac{\partial}{\partial t} ( A + \nabla \lambda) \nonumber \\
-   &= -\nabla \phi - \frac{\partial A}{\partial t} + \frac{\partial \nabla \lambda}{\partial t} - + \frac{\partial \nabla \lambda}{\partial t} = -\nabla \phi - \frac{\partial A}{\partial t} = E
-\end{align}
-
-Next we will calculate in which way this gauge will affect the Lagrangian $L_L$ of the Lorentz force:
-The way $L_L$ changes by a gauge of the electromagnetic potentials is given by
-
-\begin{align}
-    L_L = - e (\phi - A \cdot v) \rightarrow & -e(\phi-\frac{\partial \lambda}{\partial t}) - (A + \nabla \lambda) \cdot v) \nonumber \\
-    & = - e (\phi - A \cdot v) - e (\frac{\partial \lambda}{\partial t} - \nabla \lambda \cdot v) \nonumber \\
-    & = - e (\phi - A \cdot v) - e \frac{\dd \lambda}{\dd t} \nonumber \\
-    & = - e (\phi - A \cdot v) - \frac{\dd \; (e \lambda)}{\dd t}
-\end{align}
-This shows that changing the gauge of the electromagnetic potentials changes the Lagrangian by a total time derivative.
-As we saw above this change won't affect the equations of motion.
-Both gauges are consistent in so far as they don't effect physical, i.e. measurable, phenomena.
-
-\subsection{The effect of Lorentz transfomations on physical phenomena in the case of a charged particle in an electromagnetic field}
-
-We consider two IRFs $T, \bar{T}$ with coordinates $X=(ct, x_1, x_2, x_3)$ and $\bar{X}=(c \bar{t}, \bar{x_1}, \bar{x_2}, \bar{x_3})$ which move relative to each other with non zero speed.
-The equations of motion for a charged particle in an electromagnetic field in these two coordinate systems are given by
-\begin{align}
-  \frac{\dd}{\dd t} \frac{\partial L_{free}}{\partial v} - \frac{\partial L_{free}}{\partial x} &= e E + e v \times B \\
-  \text{and} \nonumber \\
-  \frac{\dd}{\dd \bar{t}} \frac{\partial \bar{L}_{free}}{\partial \bar{v}} - \frac{\partial \bar{L}_{free}}{\partial \bar{x}} &= e \bar{E} + e \bar{v} \times \bar{B}
-\end{align}
-where $L_{free}$ denotes the free partical Lagrangian $L_{free} = - m c^2 \sqrt{1 - \frac{v^2}{c^2}}$.
-\footnote{If the particle in $T$ and $\bar{T}$ moves with a speed small compared to the speed of light we may also choose $L_{free} = \frac{1}{2} m v^2$.}
-
-Although the structure of both sets of equations is the same as the first postulate of special relativity requires the ingredients aren't at all, i.e.
-\begin{equation}
-  \bar{v} \neq v \;,\; \bar{E} \neq E \;,\; \bar{B} \neq B \;,\; \bar{L}_{free} \neq L_{free}
-\end{equation}
-That these quantities aren't the same in $T$ and $\bar{T}$ is most famously discussed in the introduction of Einstein's first paper on special relativity\cite{EinsteinSpecialRelativity}.
-
-As the change of $E$ and $B$ results from Lorentz transformation's of the potentials $\phi, A$ it must be impossible to express a Lorentz transformation by a gauge transformation of $\phi, A$.
-This is because by definition and construction gauge transformations never change the fields.
-
 \subsection{On the Lagrange formulation of relativistic particle dynamics} \label{sectionOnRelativisticParticles}
 
 \subsubsection{The first postulate of special relativity} \label{sectionFirstPostulate}
@@ -2227,6 +2142,214 @@ in the transformed and untransformed coordinates and fields.
 That is why the laws of electrodynamics (Maxwell's equations) are the same in every inertial reference frame.
 
 
+\section{Relativistic form of Maxwell's equations}
+We calculate the equation of motion \ref{EulerLagrangeField} for an arbitrary component $A_\tau$ of $A$.
+In this section we once and again make use of the definition $F_{\mu\nu} := \partial_\mu A_\nu - \partial_\nu A_\mu$ from section \ref{sectionRelativisticLagrangianElectrodynamics}.
+We start with
+
+\begin{align}
+  \frac{\partial \mathcal{L}}{\partial\frac{\partial A_\tau}{\partial x_\epsilon}}
+  = & \frac{\partial}{\partial\frac{\partial A_\tau}{\partial x_\epsilon}}
+  \bigg[
+  -\frac{1}{4 c \mu_0}
+  \big(\partial_\mu A_\nu - \partial_\nu A_\mu \big)
+  g_{\mu\alpha} g_{\nu\beta}
+  \big(\partial_\alpha A_\beta - \partial_\beta A_\alpha\big)
+  \bigg] \\
+  = & -\frac{1}{4 c \mu_0} \frac{\partial}{\partial\frac{\partial A_\tau}{\partial x_\epsilon}}
+  \bigg[
+  \bigg(g_{\mu\sigma} \frac{\partial A_\nu}{\partial x_\sigma} - g_{\nu\pi} \frac{\partial A_\mu}{\partial x_\pi} \bigg)
+  g_{\mu\alpha} g_{\nu\beta}
+  \bigg(g_{\alpha\eta} \frac{\partial A_\beta}{\partial x_\eta} - g_{\beta\gamma} \frac{\partial A_\alpha}{\partial x_\gamma} \bigg)
+  \bigg] \nonumber \\ \\
+  = & -\frac{1}{4 c \mu_0}
+  \bigg[
+  \bigg(g_{\mu\sigma} \delta_{\tau\nu}\delta_{\epsilon\sigma} - g_{\nu\pi}\delta_{\mu\tau}\delta_{\epsilon\pi} \bigg)
+  g_{\mu\alpha} g_{\nu\beta}
+  \bigg(g_{\alpha\eta} \frac{\partial A_\beta}{\partial x_\eta} - g_{\beta\gamma} \frac{\partial A_\alpha}{\partial x_\gamma} \bigg) \nonumber \\
+  & +  \bigg(g_{\mu\sigma} \frac{\partial A_\nu}{\partial x_\sigma} - g_{\nu\pi} \frac{\partial A_\mu}{\partial x_\pi} \bigg)
+  g_{\mu\alpha} g_{\nu\beta}
+  \bigg( g_{\alpha\eta}\delta_{\tau\beta}\delta_{\epsilon\eta} - g_{\beta\gamma}\delta_{\tau\alpha}\delta_{\epsilon\gamma} \bigg)
+  \bigg] \nonumber \\ \\
+  = & -\frac{1}{4 c \mu_0}
+  \bigg[
+  \bigg(g_{\mu\epsilon} \delta_{\tau\nu} - g_{\nu\epsilon}\delta_{\mu\tau} \bigg)
+  g_{\mu\alpha} g_{\nu\beta}
+  \bigg(g_{\alpha\eta} \frac{\partial A_\beta}{\partial x_\eta} - g_{\beta\gamma} \frac{\partial A_\alpha}{\partial x_\gamma} \bigg) \nonumber \\
+  & +  \bigg(g_{\mu\sigma} \frac{\partial A_\nu}{\partial x_\sigma} - g_{\nu\pi} \frac{\partial A_\mu}{\partial x_\pi} \bigg)
+  g_{\mu\alpha} g_{\nu\beta}
+  \bigg( g_{\alpha\epsilon}\delta_{\tau\beta} - g_{\beta\epsilon}\delta_{\tau\alpha} \bigg)
+  \bigg] \nonumber \\ \\
+  = & -\frac{1}{4 c \mu_0}
+  \bigg[
+  \bigg(\delta_{\alpha\epsilon} g_{\tau\beta} - \delta_{\beta\epsilon}g_{\alpha\tau} \bigg)
+  \bigg(g_{\alpha\eta} \frac{\partial A_\beta}{\partial x_\eta} - g_{\beta\gamma} \frac{\partial A_\alpha}{\partial x_\gamma} \bigg) \nonumber \\
+  & + \bigg(g_{\mu\sigma} \frac{\partial A_\nu}{\partial x_\sigma} - g_{\nu\pi} \frac{\partial A_\mu}{\partial x_\pi} \bigg)
+  \bigg( \delta_{\mu\epsilon}g_{\nu\tau} - \delta_{\nu\epsilon}g_{\mu\tau} \bigg)
+  \bigg] \nonumber \\ \\
+  = & -\frac{1}{4 c \mu_0}
+  \bigg[
+  \bigg(
+  g_{\epsilon\eta}g_{\tau\beta}\frac{\partial A_\beta}{\partial x_\eta} - \delta_{\tau\gamma}\frac{\partial A_\epsilon}{\partial x_\gamma}
+  - \delta_{\tau\eta}\frac{\partial A_\epsilon}{\partial x_\eta} + g_{\epsilon\gamma}g_{\tau\alpha}\frac{\partial A_\alpha}{\partial x_\gamma}
+  \bigg) \nonumber \\
+  & + \bigg(
+  g_{\epsilon\sigma}g_{\nu\tau}\frac{\partial A_\nu}{\partial x_\sigma} - \delta_{\sigma\tau}\frac{\partial A_\epsilon}{\partial x_\sigma}
+  - \delta_{\pi\tau}\frac{\partial A_\epsilon}{\partial x_\pi} + g_{\epsilon\pi}g_{\mu\tau}\frac{\partial A_\mu}{\partial x_\pi}
+  \bigg)
+  \bigg] \nonumber \\ \\
+  = & -\frac{1}{4 c \mu_0}
+  \bigg[
+  g_{\epsilon\eta}g_{\tau\beta}\frac{\partial A_\beta}{\partial x_\eta} - \frac{\partial A_\epsilon}{\partial x_\tau}
+  - \frac{\partial A_\epsilon}{\partial x_\tau} + g_{\epsilon\gamma}g_{\tau\alpha}\frac{\partial A_\alpha}{\partial x_\gamma} \nonumber \\
+  & +   g_{\epsilon\sigma}g_{\nu\tau}\frac{\partial A_\nu}{\partial x_\sigma} - \frac{\partial A_\epsilon}{\partial x_\tau}
+  - \frac{\partial A_\epsilon}{\partial x_\tau} + g_{\epsilon\pi}g_{\mu\tau}\frac{\partial A_\mu}{\partial x_\pi}
+  \bigg] \nonumber \\ \\
+  = & -\frac{1}{4 c \mu_0}
+  \bigg[
+  4 \cdot g_{\epsilon\eta}g_{\tau\beta}\frac{\partial A_\beta}{\partial x_\eta} - 4 \cdot \frac{\partial A_\epsilon}{\partial x_\tau}
+  \bigg] \nonumber \\
+  = & -\frac{1}{c \mu_0}
+  \bigg[
+  g_{\epsilon\eta}g_{\tau\beta}\frac{\partial A_\beta}{\partial x_\eta} - \frac{\partial A_\epsilon}{\partial x_\tau}
+  \bigg] \nonumber \\
+  = & -\frac{1}{c \mu_0}
+  \bigg[
+  g_{\tau\beta} \partial_\epsilon A_\beta - g_{\tau\beta}g_{\beta\alpha}\frac{\partial A_\epsilon}{\partial x_\alpha}
+  \bigg] \nonumber \\
+  = & -\frac{1}{c \mu_0} g_{\tau\beta}
+  \bigg[
+  \partial_\epsilon A_\beta - \partial_\beta A_\epsilon
+  \bigg] \nonumber \\
+  = & -\frac{1}{c \mu_0} g_{\tau\beta} F_{\epsilon\beta} \nonumber
+\end{align}
+
+Next we look at
+\begin{equation}
+  \frac{\partial \mathcal{L}}{\partial A_\tau}
+  = \frac{\partial }{\partial A_\tau} \bigg( - \frac{1}{c} J_\mu g_{\mu\nu} A_\nu \bigg)
+  = - \frac{1}{c} J_\mu g_{\mu\nu} \delta_{\nu\tau}
+  = - \frac{1}{c} J_\mu g_{\mu\tau}
+  = - \frac{1}{c} g_{\tau\beta} J_\beta
+\end{equation}
+
+Thus according to \ref{EulerLagrangeField} the equation of motion is given by
+
+\begin{equation}
+  0 = - \frac{1}{c} g_{\tau\beta} J_\beta
+  + \frac{\partial}{\partial x_\epsilon}
+  \bigg(
+  \frac{1}{c \mu_0} g_{\tau\beta}
+  \bigg(
+  \partial_\epsilon A_\beta - \partial_\beta A_\epsilon
+  \bigg)
+  \bigg)
+\end{equation}
+\begin{equation}
+  \iff 0 = g_{\tau\beta} \bigg(J_\beta
+  - \frac{1}{\mu_0}  \frac{\partial}{\partial x_\epsilon}\big( \partial_\epsilon A_\beta - \partial_\beta A_\epsilon \big) \bigg)
+\end{equation}
+
+\begin{equation}
+  \iff 0 = J_\beta - \frac{1}{\mu_0}  \frac{\partial}{\partial x_\epsilon}\big( \partial_\epsilon A_\beta - \partial_\beta A_\epsilon \big)
+\end{equation}
+
+\begin{equation}
+  \iff \mu_0 J_\beta = g_{\epsilon\alpha}g_{\alpha\pi}\frac{\partial}{\partial x_\pi}\big( \partial_\epsilon A_\beta - \partial_\beta A_\epsilon \big)
+\end{equation}
+
+\begin{equation} \label{equationOfMotionUntransformed}
+\iff \mu_0 J_\beta = g_{\epsilon\alpha}  \partial_\alpha \big(\partial_\epsilon A_\beta - \partial_\beta A_\epsilon \big)
+= g_{\epsilon\alpha}  \partial_\alpha F_{\epsilon\beta}
+\end{equation}
+
+This is the relativistic from of Maxwell's equations.
+
+\section{Gauge and Lorentz transformations} \label{sectionGauge}
+We will define gauge in the context of a particle Lagrangian and will explore how it is connected to gauge in the context of the electromagnetic potentials.
+The aim of this section is to clarify the interaction beween gauges of the electromagnetic potentials and Lorentz transformation.
+It will turn out that they have no influence,
+i.e. the four components of $(\phi/c, A_1,A_2,A_3)$ will turn out to transform under Lorentz transformations like the components of $(ct,x_1,x_2,x_3)$ in any gauge.
+
+\subsection{Gauge of a particle Lagrangian}
+A particle Lagrangian can be changed the following way without changing its equation of motion:
+
+\begin{equation}
+  L(q,\dot{q}, t) \rightarrow L(q,\dot{q}, t) + \frac{\dd}{ \dd t} F(q,t)
+\end{equation}
+where F ist an arbitrary function of the coordinates and time.
+A change of this kind is called a gauge.
+
+To prove that the equations of motion are not changed by a gauge we calculate the Euler-Lagrange equations for the right hand side:
+
+\begin{align}
+  & \frac{\dd}{\dd t} \frac{\partial \big(L + \frac{\dd F}{\dd t}\big)}{\partial \dot{q}} - \frac{\partial \big(L + \frac{\dd F}{\dd t}\big)}{\partial q} \nonumber \\
+  & = \frac{\dd}{\dd t} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L }{\partial q}
+  + \frac{\dd}{\dd t} \frac{\partial}{\partial \dot{q}} \frac{\dd F}{\dd t}  - \frac{\partial}{\partial q} \frac{\dd F}{\dd t} \nonumber \\
+  & = \frac{\dd}{\dd t} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L }{\partial q}
+  + \frac{\dd}{\dd t} \frac{\partial}{\partial \dot{q}} \bigg( \frac{\partial F}{\partial q} \dot{q} + \frac{\partial F}{\partial t} \bigg)
+  - \frac{\partial}{\partial q} \bigg( \frac{\partial F}{\partial q} \dot{q} + \frac{\partial F}{\partial t} \bigg) \nonumber \\
+  & = \frac{\dd}{\dd t} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L }{\partial q}
+  + \frac{\dd}{\dd t} \frac{\partial F}{\partial q}
+  - \bigg(\frac{\partial^2 F}{\partial q^2} \dot{q} + \frac{\partial }{\partial t} \frac{\partial F}{\partial q} \bigg) \nonumber \\
+  & = \frac{\dd}{\dd t} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L }{\partial q}
+  + \frac{\dd}{\dd t} \frac{\partial F}{\partial q}
+  - \frac{\dd}{\dd t} \bigg(\frac{\partial F}{\partial q} \bigg) \nonumber \\
+  & = \frac{\dd}{\dd t} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L }{\partial q} + 0
+\end{align}
+This is the same term as without gauge, which proves that the gauge doesn't change the equations of motion.
+
+\subsection{Connection between the gauges of the particle Lagrangian and the electromagnetic field}
+A gauge of the electromagnetic potentials is given by
+
+\begin{align}
+  A &\rightarrow A' = A + \nabla \lambda(x,t) \\
+  \phi &\rightarrow \phi' = \phi - \frac{\partial}{\partial t} \lambda(x,t)
+\end{align}
+where $\lambda$ is an arbitrary function of the spacial coordinates and time.
+This gauge is defined in such a way that it has no effect on the fields $E,B$.
+To prove this we calculate the fields from the gauged potentials $A', \phi'$ using the formulas $B = \nabla \times A$ and $E = - \nabla \phi - \frac{\partial A}{\partial t}$ as defined for example in section 4 of \cite{LagrangeOfField}:
+\begin{align}
+  B' &= \nabla \times A' = \nabla \times (A + \nabla \lambda) = \nabla \times A + 0 = \nabla \times A = B \\
+  E' &= -\nabla \phi - \frac{\partial A'}{\partial t} = -\nabla \bigg( \phi - \frac{\partial \lambda}{\partial t} \bigg) -\frac{\partial}{\partial t} ( A + \nabla \lambda) \nonumber \\
+  &= -\nabla \phi - \frac{\partial A}{\partial t} + \frac{\partial \nabla \lambda}{\partial t} - + \frac{\partial \nabla \lambda}{\partial t} = -\nabla \phi - \frac{\partial A}{\partial t} = E
+\end{align}
+
+Next we will calculate in which way this gauge will affect the Lagrangian $L_L$ of the Lorentz force:
+The way $L_L$ changes by a gauge of the electromagnetic potentials is given by
+
+\begin{align}
+  L_L = - e (\phi - A \cdot v) \rightarrow & -e(\phi-\frac{\partial \lambda}{\partial t}) - (A + \nabla \lambda) \cdot v) \nonumber \\
+  & = - e (\phi - A \cdot v) - e (\frac{\partial \lambda}{\partial t} - \nabla \lambda \cdot v) \nonumber \\
+  & = - e (\phi - A \cdot v) - e \frac{\dd \lambda}{\dd t} \nonumber \\
+  & = - e (\phi - A \cdot v) - \frac{\dd \; (e \lambda)}{\dd t}
+\end{align}
+This shows that changing the gauge of the electromagnetic potentials changes the Lagrangian by a total time derivative.
+As we saw above this change won't affect the equations of motion.
+Both gauges are consistent in so far as they don't effect physical, i.e. measurable, phenomena.
+
+\subsection{The effect of Lorentz transfomations on physical phenomena in the case of a charged particle in an electromagnetic field}
+
+We consider two IRFs $T, \bar{T}$ with coordinates $X=(ct, x_1, x_2, x_3)$ and $\bar{X}=(c \bar{t}, \bar{x_1}, \bar{x_2}, \bar{x_3})$ which move relative to each other with non zero speed.
+The equations of motion for a charged particle in an electromagnetic field in these two coordinate systems are given by
+\begin{align}
+  \frac{\dd}{\dd t} \frac{\partial L_{free}}{\partial v} - \frac{\partial L_{free}}{\partial x} &= e E + e v \times B \\
+  \text{and} \nonumber \\
+  \frac{\dd}{\dd \bar{t}} \frac{\partial \bar{L}_{free}}{\partial \bar{v}} - \frac{\partial \bar{L}_{free}}{\partial \bar{x}} &= e \bar{E} + e \bar{v} \times \bar{B}
+\end{align}
+where $L_{free}$ denotes the free partical Lagrangian $L_{free} = - m c^2 \sqrt{1 - \frac{v^2}{c^2}}$.
+\footnote{If the particle in $T$ and $\bar{T}$ moves with a speed small compared to the speed of light we may also choose $L_{free} = \frac{1}{2} m v^2$.}
+
+Although the structure of both sets of equations is the same as the first postulate of special relativity requires the ingredients aren't at all, i.e.
+\begin{equation}
+  \bar{v} \neq v \;,\; \bar{E} \neq E \;,\; \bar{B} \neq B \;,\; \bar{L}_{free} \neq L_{free}
+\end{equation}
+That these quantities aren't the same in $T$ and $\bar{T}$ is most famously discussed in the introduction of Einstein's first paper on special relativity\cite{EinsteinSpecialRelativity}.
+
+As the change of $E$ and $B$ results from Lorentz transformation's of the potentials $\phi, A$ it must be impossible to express a Lorentz transformation by a gauge transformation of $\phi, A$.
+This is because by definition and construction gauge transformations never change the fields.
+
+
 
 \appendix
 
@@ -2278,128 +2401,6 @@ Because then \ref{continuityTransformed} becomes equivalent to \ref{relativistic
       & = g_{\mu\nu} \bar{\partial}_\mu  \bar{J}_\nu \nonumber
 \end{align}
 
-\section{Relativistic form of Maxwell's equations}
-We calculate the equation of motion \ref{EulerLagrangeField} for an arbitrary component $A_\tau$ of $A$.
-In this section we once and again make use of the definition $F_{\mu\nu} := \partial_\mu A_\nu - \partial_\nu A_\mu$ from section \ref{sectionRelativisticLagrangianElectrodynamics}.
-We start with
-
-\begin{align}
-    \frac{\partial \mathcal{L}}{\partial\frac{\partial A_\tau}{\partial x_\epsilon}}
-      = & \frac{\partial}{\partial\frac{\partial A_\tau}{\partial x_\epsilon}}
-         \bigg[
-            -\frac{1}{4 c \mu_0}
-            \big(\partial_\mu A_\nu - \partial_\nu A_\mu \big)
-            g_{\mu\alpha} g_{\nu\beta}
-            \big(\partial_\alpha A_\beta - \partial_\beta A_\alpha\big)
-        \bigg] \\
-     = & -\frac{1}{4 c \mu_0} \frac{\partial}{\partial\frac{\partial A_\tau}{\partial x_\epsilon}}
-        \bigg[
-            \bigg(g_{\mu\sigma} \frac{\partial A_\nu}{\partial x_\sigma} - g_{\nu\pi} \frac{\partial A_\mu}{\partial x_\pi} \bigg)
-            g_{\mu\alpha} g_{\nu\beta}
-            \bigg(g_{\alpha\eta} \frac{\partial A_\beta}{\partial x_\eta} - g_{\beta\gamma} \frac{\partial A_\alpha}{\partial x_\gamma} \bigg)
-        \bigg] \nonumber \\ \\
-     = & -\frac{1}{4 c \mu_0}
-        \bigg[
-             \bigg(g_{\mu\sigma} \delta_{\tau\nu}\delta_{\epsilon\sigma} - g_{\nu\pi}\delta_{\mu\tau}\delta_{\epsilon\pi} \bigg)
-                  g_{\mu\alpha} g_{\nu\beta}
-             \bigg(g_{\alpha\eta} \frac{\partial A_\beta}{\partial x_\eta} - g_{\beta\gamma} \frac{\partial A_\alpha}{\partial x_\gamma} \bigg) \nonumber \\
-        & +  \bigg(g_{\mu\sigma} \frac{\partial A_\nu}{\partial x_\sigma} - g_{\nu\pi} \frac{\partial A_\mu}{\partial x_\pi} \bigg)
-                g_{\mu\alpha} g_{\nu\beta}
-             \bigg( g_{\alpha\eta}\delta_{\tau\beta}\delta_{\epsilon\eta} - g_{\beta\gamma}\delta_{\tau\alpha}\delta_{\epsilon\gamma} \bigg)
-        \bigg] \nonumber \\ \\
-    = & -\frac{1}{4 c \mu_0}
-    \bigg[
-            \bigg(g_{\mu\epsilon} \delta_{\tau\nu} - g_{\nu\epsilon}\delta_{\mu\tau} \bigg)
-            g_{\mu\alpha} g_{\nu\beta}
-            \bigg(g_{\alpha\eta} \frac{\partial A_\beta}{\partial x_\eta} - g_{\beta\gamma} \frac{\partial A_\alpha}{\partial x_\gamma} \bigg) \nonumber \\
-        & +  \bigg(g_{\mu\sigma} \frac{\partial A_\nu}{\partial x_\sigma} - g_{\nu\pi} \frac{\partial A_\mu}{\partial x_\pi} \bigg)
-        g_{\mu\alpha} g_{\nu\beta}
-        \bigg( g_{\alpha\epsilon}\delta_{\tau\beta} - g_{\beta\epsilon}\delta_{\tau\alpha} \bigg)
-    \bigg] \nonumber \\ \\
-    = & -\frac{1}{4 c \mu_0}
-    \bigg[
-            \bigg(\delta_{\alpha\epsilon} g_{\tau\beta} - \delta_{\beta\epsilon}g_{\alpha\tau} \bigg)
-            \bigg(g_{\alpha\eta} \frac{\partial A_\beta}{\partial x_\eta} - g_{\beta\gamma} \frac{\partial A_\alpha}{\partial x_\gamma} \bigg) \nonumber \\
-        & + \bigg(g_{\mu\sigma} \frac{\partial A_\nu}{\partial x_\sigma} - g_{\nu\pi} \frac{\partial A_\mu}{\partial x_\pi} \bigg)
-            \bigg( \delta_{\mu\epsilon}g_{\nu\tau} - \delta_{\nu\epsilon}g_{\mu\tau} \bigg)
-    \bigg] \nonumber \\ \\
-    = & -\frac{1}{4 c \mu_0}
-    \bigg[
-        \bigg(
-            g_{\epsilon\eta}g_{\tau\beta}\frac{\partial A_\beta}{\partial x_\eta} - \delta_{\tau\gamma}\frac{\partial A_\epsilon}{\partial x_\gamma}
-          - \delta_{\tau\eta}\frac{\partial A_\epsilon}{\partial x_\eta} + g_{\epsilon\gamma}g_{\tau\alpha}\frac{\partial A_\alpha}{\partial x_\gamma}
-        \bigg) \nonumber \\
-    & + \bigg(
-           g_{\epsilon\sigma}g_{\nu\tau}\frac{\partial A_\nu}{\partial x_\sigma} - \delta_{\sigma\tau}\frac{\partial A_\epsilon}{\partial x_\sigma}
-         - \delta_{\pi\tau}\frac{\partial A_\epsilon}{\partial x_\pi} + g_{\epsilon\pi}g_{\mu\tau}\frac{\partial A_\mu}{\partial x_\pi}
-         \bigg)
-    \bigg] \nonumber \\ \\
-    = & -\frac{1}{4 c \mu_0}
-    \bigg[
-          g_{\epsilon\eta}g_{\tau\beta}\frac{\partial A_\beta}{\partial x_\eta} - \frac{\partial A_\epsilon}{\partial x_\tau}
-          - \frac{\partial A_\epsilon}{\partial x_\tau} + g_{\epsilon\gamma}g_{\tau\alpha}\frac{\partial A_\alpha}{\partial x_\gamma} \nonumber \\
-    & +   g_{\epsilon\sigma}g_{\nu\tau}\frac{\partial A_\nu}{\partial x_\sigma} - \frac{\partial A_\epsilon}{\partial x_\tau}
-          - \frac{\partial A_\epsilon}{\partial x_\tau} + g_{\epsilon\pi}g_{\mu\tau}\frac{\partial A_\mu}{\partial x_\pi}
-    \bigg] \nonumber \\ \\
-    = & -\frac{1}{4 c \mu_0}
-        \bigg[
-          4 \cdot g_{\epsilon\eta}g_{\tau\beta}\frac{\partial A_\beta}{\partial x_\eta} - 4 \cdot \frac{\partial A_\epsilon}{\partial x_\tau}
-        \bigg] \nonumber \\
-    = & -\frac{1}{c \mu_0}
-        \bigg[
-          g_{\epsilon\eta}g_{\tau\beta}\frac{\partial A_\beta}{\partial x_\eta} - \frac{\partial A_\epsilon}{\partial x_\tau}
-        \bigg] \nonumber \\
-    = & -\frac{1}{c \mu_0}
-        \bigg[
-          g_{\tau\beta} \partial_\epsilon A_\beta - g_{\tau\beta}g_{\beta\alpha}\frac{\partial A_\epsilon}{\partial x_\alpha}
-        \bigg] \nonumber \\
-    = & -\frac{1}{c \mu_0} g_{\tau\beta}
-        \bigg[
-           \partial_\epsilon A_\beta - \partial_\beta A_\epsilon
-        \bigg] \nonumber \\
-    = & -\frac{1}{c \mu_0} g_{\tau\beta} F_{\epsilon\beta} \nonumber
-\end{align}
-
-Next we look at
-\begin{equation}
-    \frac{\partial \mathcal{L}}{\partial A_\tau}
-    = \frac{\partial }{\partial A_\tau} \bigg( - \frac{1}{c} J_\mu g_{\mu\nu} A_\nu \bigg)
-    = - \frac{1}{c} J_\mu g_{\mu\nu} \delta_{\nu\tau}
-    = - \frac{1}{c} J_\mu g_{\mu\tau}
-    = - \frac{1}{c} g_{\tau\beta} J_\beta
-\end{equation}
-
-Thus according to \ref{EulerLagrangeField} the equation of motion is given by
-
-\begin{equation}
-     0 = - \frac{1}{c} g_{\tau\beta} J_\beta
-          + \frac{\partial}{\partial x_\epsilon}
-            \bigg(
-                \frac{1}{c \mu_0} g_{\tau\beta}
-                \bigg(
-                \partial_\epsilon A_\beta - \partial_\beta A_\epsilon
-                \bigg)
-            \bigg)
-\end{equation}
-\begin{equation}
-    \iff 0 = g_{\tau\beta} \bigg(J_\beta
-             - \frac{1}{\mu_0}  \frac{\partial}{\partial x_\epsilon}\big( \partial_\epsilon A_\beta - \partial_\beta A_\epsilon \big) \bigg)
-\end{equation}
-
-\begin{equation}
-    \iff 0 = J_\beta - \frac{1}{\mu_0}  \frac{\partial}{\partial x_\epsilon}\big( \partial_\epsilon A_\beta - \partial_\beta A_\epsilon \big)
-\end{equation}
-
-\begin{equation}
-    \iff \mu_0 J_\beta = g_{\epsilon\alpha}g_{\alpha\pi}\frac{\partial}{\partial x_\pi}\big( \partial_\epsilon A_\beta - \partial_\beta A_\epsilon \big)
-\end{equation}
-
-\begin{equation} \label{equationOfMotionUntransformed}
-    \iff \mu_0 J_\beta = g_{\epsilon\alpha}  \partial_\alpha \big(\partial_\epsilon A_\beta - \partial_\beta A_\epsilon \big)
-                       = g_{\epsilon\alpha}  \partial_\alpha F_{\epsilon\beta}
-\end{equation}
-
-This is the relativistic from of Maxwell's equations.
 
 \begin{thebibliography}{9}
 

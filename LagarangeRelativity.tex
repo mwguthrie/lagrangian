@@ -1094,17 +1094,14 @@ With that we arrive at
 which is the result we wanted to prove.
 
 
-\subsubsection{Gauge} \label{sectionGauge}
+\section{Gauge and Lorentz transformations} \label{sectionGauge}
 We will define gauge in the context of a particle Lagrangian and will explore how it is connected to gauge in the context of the electromagnetic potentials.
-The aim of this section is to clarify the influence of gauges of the electromagnetic potentials in order lay out a basis for discussions on what
-impact it may have on the Lorentz transformation properties of the potentials.
+The aim of this section is to clarify the interaction beween gauges of the electromagnetic potentials and Lorentz transformation.
 It will turn out that they have no influence,
 i.e. the four components of $(\phi/c, A_1,A_2,A_3)$ will turn out to transform under Lorentz transformations like the components of $(ct,x_1,x_2,x_3)$ in any gauge.
-\\
-\\
-\textbf{Gauge of a particle Lagrangian}
 
-\noindent A particle Lagrangian can be changed the following way without changing its equation of motion:
+\subsection{Gauge of a particle Lagrangian}
+A particle Lagrangian can be changed the following way without changing its equation of motion:
 
 \begin{equation}
     L(q,\dot{q}, t) \rightarrow L(q,\dot{q}, t) + \frac{\dd}{ \dd t} F(q,t)
@@ -1130,19 +1127,22 @@ To prove that the equations of motion are not changed by a gauge we calculate th
     & = \frac{\dd}{\dd t} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L }{\partial q} + 0
 \end{align}
 This is the same term as without gauge, which proves that the gauge doesn't change the equations of motion.
-\\
-\\
-\textbf{Connection between the gauges of the particle Lagrangian and the electro magnetic field}
 
-\noindent A gauge of the electromagnetic potentials is given by
+\subsection{Connection between the gauges of the particle Lagrangian and the electromagnetic field}
+A gauge of the electromagnetic potentials is given by
 
 \begin{align}
-    A &\rightarrow A + \nabla \lambda(x,t) \\
-    \phi &\rightarrow \phi - \frac{\partial}{\partial t} \lambda(x,t)
+    A &\rightarrow A' = A + \nabla \lambda(x,t) \\
+    \phi &\rightarrow \phi' = \phi - \frac{\partial}{\partial t} \lambda(x,t)
 \end{align}
 where $\lambda$ is an arbitrary function of the spacial coordinates and time.
-
-It is a well known and easy to prove that this gauge does not affect the electromagnetic fields $E,B$ given by $B = \nabla \times A$ and $E = - \nabla \phi - \frac{\partial A}{\partial t}$.
+This gauge is defined in such a way that it has no effect on the fields $E,B$.
+To prove this we calculate the fields from the gauged potentials $A', \phi'$ using the formulas $B = \nabla \times A$ and $E = - \nabla \phi - \frac{\partial A}{\partial t}$ as defined for example in section 4 of \cite{LagrangeOfField}:
+\begin{align}
+  B' &= \nabla \times A' = \nabla \times (A + \nabla \lambda) = \nabla \times A + 0 = \nabla \times A = B \\
+  E' &= -\nabla \phi - \frac{\partial A'}{\partial t} = -\nabla \bigg( \phi - \frac{\partial \lambda}{\partial t} \bigg) -\frac{\partial}{\partial t} ( A + \nabla \lambda) \nonumber \\
+   &= -\nabla \phi - \frac{\partial A}{\partial t} + \frac{\partial \nabla \lambda}{\partial t} - + \frac{\partial \nabla \lambda}{\partial t} = -\nabla \phi - \frac{\partial A}{\partial t} = E
+\end{align}
 
 Next we will calculate in which way this gauge will affect the Lagrangian $L_L$ of the Lorentz force:
 The way $L_L$ changes by a gauge of the electromagnetic potentials is given by
@@ -1157,7 +1157,26 @@ This shows that changing the gauge of the electromagnetic potentials changes the
 As we saw above this change won't affect the equations of motion.
 Both gauges are consistent in so far as they don't effect physical, i.e. measurable, phenomena.
 
-Because of these results the impact of gauges is well defined and restricted.
+\subsection{The effect of Lorentz transfomations on physical phenomena in the case of a charged particle in an electromagnetic field}
+
+We consider two IRFs $T, \bar{T}$ with coordinates $X=(ct, x_1, x_2, x_3)$ and $\bar{X}=(c \bar{t}, \bar{x_1}, \bar{x_2}, \bar{x_3})$ which move relative to each other with non zero speed.
+The equations of motion for a charged particle in an electromagnetic field in these two coordinate systems are given by
+\begin{align}
+  \frac{\dd}{\dd t} \frac{\partial L_{free}}{\partial v} - \frac{\partial L_{free}}{\partial x} &= e E + e v \times B \\
+  \text{and} \nonumber \\
+  \frac{\dd}{\dd \bar{t}} \frac{\partial \bar{L}_{free}}{\partial \bar{v}} - \frac{\partial \bar{L}_{free}}{\partial \bar{x}} &= e \bar{E} + e \bar{v} \times \bar{B}
+\end{align}
+where $L_{free}$ denotes the free partical Lagrangian $L_{free} = - m c^2 \sqrt{1 - \frac{v^2}{c^2}}$.
+\footnote{If the particle in $T$ and $\bar{T}$ moves with a speed small compared to the speed of light we may also choose $L_{free} = \frac{1}{2} m v^2$.}
+
+Although the structure of both sets of equations is the same as the first postulate of special relativity requires the ingredients aren't at all, i.e.
+\begin{equation}
+  \bar{v} \neq v \;,\; \bar{E} \neq E \;,\; \bar{B} \neq B \;,\; \bar{L}_{free} \neq L_{free}
+\end{equation}
+That these quantities aren't the same in $T$ and $\bar{T}$ is most famously discussed in the introduction of Einstein's first paper on special relativity\cite{EinsteinSpecialRelativity}.
+
+As the change of $E$ and $B$ results from Lorentz transformation's of the potentials $\phi, A$ it must be impossible to express a Lorentz transformation by a gauge transformation of $\phi, A$.
+This is because by definition and construction gauge transformations never change the fields.
 
 \subsection{On the Lagrange formulation of relativistic particle dynamics} \label{sectionOnRelativisticParticles}
 
@@ -2394,7 +2413,7 @@ This is the relativistic from of Maxwell's equations.
 
 \bibitem{LagrangeOfField} Gerd Wagner, Demystifying the Lagrange formalism of field theory
 
-
+\bibitem{EinsteinSpecialRelativity} A. Einstein, Zur Elektrodynamik bewegter K\"{o}rper (English Translation: On the Electrodynamics of Moving Bodies), Annalen der Physik 1905, 17, 891--921
 
 \end{thebibliography}
 

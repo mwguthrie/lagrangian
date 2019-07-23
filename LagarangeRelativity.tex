@@ -1129,8 +1129,12 @@ This will not be able to break the definition of \hyperlink{hrefDefintionFormInv
 \subsubsection{Application to the Lorentz force law} \label{sectionConsequencesOfInvarianceLorentzForce}
 It is usually said that the first postulate of special relativity claims that the laws of physics are the same in all IRFs.
 In the introduction of his first paper on special relativity \cite{EinsteinSpecialRelativity} Einstein did not mention this general form.
-His original formulaion was that by postulate the laws of Maxwell's electrodynamics are the same in every IRF.
-
+\\
+\\
+\hypertarget{einsteinsOriginalFirstPostulate}{\textbf{Einsteins original first postulate:}}
+His original formulation was that by postulate the laws of Maxwell's electrodynamics are the same in every IRF.
+\\
+\\
 Here we make the weaker assumption that the Lorentz force law $F_L = eE + ev \times B$ (see \ref{lorentzForceLaw}) is the same in every IRF, i.e. is \hyperlink{hrefDefintionFormInvariance}{form invariant}.
 With \ref{lorentzForceLagrangian} the part of the action that represents the Lorentz force can be written as
 \begin{equation}
@@ -2413,9 +2417,24 @@ The trick is now to choose the gauge function $\lambda$ in such a way that
 This gauge is called Lorenz gauge.
 The proof that such a gauge function exists can for example be found in \cite{JacksonLorentzGauge}.
 In this gauge Maxwell's equations take the form
-\begin{equation}
+\begin{equation} \label{maxwellsEquationsLorenzGauged}
   \mu_0 J_\beta = g_{\epsilon\alpha} \partial_\alpha \partial_\epsilon A_\beta
 \end{equation}
+To derive \ref{vectorPotentialsAreA4Vector} from this equation we consider two IRFs $T, \bar{T}$ with coordinates $x_\nu, \bar{x}_\nu$, potentials $A_\nu, \bar{A}_\nu$ and currents $J_\nu, \bar{J}_\nu$.
+According to \hyperlink{einsteinsOriginalFirstPostulate}{Einsteins original first postulate} equation \ref{maxwellsEquationsLorenzGauged} in the coordinates of $\bar{T}$ is given by
+\begin{equation} \label{maxwellsEquationsLorenzGaugedBarred}
+  \mu_0 \bar{J}_\beta = g_{\epsilon\alpha} \bar{\partial}_\alpha \bar{\partial}_\epsilon \bar{A}_\beta
+\end{equation}
+From appendix \ref{appendixConinuity} and \ref{transformPartial} we know that $\bar{J}_\nu = \Lambda_{\nu\gamma} J_\gamma$ and $\bar{\partial}_\nu = \Lambda_{\nu\gamma} \partial_\gamma$ where $\Lambda$ denotes the Lorentz transformation of the coordiantes from $T$ to $\bar{T}$.
+Plugin these into \ref{maxwellsEquationsLorenzGaugedBarred} und using $\Lambda^t g \Lambda = g$ leads to
+\begin{equation}
+  \mu_0 \Lambda_{\beta\gamma}J_\gamma = g_{\epsilon\alpha} \partial_\alpha \partial_\epsilon \bar{A}_\beta
+\end{equation}
+Then the simplest way to make this equation consistent with \ref{maxwellsEquationsLorenzGauged} is to assume
+\begin{equation}
+  \bar{A}_\beta = \Lambda_{\beta\gamma} A_\gamma
+\end{equation}
+which is equivalent to \ref{vectorPotentialsAreA4Vector}.
 
 
 \appendix

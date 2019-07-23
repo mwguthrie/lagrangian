@@ -977,7 +977,9 @@ An example is a Lagrangian of a particle in classical mechanics in cartesian coo
 If in this case the transformation is a rotation of the particles coordinates $x = f(\bar{x}) := R\bar{x}$ with $1 = R^tR $ then $L$ is invariant under this transformation.
 \\ \\
 Since the Euler-Lagrange equations are never changed by transformations of the form $q=f(\bar{q},t)$ the following is true:
-If a Lagrangian is invariant under $f$ the equations of motion in both coordinates will be the same with just the untransformed and transformed coordinates interchanged.
+\\ \\
+\hypertarget{hrefDefintionFormInvariance}{\textbf{Definition of form invariance:}} \\
+If a Lagrangian is invariant under a transformation $f$ the equations of motion in the two sets of coordinates that f connects will be the same with just the untransformed and transformed coordinates interchanged.
 
 \subsubsection{Generalization of the invariance of a Lagrangian} \label{sectionGeneralizationInvariance}
 We are going to generalize the ideas of the last section in such a way that we are able to include fields.
@@ -1097,7 +1099,10 @@ which is the result we wanted to prove.
 
 \subsubsection{The first postulate of special relativity} \label{sectionFirstPostulate}
 The first postulate of special relativity says that the laws of physics are the same in all IRFs.
-The way to translate this into the Lagrange formalism is to require that a particle's action integral
+This is to say they are \hyperlink{hrefDefintionFormInvariance}{form invariant} in all IRFs.
+
+As time is changed by Lorentz transformations we cannot simply use the results from section \ref{sectionInvariance} but have to argue in a somewhat different way:
+We require that a particle's action integral
 \begin{equation} \label{relativisticAction}
     S = \int\limits_{\tau_1}^{\tau_2} L \dd \tau
 \end{equation}
@@ -1108,20 +1113,26 @@ Notable aspects of this are:
     \item The invariance of $S$ is to be understood in the sense of sections \ref{sectionInvariance} and \ref{sectionGeneralizationInvariance}.
     \item Since the interval $d  \tau$ of proper time is invariant then for $S$ to be invariant the Lagrangian $L$ must be invariant, too.
     \item When $S$ is invariant any stationary point of $S$ is invariant, too.
-    \item The equations of motion will be the same in every IRF.
 \end{itemize}
 In an observer IRF with time $t$ and where the particle's velocity is $v$ we may write \ref{relativisticAction} in the form
 \begin{equation} \label{relativisticActionWithObserver}
     S = \int\limits_{\tau_1}^{\tau_2} L \dd \tau = \int\limits_{t_1}^{t_2} L \; \sqrt{1-\frac{v^2}{c^2}} \; \dd t
 \end{equation}
 where in the last equation we used the substitution rule $\int_{\varphi(t_1)}^{\varphi(t_2)} f(x) \dd x = \int_{t_1}^{t_2} f(\varphi(t)) \; \dot{\varphi}(t) \dd t$ with $\dot{\varphi}(t)= \frac{d \tau}{d t} = \sqrt{1-\frac{v(t)^2}{c^2}}$.
-
+\\
+\\
+\textbf{Form invariance:}\\
+The equations of motion for $L \; \sqrt{1-\frac{v^2}{c^2}}$ will be form invariant in all IRFs as long as $L$ is invariant.
+This is because different of observers will just plug their particle velocity in $\sqrt{1-\frac{v^2}{c^2}}$ and then calculate the Euler-Lagrange equations for $L \; \sqrt{1-\frac{v^2}{c^2}}$.
+This will not be able to break the definition of \hyperlink{hrefDefintionFormInvariance}{form invariance}.
 
 \subsubsection{Application to the Lorentz force law} \label{sectionConsequencesOfInvarianceLorentzForce}
+It is usually said that the first postulate of special relativity claims that the laws of physics are the same in all IRFs.
+In the introduction of his first paper on special relativity \cite{EinsteinSpecialRelativity} Einstein did not mention this general form.
+His original formulaion was that by postulate the laws of Maxwell's electrodynamics are the same in every IRF.
 
-Einstein assumed that the first postulate is true for the laws of electrodynamics.
-Here we make the weaker assumption that the Lorentz force law $F_L = eE + ev \times B$ (see \ref{lorentzForceLaw}) is the same in every IRF.
-We used to write the part of the action that represents $F_L$ in the following form
+Here we make the weaker assumption that the Lorentz force law $F_L = eE + ev \times B$ (see \ref{lorentzForceLaw}) is the same in every IRF, i.e. is \hyperlink{hrefDefintionFormInvariance}{form invariant}.
+With \ref{lorentzForceLagrangian} the part of the action that represents the Lorentz force can be written as
 \begin{equation}
     S_L = \int\limits_{t_1}^{t_2} L_L \; \dd t \;\; \text{with} \;\; L_L = - e (\phi - A \cdot v)
 \end{equation}
@@ -1130,7 +1141,7 @@ which can be given the form \ref{relativisticActionWithObserver} by writing
     S_L = \int\limits_{t_1}^{t_2} \frac{L_L}{\sqrt{1-\frac{v^2}{c^2}}} \; \sqrt{1-\frac{v^2}{c^2}} \; \dd t
         = \int\limits_{\tau_1}^{\tau_2} \frac{L_L}{\sqrt{1-\frac{v^2}{c^2}}} \;  \dd \tau
 \end{equation}
-This equation now requires
+The form invaraince of the Lorentz force law now requires
 \begin{equation}
     \frac{L_L}{\sqrt{1-\frac{v^2}{c^2}}} = \frac{- e (\phi - A \cdot v)}{\sqrt{1-\frac{v^2}{c^2}}}
 \end{equation}
@@ -1186,16 +1197,18 @@ because then \ref{invarianceLorentzLagrange} turns into
 which with \ref{generalConditionForLorentzTransformations} is true.
 
 So we find that in the sense of section \ref{sectionNotations}
-\begin{equation}
+\begin{equation} \label{vectorPotentialsAreA4Vector}
     \left(\begin{array}{c}
               \phi / c \\
               A_1\\
               A_2\\
               A_3\\
-    \end{array} \right) \nonumber \\
+    \end{array} \right)
+  \;\; \text{is a 4-vector.}
 \end{equation}
-is a 4-vector.
 This is an important result!
+It will be further investigated and compared to an alternative derivation in section \ref{sectionGauge}
+
 
 
 \subsubsection{The relativistic free particle} \label{sectionRelativisticFreeParticle}
@@ -2303,8 +2316,8 @@ This is the same term as without gauge, which proves that the gauge doesn't chan
 A gauge of the electromagnetic potentials is given by
 
 \begin{align}
-  A &\rightarrow A' = A + \nabla \lambda(x,t) \\
-  \phi &\rightarrow \phi' = \phi - \frac{\partial}{\partial t} \lambda(x,t)
+  A &\rightarrow A' = A + \nabla \lambda(x,t) \label{gaugeVectorPotential} \\
+  \phi &\rightarrow \phi' = \phi - \frac{\partial}{\partial t} \lambda(x,t) \label{gaugeScalarPotential}
 \end{align}
 where $\lambda$ is an arbitrary function of the spacial coordinates and time.
 This gauge is defined in such a way that it has no effect on the fields $E,B$.
@@ -2349,6 +2362,60 @@ That these quantities aren't the same in $T$ and $\bar{T}$ is most famously disc
 As the change of $E$ and $B$ results from Lorentz transformation's of the potentials $\phi, A$ it must be impossible to express a Lorentz transformation by a gauge transformation of $\phi, A$.
 This is because by definition and construction gauge transformations never change the fields.
 
+\subsection{Lorenz gauge and the transformation law of the elecromagnetic potentials}
+In this section we discuss a less general derivation of the result \ref{vectorPotentialsAreA4Vector}.
+The derivation is less general because it needs a fixed gauge, namely the so called Lorenz gauge.
+We suspect that this derivation seduces some people, who don't know of section \ref{sectionConsequencesOfInvarianceLorentzForce}, to believe in a stronger or different relation between Lorentz transformations and gauge transformations than there really is.
+
+The first step is to turn \ref{gaugeVectorPotential} and \ref{gaugeScalarPotential} into a relativistic form using $\phi=c A_0, t=\frac{x_0}{c}, \partial_0 = \frac{\partial}{\partial x_0}, \partial_i = - \frac{\partial}{\partial x_i}$ for $i \in {1,2,3}$, see \ref{fieldTransformClassical} and \ref{partialDerivTimesG}:
+\begin{equation}
+  A_\mu = \left(\begin{array}{c}
+                      \phi /c
+                      \\
+                      A_1
+                      \\
+                      A_2
+                      \\
+                      A_3
+          \end{array} \right)_\mu
+  \rightarrow
+  A'_\mu = \left(\begin{array}{c}
+                                \phi' /c
+                                \\
+                                A'_1
+                                \\
+                                A'_2
+                                \\
+                                A'_3
+  \end{array} \right)_\mu
+  =
+  \left(\begin{array}{c}
+          \phi /c - \frac{1}{c} \frac{\partial \lambda}{\partial t}
+          \\
+          A_1 + \frac{\partial \lambda}{\partial x_1}
+          \\
+          A_2 + \frac{\partial \lambda}{\partial x_2}
+          \\
+          A_3 + \frac{\partial \lambda}{\partial x_3}
+  \end{array} \right)_\mu
+  =
+  A_\mu - \partial_\mu \lambda
+\end{equation}
+Next we turn to Maxwells's equations in their relativistic form:
+\begin{equation}
+  \mu_0 J_\beta = g_{\epsilon\alpha}  \partial_\alpha \big(\partial_\epsilon A_\beta - \partial_\beta A_\epsilon \big)
+  = g_{\epsilon\alpha} \partial_\alpha \partial_\epsilon A_\beta - g_{\epsilon\alpha} \partial_\alpha \partial_\beta A_\epsilon
+\end{equation}
+The trick is now to choose the gauge function $\lambda$ in such a way that
+\begin{equation}
+  g_{\epsilon\alpha} \partial_\alpha \partial_\beta A_\epsilon = 0
+\end{equation}
+This gauge is called Lorenz gauge.
+The proof that such a gauge function exists can for example be found in \cite{JacksonLorentzGauge}.
+In this gauge Maxwell's equations take the form
+\begin{equation}
+  \mu_0 J_\beta = g_{\epsilon\alpha} \partial_\alpha \partial_\epsilon A_\beta
+\end{equation}
 
 
 \appendix
@@ -2415,6 +2482,8 @@ Because then \ref{continuityTransformed} becomes equivalent to \ref{relativistic
 \bibitem{LagrangeOfField} Gerd Wagner, Demystifying the Lagrange formalism of field theory
 
 \bibitem{EinsteinSpecialRelativity} A. Einstein, Zur Elektrodynamik bewegter K\"{o}rper (English Translation: On the Electrodynamics of Moving Bodies), Annalen der Physik 1905, 17, 891--921
+
+\bibitem{JacksonLorentzGauge} John David Jackson, Classical Electrodynamics, Edition , Chapter 3.2 ff.
 
 \end{thebibliography}
 

@@ -51,7 +51,7 @@ The approach of this paper differs from traditional approaches in that we start 
 We find that the Lagrangian formulation has very well defined coordinate and field transformation properties.
 Because we consider these properties extremely useful for physical field theories, the desire to find Lagrangians for these theories in order to turn their field equations into Euler-Lagrange equations is well motivated.
 As a proof of concept, we provide the Lagrangian for Electrodynamics as a definition and show that it leads to Maxwell's equations.
-The domain of this work is purely non-relativistic which means neither the Lagrangian formulation of the field theories nor the treatment of Electrodynamics requires invoking concepts from special relativity.
+The domain of this work is purely non-relativistic which means neither the Lagrangian formulation of the field theories nor the treatment of Electrodynamics requires invoking concepts from special relativity. 
 
 \section{Definition of the Lagrangian formalism for fields}\label{definition}
 
@@ -114,8 +114,7 @@ The integral is performed as follows:
 \int_{A} \frac{\partial}{\partial x} \cdot \left( \frac{\partial \mathcal{L}}{\partial \frac{\partial \psi}{\partial x}} \; \delta \psi \right) \dd x^3  \dd t.
 \end{split}
 \end{equation}
-with ``$\frac{\partial}{\partial x} \cdot$'' denoting the divergence with respect to the coordinates $x$.
-We refrain from using the usual ``$\nabla \cdot$'' because later the divergence with respect to variables other than $x$ will occur.
+with ``$\frac{\partial}{\partial x} \cdot$'' denoting the divergence with respect to the coordinates $x$ (we refrain from using the usual ``$\nabla \cdot$'' because later the divergence with respect to variables other than $x$ will occur).
 
 The second integral vanishes as a result of the fundamental theorem of calculus and because $\delta \psi(t_1) = \delta \psi(t_2) = 0$.
 The third integral vanishes from use of Gauss's theorem and because $\delta \psi(x) = 0$ for any $x$ on the surface of $A$. Thus,
@@ -153,7 +152,7 @@ Because $\delta \psi$ is arbitrary except for its boundary conditions, the only 
 \end{equation}
 
 This is the Euler-Lagrange equation for field theory.
-It can be seen as a counterpart of the Euler-Lagrange equation for particles discussed in previous work \cite{guthrie2019demystifying}.
+It can be seen as a counterpart of the Euler-Lagrange equation for classical particles discussed in previous work \cite{guthrie2019demystifying}.
 The procedure of looking for a condition to make $S$ stationary under a Lagrangian $\mathcal{L}\left(\psi, \frac{\partial \psi}{\partial t}, \frac{\partial \psi}{\partial x}\right)$ is called the Lagrangian formalism for field theory.
 
 \section{Invariance of the Euler-Lagrange equation for field theory under transformations} \label{sectionInvariance}
@@ -301,14 +300,14 @@ With
   \item $j$ denoting the three components of the electric current density,
   \item $\rho$ denoting the electric charge density,
   \item $\mu_0$ denoting permeability constant of empty space,
-  \item $\epsilon_0$ denoting dielectricity constant of empty space,
+  \item $\epsilon_0$ denoting dielectric constant of empty space,
   \item $c$ denoting the speed of light,
 \end{itemize}
 Maxwell's equations in empty space are given by
 \begin{align}
-\nabla \times E &= - \frac{\partial B}{\partial t} \label{Faraday} \\
-\nabla \times B &= \mu_0 j +  \frac{1}{c^2} \frac{\partial E}{\partial t} \\
-\nabla \cdot E &= \frac{\rho}{\epsilon_0} \\
+\nabla \times E &= - \frac{\partial B}{\partial t}, \label{Faraday} \\
+\nabla \times B &= \mu_0 j +  \frac{1}{c^2} \frac{\partial E}{\partial t}, \\
+\nabla \cdot E &= \frac{\rho}{\epsilon_0}, \\
 \nabla \cdot B &= 0, \label{noMonopole}
 \end{align}
 where
